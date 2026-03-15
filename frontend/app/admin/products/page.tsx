@@ -177,6 +177,12 @@ export default function AdminProductsPage() {
                   <td className="py-3 text-right">
                     <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                       <Link
+                        href={`/admin/products/${product.id}`}
+                        className="text-xs font-body text-accent hover:underline font-medium"
+                      >
+                        Edit
+                      </Link>
+                      <Link
                         href={`/products/${product.slug}`}
                         target="_blank"
                         className="text-xs font-body text-text-muted hover:text-accent"

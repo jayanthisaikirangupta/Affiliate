@@ -93,6 +93,10 @@ class ApiClient {
     return this.request<Product>(`/products/${slug}`);
   }
 
+  async getProductById(id: string) {
+    return this.request<Product>(`/products/id/${id}`);
+  }
+
   async getFeatured(limit = 6) {
     return this.request<Product[]>(`/products/featured?limit=${limit}`);
   }

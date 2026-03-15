@@ -37,6 +37,14 @@ export class ProductsController {
     return this.productsService.getDashboardStats();
   }
 
+  @Get('id/:id')
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Get product by ID (admin)' })
+  findById(@Param('id') id: string) {
+    return this.productsService.findById(id);
+  }
+
   @Get(':slug')
   @ApiOperation({ summary: 'Get product by slug' })
   findBySlug(@Param('slug') slug: string) {
