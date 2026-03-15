@@ -1,0 +1,91 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+// For Neon free tier: set DATABASE_URL to the POOLED connection string (port 6432)
+// e.g. postgresql://user:pass@ep-xxx.neon.tech:6432/petgearhub?sslmode=require&pgbouncer=true
+// This keeps connections under Neon's 20-connection free tier limit.
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String   @map("password_hash")
+  role         String   @default("EDITOR")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@map("users")
+}
+
+model Category {
+  id          String    @id @default(uuid())
+  name        String    @unique
+  slug        String    @unique
+  description String?
+  image       String?
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  products    Product[]
+
+  @@map("categories")
+}
+
+model Product {
+  id              String    @id @default(uuid())
+  title           String
+  slug            String    @unique
+  description     String?
+  price           Float?
+  originalPrice   Float?    @map("original_price")
+  currency        String    @default("USD")
+  rating          Float?
+  reviewCount     Int?      @map("review_count")
+  images          String[]
+  affiliateLink   String    @map("affiliate_link")
+  platform        String?
+  pros            String[]
+  cons            String[]
+  aiSummary       String?   @map("ai_summary")
+  specifications  Json?
+  seoTitle        String?   @map("seo_title")
+  metaDescription String?   @map("meta_description")
+  status          String    @default("DRAFT")
+  featured        Boolean   @default(false)
+  deletedAt       DateTime? @map("deleted_at")
+  categoryId      String?   @map("category_id")
+  category        Category? @relation(fields: [categoryId], references: [id])
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+  analytics       Analytics[]
+
+  @@index([status])
+  @@index([categoryId])
+  @@index([featured])
+  @@index([deletedAt])
+  @@map("products")
+}
+
+model Analytics {
+  id        String   @id @default(uuid())
+  productId String   @map("product_id")
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  views     Int      @default(0)
+  clicks    Int      @default(0)
+  date      DateTime @default(now())
+
+  @@unique([productId, date])
+  @@index([date])
+  @@map("analytics")
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("newsletter_subscribers")
+}

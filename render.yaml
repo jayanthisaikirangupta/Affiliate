@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: petgearhub-backend
+    env: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 4000
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        sync: false
+      - key: AMAZON_ACCESS_KEY
+        sync: false
+      - key: AMAZON_SECRET_KEY
+        sync: false
+      - key: AMAZON_PARTNER_TAG
+        sync: false
+      - key: EBAY_APP_ID
+        sync: false
+      - key: EBAY_CLIENT_SECRET
+        sync: false

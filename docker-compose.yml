@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: affiliate_db
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-affiliate_site}
+      POSTGRES_USER: ${POSTGRES_USER:-admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-securepassword123}
+    ports:
+      - '${POSTGRES_PORT:-5432}:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER:-admin} -d ${POSTGRES_DB:-affiliate_site}']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./backend
+    container_name: affiliate_backend
+    ports:
+      - '${PORT:-4000}:4000'
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-admin}:${POSTGRES_PASSWORD:-securepassword123}@postgres:5432/${POSTGRES_DB:-affiliate_site}
+      JWT_SECRET: ${JWT_SECRET:-change-this-in-production}
+      AMAZON_ACCESS_KEY: ${AMAZON_ACCESS_KEY:-}
+      AMAZON_SECRET_KEY: ${AMAZON_SECRET_KEY:-}
+      AMAZON_PARTNER_TAG: ${AMAZON_PARTNER_TAG:-}
+      EBAY_APP_ID: ${EBAY_APP_ID:-}
+      EBAY_CLIENT_SECRET: ${EBAY_CLIENT_SECRET:-}
+      PORT: 4000
+      NODE_ENV: production
+      FRONTEND_URL: ${FRONTEND_URL:-http://localhost:3000}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ['CMD-SHELL', 'wget -qO- http://localhost:4000/health || exit 1']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+volumes:
+  pgdata:

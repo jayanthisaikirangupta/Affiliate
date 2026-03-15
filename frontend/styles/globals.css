@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-text-primary font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  ::selection {
+    background: rgba(212, 118, 60, 0.25);
+    color: #1E2832;
+  }
+}
+
+@layer components {
+  .editorial-container {
+    @apply max-w-7xl mx-auto px-6 lg:px-8;
+  }
+
+  .editorial-grid {
+    @apply grid gap-8;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, #D4763C 0%, #E08F5A 50%, #B8612E 100%);
+  }
+
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #D4763C, #E08F5A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .card-hover:hover {
+    @apply -translate-y-1;
+    box-shadow: 0 20px 60px -12px rgba(0, 0, 0, 0.1);
+  }
+
+  .divider {
+    @apply w-16 h-px bg-accent mx-auto;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-3.5 
+           bg-accent text-white font-body font-semibold text-sm
+           tracking-wide uppercase rounded-full
+           transition-all duration-300 ease-in-out
+           hover:bg-accent-dark hover:shadow-lg
+           active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-3.5
+           border-2 border-primary text-primary font-body font-semibold text-sm
+           tracking-wide uppercase rounded-full
+           transition-all duration-300 ease-in-out
+           hover:bg-primary hover:text-white
+           active:scale-[0.98];
+  }
+
+  /* Admin panel styles */
+  .admin-card {
+    @apply bg-white rounded-xl border border-border p-6 
+           transition-shadow duration-200 hover:shadow-md;
+  }
+
+  .admin-input {
+    @apply w-full px-4 py-3 border border-border rounded-lg
+           font-body text-text-primary placeholder:text-text-muted
+           focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent
+           transition-all duration-200;
+  }
+
+  .admin-label {
+    @apply block text-sm font-medium text-text-secondary mb-2;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D1D1D1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
