@@ -1,6 +1,5 @@
 import { Controller, Get, Post, Param, Query, UseGuards } from '@nestjs/common';
 import { ApiTags, ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
-import { Type } from 'class-transformer';
 import { AnalyticsService } from './analytics.service';
 import { JwtAuthGuard } from '../common/guards/auth.guard';
 
@@ -25,7 +24,7 @@ export class AnalyticsController {
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Get analytics dashboard (admin)' })
-  getDashboard(@Query('days') @Type(() => Number) days?: number) {
+  getDashboard(@Query('days') days?: string) {
     return this.analyticsService.getDashboard(days ? Number(days) : 30);
   }
 }

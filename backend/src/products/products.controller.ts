@@ -1,6 +1,5 @@
 import { Controller, Get, Post, Put, Delete, Body, Param, Query, UseGuards } from '@nestjs/common';
 import { ApiTags, ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
-import { Type } from 'class-transformer';
 import { ProductsService } from './products.service';
 import { CreateProductDto, UpdateProductDto, ProductQueryDto } from './dto/product.dto';
 import { JwtAuthGuard } from '../common/guards/auth.guard';
@@ -20,13 +19,13 @@ export class ProductsController {
 
   @Get('featured')
   @ApiOperation({ summary: 'Get featured products' })
-  getFeatured(@Query('limit') @Type(() => Number) limit?: number) {
+  getFeatured(@Query('limit') limit?: string) {
     return this.productsService.getFeatured(limit ? Number(limit) : undefined);
   }
 
   @Get('latest')
   @ApiOperation({ summary: 'Get latest products' })
-  getLatest(@Query('limit') @Type(() => Number) limit?: number) {
+  getLatest(@Query('limit') limit?: string) {
     return this.productsService.getLatest(limit ? Number(limit) : undefined);
   }
 
