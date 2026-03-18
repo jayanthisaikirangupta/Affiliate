@@ -26,6 +26,8 @@ async function bootstrap() {
     'http://localhost:3001',
     process.env.FRONTEND_URL,
     /\.vercel\.app$/,
+    'https://petgearhub.co.uk',
+    'https://www.petgearhub.co.uk',
   ].filter(Boolean) as (string | RegExp)[];
 
   app.enableCors({
