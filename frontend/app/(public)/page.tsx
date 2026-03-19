@@ -1,160 +1,280 @@
-'use client';
-
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import ScrollReveal from '@/components/ui/ScrollReveal';
 import ProductCard from '@/components/public/ProductCard';
-import api from '@/lib/api';
-import type { Product, Category } from '@/lib/types';
+import ArticleCard from '@/components/ui/ArticleCard';
+import CategoryIcon from '@/components/ui/CategoryIcon';
+import NewsletterCTA from '@/components/ui/NewsletterCTA';
+import HeroSearch from '@/components/public/HeroSearch';
+import type { Product, Category, Article } from '@/lib/types';
 
-export default function HomePage() {
-  const [featured, setFeatured] = useState<Product[]>([]);
-  const [latest, setLatest] = useState<Product[]>([]);
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [newsletterEmail, setNewsletterEmail] = useState('');
-  const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [newsletterMessage, setNewsletterMessage] = useState('');
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
 
-  useEffect(() => {
-    Promise.all([
-      api.getFeatured(4).catch(() => []),
-      api.getLatest(8).catch(() => []),
-      api.getCategories().catch(() => []),
-    ]).then(([feat, lat, cats]) => {
-      setFeatured(feat as Product[]);
-      setLatest(lat as Product[]);
-      setCategories(cats as Category[]);
-      setLoading(false);
+// ── Server-side fetchers (plain fetch — api client relies on localStorage) ──
+
+async function fetchFeatured(limit: number): Promise<Product[]> {
+  try {
+    const res = await fetch(`${API_URL}/products/featured?limit=${limit}`, {
+      next: { revalidate: 300 },
     });
-  }, []);
+    if (!res.ok) return [];
+    return res.json();
+  } catch {
+    return [];
+  }
+}
 
-  const handleNewsletterSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!newsletterEmail.trim()) return;
-    setNewsletterStatus('loading');
-    setNewsletterMessage('');
-    try {
-      const res = await api.subscribeNewsletter(newsletterEmail.trim());
-      setNewsletterStatus('success');
-      setNewsletterMessage(res.message || 'Successfully subscribed!');
-      setNewsletterEmail('');
-    } catch (err: unknown) {
-      setNewsletterStatus('error');
-      const message = err instanceof Error ? err.message : 'Something went wrong. Please try again.';
-      setNewsletterMessage(message.includes('already') ? 'You are already subscribed!' : message);
-    }
-  };
+async function fetchCategories(): Promise<Category[]> {
+  try {
+    const res = await fetch(`${API_URL}/categories`, {
+      next: { revalidate: 600 },
+    });
+    if (!res.ok) return [];
+    return res.json();
+  } catch {
+    return [];
+  }
+}
+
+async function fetchDeals(limit: number): Promise<Product[]> {
+  try {
+    const res = await fetch(
+      `${API_URL}/products?isDeal=true&limit=${limit}`,
+      { next: { revalidate: 300 } }
+    );
+    if (!res.ok) return [];
+    const json = await res.json();
+    // getProducts returns { data, meta }
+    return Array.isArray(json) ? json : (json?.data ?? []);
+  } catch {
+    return [];
+  }
+}
+
+async function fetchBuyersGuides(limit: number): Promise<Article[]> {
+  try {
+    const res = await fetch(
+      `${API_URL}/articles?type=buyers-guide&limit=${limit}`,
+      { next: { revalidate: 600 } }
+    );
+    if (!res.ok) return [];
+    const json = await res.json();
+    return Array.isArray(json) ? json : (json?.data ?? []);
+  } catch {
+    return [];
+  }
+}
+
+// ── Pet quick-links ──────────────────────────────────────────────────────────
+
+const PET_LINKS = [
+  { label: 'Dogs', emoji: '🐕', slug: 'dogs' },
+  { label: 'Cats', emoji: '🐈', slug: 'cats' },
+  { label: 'Small Pets', emoji: '🐹', slug: 'small-pets' },
+  { label: 'Birds', emoji: '🦜', slug: 'birds' },
+  { label: 'Fish', emoji: '🐠', slug: 'fish' },
+] as const;
+
+const TRUST_BADGES = [
+  { stat: '500+', label: 'products reviewed' },
+  { stat: 'UK', label: 'prices & availability' },
+  { stat: '100%', label: 'independent advice' },
+] as const;
+
+// ── Page ─────────────────────────────────────────────────────────────────────
+
+export default async function HomePage() {
+  const [featured, categories, deals, guides] = await Promise.all([
+    fetchFeatured(6),
+    fetchCategories(),
+    fetchDeals(4),
+    fetchBuyersGuides(3),
+  ]);
 
   return (
     <>
-      {/* ─── HERO ─────────────────────────────────────── */}
-      <section className="relative min-h-[90vh] flex items-center bg-primary overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-accent/5 to-transparent" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/3 rounded-full blur-3xl" />
-        </div>
-
-        <div className="editorial-container relative z-10 py-32 lg:py-40">
-          <div className="max-w-3xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="inline-block text-accent text-xs font-body font-semibold
-                             tracking-[0.25em] uppercase mb-6">
-                Top Picks This Week
-              </span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-display text-hero text-white leading-[1.05] mb-6"
-            >
-              Gear Your
-              <br />
-              <span className="text-gold-gradient italic">Pet Deserves</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-white/50 text-lg font-body leading-relaxed max-w-lg mb-10"
-            >
-              Expert-picked products for every kind of companion. We test, compare, and recommend so you can skip the guesswork.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.35 }}
-              className="flex flex-wrap gap-4"
-            >
-              <Link href="/products" className="btn-primary">
-                Browse All Products
-              </Link>
-              <Link href="#featured" className="btn-outline border-white/20 text-white hover:bg-white hover:text-primary">
-                Featured Picks
-              </Link>
-            </motion.div>
-          </div>
-        </div>
-
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      {/* ────────────────────────────────────────────────────────── */}
+      {/* SECTION 1 — HERO                                          */}
+      {/* ────────────────────────────────────────────────────────── */}
+      <section
+        aria-label="Hero"
+        className="relative overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, #FAF8F5 0%, #F2EDE6 60%, #EDE5D8 100%)' }}
+      >
+        {/* Decorative blobs */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 overflow-hidden"
         >
-          <div className="w-5 h-8 border-2 border-white/20 rounded-full flex items-start justify-center p-1">
-            <div className="w-1 h-2 bg-accent rounded-full" />
+          <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-20"
+               style={{ background: 'radial-gradient(circle, #D4763C 0%, transparent 70%)' }} />
+          <div className="absolute bottom-0 -left-12 w-72 h-72 rounded-full opacity-10"
+               style={{ background: 'radial-gradient(circle, #1B2B3A 0%, transparent 70%)' }} />
+          {/* Dot-grid texture */}
+          <svg className="absolute inset-0 w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1.5" fill="#1B2B3A" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#dots)" />
+          </svg>
+        </div>
+
+        <div className="editorial-container relative z-10 py-20 lg:py-32">
+          <div className="max-w-3xl mx-auto text-center">
+            {/* Eyebrow */}
+            <p className="inline-flex items-center gap-2 text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent mb-5">
+              <span aria-hidden="true">🐾</span>
+              Trusted by UK pet owners
+            </p>
+
+            {/* Headline */}
+            <h1 className="font-display text-hero text-primary leading-[1.05] mb-5">
+              Find the Best Gear{' '}
+              <span className="italic" style={{ color: '#D4763C' }}>for Your Pet</span>
+            </h1>
+
+            {/* Subheadline */}
+            <p className="font-body text-lg text-text-secondary leading-relaxed max-w-xl mx-auto mb-10">
+              Expert-reviewed products and honest guides for UK pet owners —
+              from independent writers who actually own pets.
+            </p>
+
+            {/* Search bar (client component) */}
+            <div className="flex justify-center mb-10">
+              <HeroSearch />
+            </div>
+
+            {/* Pet quick-links */}
+            <nav aria-label="Browse by pet type" className="flex flex-wrap items-center justify-center gap-3 mb-12">
+              {PET_LINKS.map(({ label, emoji, slug }) => (
+                <Link
+                  key={slug}
+                  href={`/products?petType=${slug}`}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white border border-border-light
+                             font-body text-sm font-medium text-primary shadow-sm
+                             hover:border-accent hover:text-accent hover:shadow-md
+                             transition-all duration-200"
+                >
+                  <span aria-hidden="true">{emoji}</span>
+                  {label}
+                </Link>
+              ))}
+            </nav>
+
+            {/* Trust indicators */}
+            <div className="flex flex-wrap items-center justify-center gap-6 lg:gap-10">
+              {TRUST_BADGES.map(({ stat, label }) => (
+                <div key={stat} className="text-center">
+                  <p className="font-display text-2xl font-bold text-primary">{stat}</p>
+                  <p className="font-body text-xs text-text-muted uppercase tracking-wider mt-0.5">{label}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </motion.div>
+        </div>
+
+        {/* Bottom wave divider */}
+        <div aria-hidden="true" className="relative h-12 -mb-px">
+          <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
+               className="absolute inset-0 w-full h-full" fill="#ffffff">
+            <path d="M0,48 L0,24 Q360,0 720,24 Q1080,48 1440,24 L1440,48 Z" />
+          </svg>
+        </div>
       </section>
 
-      {/* ─── FEATURED PRODUCTS ────────────────────────── */}
-      <section id="featured" className="py-24 lg:py-32">
+      {/* ────────────────────────────────────────────────────────── */}
+      {/* SECTION 2 — CATEGORY QUICK LINKS                         */}
+      {/* ────────────────────────────────────────────────────────── */}
+      <section aria-labelledby="categories-heading" className="py-20 lg:py-28 bg-white">
         <div className="editorial-container">
-          <ScrollReveal>
-            <div className="text-center mb-16">
-              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent">
-                Staff Picks
-              </span>
-              <h2 className="font-display text-section-title text-primary mt-3 mb-4">
-                Staff Picks
-              </h2>
-              <div className="divider" />
-            </div>
-          </ScrollReveal>
+          <div className="text-center mb-12">
+            <p className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent mb-2">
+              Explore
+            </p>
+            <h2
+              id="categories-heading"
+              className="font-display text-section-title text-primary"
+            >
+              Shop by Category
+            </h2>
+          </div>
 
-          {loading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {[1, 2].map((i) => (
-                <div key={i} className="bg-white rounded-2xl h-96 animate-pulse border border-border-light" />
+          {categories.length > 0 ? (
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+              {categories.slice(0, 6).map((cat) => (
+                <Link
+                  key={cat.id}
+                  href={`/categories/${cat.slug}`}
+                  className="group flex flex-col items-center gap-3 p-6 rounded-2xl
+                             bg-background border border-transparent
+                             hover:border-accent/30 hover:bg-accent/5 hover:-translate-y-1
+                             transition-all duration-200"
+                >
+                  <CategoryIcon slug={cat.slug} size="lg" />
+                  <span className="font-body text-sm font-semibold text-primary group-hover:text-accent transition-colors text-center">
+                    {cat.name}
+                  </span>
+                  {cat._count && (
+                    <span className="font-body text-xs text-text-muted">
+                      {cat._count.products} products
+                    </span>
+                  )}
+                  <span className="font-body text-xs font-semibold text-accent opacity-0 group-hover:opacity-100 transition-opacity">
+                    Shop →
+                  </span>
+                </Link>
               ))}
-            </div>
-          ) : featured.length > 0 ? (
-            <div className="space-y-8">
-              {featured.slice(0, 1).map((product, i) => (
-                <ScrollReveal key={product.id} delay={i * 0.1}>
-                  <ProductCard product={product} variant="featured" />
-                </ScrollReveal>
-              ))}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {featured.slice(1, 4).map((product, i) => (
-                  <ScrollReveal key={product.id} delay={i * 0.1}>
-                    <ProductCard product={product} />
-                  </ScrollReveal>
-                ))}
-              </div>
             </div>
           ) : (
-            <div className="text-center py-16">
-              <p className="text-text-secondary font-body">
+            // Placeholder skeleton if no categories yet
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+              {Array.from({ length: 6 }).map((_, i) => (
+                <div key={i} className="h-36 rounded-2xl bg-background border border-border-light animate-pulse" />
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div aria-hidden="true" className="editorial-container">
+        <div className="h-px bg-border-light" />
+      </div>
+
+      {/* ────────────────────────────────────────────────────────── */}
+      {/* SECTION 3 — EDITOR'S TOP PICKS                           */}
+      {/* ────────────────────────────────────────────────────────── */}
+      <section aria-labelledby="top-picks-heading" className="py-20 lg:py-28 bg-white">
+        <div className="editorial-container">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
+            <div>
+              <p className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent mb-2">
+                Staff Picks
+              </p>
+              <h2
+                id="top-picks-heading"
+                className="font-display text-section-title text-primary"
+              >
+                Editor&rsquo;s Top Picks
+              </h2>
+            </div>
+            <Link
+              href="/products"
+              className="font-body text-sm font-semibold text-accent hover:underline underline-offset-4 whitespace-nowrap self-start sm:self-auto"
+            >
+              View all products →
+            </Link>
+          </div>
+
+          {featured.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {featured.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-16 border border-dashed border-border-light rounded-2xl">
+              <p className="font-body text-text-secondary">
                 Featured products will appear here once published from the admin panel.
               </p>
               <Link href="/admin" className="btn-primary mt-6 inline-block">
@@ -165,166 +285,183 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── EDITORIAL DIVIDER ────────────────────────── */}
-      <section className="py-20 bg-primary">
-        <div className="editorial-container text-center">
-          <ScrollReveal>
-            <p className="font-display text-2xl lg:text-3xl text-white/90 italic max-w-2xl mx-auto leading-relaxed">
-              &ldquo;We don&apos;t list everything — we list the right things.&rdquo;
+      {/* ────────────────────────────────────────────────────────── */}
+      {/* SECTION 4 — WHY TRUST PETGEARHUB                        */}
+      {/* ────────────────────────────────────────────────────────── */}
+      <section
+        aria-labelledby="trust-heading"
+        className="py-20 lg:py-28"
+        style={{ background: '#1B2B3A' }}
+      >
+        <div className="editorial-container">
+          <div className="text-center mb-14">
+            <p className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent mb-2">
+              Our Promise
             </p>
-            <div className="w-12 h-px bg-accent mx-auto mt-8" />
-          </ScrollReveal>
+            <h2
+              id="trust-heading"
+              className="font-display text-section-title text-white"
+            >
+              Why Trust PetGearHub?
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Column 1 */}
+            <div className="flex flex-col items-center text-center p-8 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/8 transition-colors">
+              <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 flex-shrink-0"
+                   style={{ background: 'rgba(212,118,60,0.15)' }}>
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#D4763C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M9 12l2 2 4-4" />
+                  <circle cx="12" cy="12" r="10" />
+                </svg>
+              </div>
+              <h3 className="font-display text-xl text-white font-semibold mb-3">
+                Independent Reviews
+              </h3>
+              <p className="font-body text-sm text-white/60 leading-relaxed">
+                We never accept payment for reviews. Every recommendation is based
+                on genuine testing and research — no sponsored rankings, ever.
+              </p>
+            </div>
+
+            {/* Column 2 */}
+            <div className="flex flex-col items-center text-center p-8 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/8 transition-colors">
+              <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 flex-shrink-0"
+                   style={{ background: 'rgba(212,118,60,0.15)' }}>
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#D4763C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M2 12h4M18 12h4M12 2v4M12 18v4" />
+                  <path d="M7 7l2 2M15 15l2 2M15 7l-2 2M7 17l2-2" />
+                </svg>
+              </div>
+              <h3 className="font-display text-xl text-white font-semibold mb-3">
+                UK-Focused
+              </h3>
+              <p className="font-body text-sm text-white/60 leading-relaxed">
+                All prices shown in GBP. We only recommend products readily
+                available in the UK — no misleading US links or out-of-stock items.
+              </p>
+            </div>
+
+            {/* Column 3 */}
+            <div className="flex flex-col items-center text-center p-8 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/8 transition-colors">
+              <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 flex-shrink-0"
+                   style={{ background: 'rgba(212,118,60,0.15)' }}>
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#D4763C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <h3 className="font-display text-xl text-white font-semibold mb-3">
+                Expert Authors
+              </h3>
+              <p className="font-body text-sm text-white/60 leading-relaxed">
+                Our guides are written by qualified vets, veterinary nurses, and
+                experienced pet owners with years of hands-on knowledge.
+              </p>
+            </div>
+          </div>
+
+          {/* Pull quote */}
+          <div className="mt-16 text-center">
+            <p className="font-display text-xl lg:text-2xl text-white/80 italic max-w-2xl mx-auto leading-relaxed">
+              &ldquo;We don&rsquo;t list everything — we list the right things.&rdquo;
+            </p>
+            <div className="w-10 h-px bg-accent mx-auto mt-6" aria-hidden="true" />
+          </div>
         </div>
       </section>
 
-      {/* ─── LATEST PRODUCTS ──────────────────────────── */}
-      <section className="py-24 lg:py-32">
-        <div className="editorial-container">
-          <ScrollReveal>
-            <div className="flex items-end justify-between mb-16">
+      {/* ────────────────────────────────────────────────────────── */}
+      {/* SECTION 5 — LATEST BUYER'S GUIDES                        */}
+      {/* ────────────────────────────────────────────────────────── */}
+      {guides.length > 0 && (
+        <section aria-labelledby="guides-heading" className="py-20 lg:py-28 bg-background">
+          <div className="editorial-container">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
               <div>
-                <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent">
-                  Just In
-                </span>
-                <h2 className="font-display text-section-title text-primary mt-3">
-                  Just In
+                <p className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent mb-2">
+                  Guides
+                </p>
+                <h2
+                  id="guides-heading"
+                  className="font-display text-section-title text-primary"
+                >
+                  Latest Buyer&rsquo;s Guides
                 </h2>
               </div>
               <Link
-                href="/products"
-                className="hidden md:inline-block text-sm font-body font-semibold text-accent
-                           hover:underline underline-offset-4"
+                href="/blog?type=buyers-guide"
+                className="font-body text-sm font-semibold text-accent hover:underline underline-offset-4 whitespace-nowrap self-start sm:self-auto"
               >
-                View All →
+                View all guides →
               </Link>
             </div>
-          </ScrollReveal>
 
-          {latest.length > 0 ? (
-            <div className="editorial-grid">
-              {latest.map((product, i) => (
-                <ScrollReveal key={product.id} delay={i * 0.05}>
-                  <ProductCard product={product} />
-                </ScrollReveal>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-16">
-              <p className="text-text-secondary font-body">
-                Products will appear here once you add and publish them.
-              </p>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* ─── CATEGORIES ───────────────────────────────── */}
-      {categories.length > 0 && (
-        <section className="py-24 lg:py-32 bg-white">
-          <div className="editorial-container">
-            <ScrollReveal>
-              <div className="text-center mb-16">
-                <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent">
-                  Explore
-                </span>
-                <h2 className="font-display text-section-title text-primary mt-3 mb-4">
-                  Shop by Category
-                </h2>
-                <div className="divider" />
-              </div>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-              {categories.map((cat, i) => (
-                <ScrollReveal key={cat.id} delay={i * 0.05}>
-                  <Link href={`/categories/${cat.slug}`}>
-                    <motion.div
-                      whileHover={{ y: -4 }}
-                      className="group bg-background rounded-xl p-6 text-center
-                                 border border-transparent hover:border-accent/20
-                                 transition-all duration-300"
-                    >
-                      <div
-                        className="w-12 h-12 mx-auto mb-3 gold-gradient rounded-lg
-                                    flex items-center justify-center opacity-60
-                                    group-hover:opacity-100 transition-opacity"
-                        aria-hidden="true"
-                      >
-                        <span className="text-white font-display font-bold text-lg">
-                          {cat.name.charAt(0)}
-                        </span>
-                      </div>
-                      <h3 className="font-body text-sm font-semibold text-primary">
-                        {cat.name}
-                      </h3>
-                      {cat._count && (
-                        <p className="text-xs text-text-muted mt-1">
-                          {cat._count.products} products
-                        </p>
-                      )}
-                    </motion.div>
-                  </Link>
-                </ScrollReveal>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {guides.map((article) => (
+                <ArticleCard key={article.id} article={article} variant="default" />
               ))}
             </div>
           </div>
         </section>
       )}
 
-      {/* ─── NEWSLETTER ───────────────────────────────── */}
-      <section className="py-24 lg:py-32">
-        <div className="editorial-container">
-          <ScrollReveal>
-            <div className="max-w-xl mx-auto text-center">
-              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent">
-                Newsletter
-              </span>
-              <h2 className="font-display text-section-title text-primary mt-3 mb-4">
-                Join the Pack
-              </h2>
-              <p className="text-text-secondary font-body mb-8">
-                Get weekly picks, exclusive deals, and honest product reviews delivered straight to your inbox.
-              </p>
+      {/* Divider (only shown when guides section is present) */}
+      {guides.length > 0 && (
+        <div aria-hidden="true" className="editorial-container">
+          <div className="h-px bg-border-light" />
+        </div>
+      )}
 
-              {newsletterStatus === 'success' ? (
-                <div className="py-4 px-6 bg-green-50 border border-green-100 rounded-xl">
-                  <p className="text-green-700 font-body font-medium">{newsletterMessage}</p>
-                </div>
-              ) : (
-                <form
-                  onSubmit={handleNewsletterSubmit}
-                  className="flex gap-3 max-w-md mx-auto"
-                  aria-label="Newsletter subscription form"
+      {/* ────────────────────────────────────────────────────────── */}
+      {/* SECTION 6 — CURRENT DEALS                                */}
+      {/* ────────────────────────────────────────────────────────── */}
+      {deals.length > 0 && (
+        <section aria-labelledby="deals-heading" className="py-20 lg:py-28 bg-background">
+          <div className="editorial-container">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
+              <div>
+                <p className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent mb-2">
+                  Limited Time
+                </p>
+                <h2
+                  id="deals-heading"
+                  className="font-display text-section-title text-primary"
                 >
-                  <label htmlFor="newsletter-email" className="sr-only">
-                    Email address
-                  </label>
-                  <input
-                    id="newsletter-email"
-                    type="email"
-                    value={newsletterEmail}
-                    onChange={(e) => setNewsletterEmail(e.target.value)}
-                    placeholder="Enter your email address"
-                    className="admin-input flex-1"
-                    required
-                    aria-required="true"
-                    disabled={newsletterStatus === 'loading'}
-                  />
-                  <button
-                    type="submit"
-                    className="btn-primary whitespace-nowrap disabled:opacity-50"
-                    disabled={newsletterStatus === 'loading'}
-                  >
-                    {newsletterStatus === 'loading' ? 'Subscribing...' : 'Subscribe'}
-                  </button>
-                </form>
-              )}
-
-              {newsletterStatus === 'error' && (
-                <p className="text-red-500 text-sm font-body mt-3">{newsletterMessage}</p>
-              )}
+                  Current Deals
+                </h2>
+              </div>
+              <Link
+                href="/products?isDeal=true"
+                className="font-body text-sm font-semibold text-accent hover:underline underline-offset-4 whitespace-nowrap self-start sm:self-auto"
+              >
+                View all deals →
+              </Link>
             </div>
-          </ScrollReveal>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {deals.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ────────────────────────────────────────────────────────── */}
+      {/* SECTION 7 — NEWSLETTER CTA                               */}
+      {/* ────────────────────────────────────────────────────────── */}
+      <section aria-label="Newsletter sign-up" className="py-20 lg:py-28 bg-background">
+        <div className="editorial-container">
+          <NewsletterCTA
+            variant="full"
+            heading="Join the Pack"
+            description="Get weekly pet gear picks, honest reviews, and exclusive UK deals delivered to your inbox. No spam — unsubscribe any time."
+          />
         </div>
       </section>
     </>

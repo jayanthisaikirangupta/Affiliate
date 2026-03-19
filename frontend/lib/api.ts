@@ -1,4 +1,4 @@
-import type { Product, Category, AnalyticsDashboard, User } from './types';
+import type { Product, Category, AnalyticsDashboard, User, Article } from './types';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
 
@@ -200,6 +200,51 @@ class ApiClient {
 
   async deleteUser(id: string) {
     return this.request<void>(`/users/${id}`, { method: 'DELETE' });
+  }
+
+  // ── Articles ──────────────────────────────────────
+  async getArticles(params?: Record<string, string | number | boolean>) {
+    const query = params
+      ? '?' + new URLSearchParams(Object.fromEntries(Object.entries(params).map(([k, v]) => [k, String(v)]))).toString()
+      : '';
+    return this.request<{ data: Article[]; meta: { total: number; page: number; limit: number; totalPages: number } }>(`/articles${query}`);
+  }
+
+  async getArticle(slug: string) {
+    return this.request<Article>(`/articles/${slug}`);
+  }
+
+  async getArticleById(id: string) {
+    return this.request<Article>(`/articles/id/${id}`);
+  }
+
+  async getFeaturedArticles(limit = 4) {
+    return this.request<Article[]>(`/articles/featured?limit=${limit}`);
+  }
+
+  async createArticle(data: unknown) {
+    return this.request<Article>('/articles', { method: 'POST', body: JSON.stringify(data) });
+  }
+
+  async updateArticle(id: string, data: unknown) {
+    return this.request<Article>(`/articles/${id}`, { method: 'PUT', body: JSON.stringify(data) });
+  }
+
+  async deleteArticle(id: string) {
+    return this.request<void>(`/articles/${id}`, { method: 'DELETE' });
+  }
+
+  async getArticleStats() {
+    return this.request<{ total: number; published: number; draft: number }>('/articles/stats');
+  }
+
+  // ── Contact ───────────────────────────────────────
+  async submitContact(data: { name: string; email: string; subject: string; message: string }) {
+    return this.request<{ message: string }>('/contact', { method: 'POST', body: JSON.stringify(data) });
+  }
+
+  async getContactSubmissions() {
+    return this.request<unknown[]>('/contact');
   }
 
   // ── Newsletter ────────────────────────────────────

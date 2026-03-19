@@ -4,7 +4,6 @@ generator client {
 
 // For Neon free tier: set DATABASE_URL to the POOLED connection string (port 6432)
 // e.g. postgresql://user:pass@ep-xxx.neon.tech:6432/petgearhub?sslmode=require&pgbouncer=true
-// This keeps connections under Neon's 20-connection free tier limit.
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
@@ -30,6 +29,7 @@ model Category {
   createdAt   DateTime  @default(now()) @map("created_at")
   updatedAt   DateTime  @updatedAt @map("updated_at")
   products    Product[]
+  articles    Article[]
 
   @@map("categories")
 }
@@ -41,7 +41,7 @@ model Product {
   description     String?
   price           Float?
   originalPrice   Float?    @map("original_price")
-  currency        String    @default("USD")
+  currency        String    @default("GBP")
   rating          Float?
   reviewCount     Int?      @map("review_count")
   images          String[]
@@ -55,6 +55,17 @@ model Product {
   metaDescription String?   @map("meta_description")
   status          String    @default("DRAFT")
   featured        Boolean   @default(false)
+  // Enhanced fields
+  editorialNote   String?   @map("editorial_note")
+  brand           String?
+  petType         String?   @map("pet_type")
+  subCategory     String?   @map("sub_category")
+  tags            String[]
+  isStaffPick     Boolean   @default(false) @map("is_staff_pick")
+  isDeal          Boolean   @default(false) @map("is_deal")
+  dealExpiry      DateTime? @map("deal_expiry")
+  affiliateLinks  Json?     @map("affiliate_links")
+  specs           Json?
   deletedAt       DateTime? @map("deleted_at")
   categoryId      String?   @map("category_id")
   category        Category? @relation(fields: [categoryId], references: [id])
@@ -67,6 +78,50 @@ model Product {
   @@index([featured])
   @@index([deletedAt])
   @@map("products")
+}
+
+model Article {
+  id                  String    @id @default(uuid())
+  slug                String    @unique
+  title               String
+  subtitle            String?
+  type                String    @default("blog-post")
+  petType             String?   @map("pet_type")
+  heroImage           String?   @map("hero_image")
+  heroImageAlt        String?   @map("hero_image_alt")
+  excerpt             String?
+  content             String?
+  quickPicks          Json?     @map("quick_picks")
+  comparisonProducts  String[]  @map("comparison_products")
+  authorName          String?   @map("author_name")
+  authorPhoto         String?   @map("author_photo")
+  authorBio           String?   @map("author_bio")
+  authorCredentials   String?   @map("author_credentials")
+  reviewerName        String?   @map("reviewer_name")
+  reviewerPhoto       String?   @map("reviewer_photo")
+  reviewerCredentials String?   @map("reviewer_credentials")
+  readTime            Int?      @map("read_time")
+  isFeatured          Boolean   @default(false) @map("is_featured")
+  seoTitle            String?   @map("seo_title")
+  metaDescription     String?   @map("meta_description")
+  focusKeyword        String?   @map("focus_keyword")
+  faqs                Json?
+  relatedArticles     String[]  @map("related_articles")
+  status              String    @default("DRAFT")
+  publishedAt         DateTime? @map("published_at")
+  categoryId          String?   @map("category_id")
+  category            Category? @relation(fields: [categoryId], references: [id])
+  deletedAt           DateTime? @map("deleted_at")
+  createdAt           DateTime  @default(now()) @map("created_at")
+  updatedAt           DateTime  @updatedAt @map("updated_at")
+
+  @@index([status])
+  @@index([type])
+  @@index([petType])
+  @@index([categoryId])
+  @@index([isFeatured])
+  @@index([publishedAt])
+  @@map("articles")
 }
 
 model Analytics {
@@ -88,4 +143,15 @@ model NewsletterSubscriber {
   createdAt DateTime @default(now()) @map("created_at")
 
   @@map("newsletter_subscribers")
+}
+
+model ContactSubmission {
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  subject   String
+  message   String
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("contact_submissions")
 }

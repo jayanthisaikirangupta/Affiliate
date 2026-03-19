@@ -11,9 +11,9 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product, variant = 'default' }: ProductCardProps) {
-  const formatPrice = (price?: number, currency = 'USD') => {
+  const formatPrice = (price?: number) => {
     if (!price) return null;
-    return new Intl.NumberFormat('en-US', { style: 'currency', currency }).format(price);
+    return new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' }).format(price);
   };
 
   const renderStars = (rating?: number) => {
@@ -89,14 +89,14 @@ export default function ProductCard({ product, variant = 'default' }: ProductCar
             )}
             {renderStars(product.rating)}
             <div className="mt-6 flex items-center gap-4">
-              {formatPrice(product.price, product.currency) && (
+              {formatPrice(product.price, ) && (
                 <span className="font-display text-2xl font-bold text-primary">
-                  {formatPrice(product.price, product.currency)}
+                  {formatPrice(product.price, )}
                 </span>
               )}
               {product.originalPrice && product.price && product.originalPrice > product.price && (
                 <span className="text-sm text-text-muted line-through">
-                  {formatPrice(product.originalPrice, product.currency)}
+                  {formatPrice(product.originalPrice, )}
                 </span>
               )}
             </div>
@@ -156,14 +156,14 @@ export default function ProductCard({ product, variant = 'default' }: ProductCar
           )}
           {renderStars(product.rating)}
           <div className="mt-auto pt-4 flex items-center justify-between border-t border-border-light">
-            {formatPrice(product.price, product.currency) ? (
+            {formatPrice(product.price, ) ? (
               <div className="flex items-center gap-2">
                 <span className="font-display text-lg font-bold text-primary">
-                  {formatPrice(product.price, product.currency)}
+                  {formatPrice(product.price, )}
                 </span>
                 {product.originalPrice && product.price && product.originalPrice > product.price && (
                   <span className="text-xs text-text-muted line-through">
-                    {formatPrice(product.originalPrice, product.currency)}
+                    {formatPrice(product.originalPrice, )}
                   </span>
                 )}
               </div>

@@ -23,6 +23,17 @@ export interface Product {
   category?: Category;
   createdAt: string;
   updatedAt: string;
+  // Enhanced fields (Phase 4)
+  editorialNote?: string;
+  brand?: string;
+  petType?: string;
+  subCategory?: string;
+  tags?: string[];
+  isStaffPick?: boolean;
+  isDeal?: boolean;
+  dealExpiry?: string;
+  affiliateLinks?: Array<{ retailer: string; url: string; price?: string }>;
+  specs?: Array<{ key: string; value: string }>;
 }
 
 export interface Category {
@@ -32,6 +43,41 @@ export interface Category {
   description?: string;
   image?: string;
   _count?: { products: number };
+}
+
+export interface Article {
+  id: string;
+  slug: string;
+  title: string;
+  subtitle?: string;
+  type: 'buyers-guide' | 'comparison' | 'blog-post' | 'news';
+  petType?: string;
+  heroImage?: string;
+  heroImageAlt?: string;
+  excerpt?: string;
+  content?: string;
+  quickPicks?: Array<{ label: string; productId: string }>;
+  comparisonProducts?: string[];
+  authorName?: string;
+  authorPhoto?: string;
+  authorBio?: string;
+  authorCredentials?: string;
+  reviewerName?: string;
+  reviewerPhoto?: string;
+  reviewerCredentials?: string;
+  readTime?: number;
+  isFeatured?: boolean;
+  seoTitle?: string;
+  metaDescription?: string;
+  focusKeyword?: string;
+  faqs?: Array<{ question: string; answer: string }>;
+  relatedArticles?: string[];
+  status: 'DRAFT' | 'PUBLISHED';
+  publishedAt?: string;
+  categoryId?: string;
+  category?: Category;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface User {

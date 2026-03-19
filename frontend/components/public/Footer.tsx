@@ -53,13 +53,20 @@ export default function Footer() {
               Company
             </h4>
             <ul className="space-y-2.5">
-              {['About', 'Editorial Policy', 'Privacy Policy', 'Terms of Use', 'Contact'].map((item) => (
-                <li key={item}>
+              {[
+                { label: 'About', href: '/about' },
+                { label: 'Editorial Policy', href: '/editorial-policy' },
+                { label: 'Affiliate Disclosure', href: '/affiliate-disclosure' },
+                { label: 'Privacy Policy', href: '/privacy-policy' },
+                { label: 'Terms of Use', href: '/terms' },
+                { label: 'Contact', href: '/contact' },
+              ].map((item) => (
+                <li key={item.href}>
                   <Link
-                    href="#"
+                    href={item.href}
                     className="text-sm text-white/50 hover:text-accent transition-colors duration-200"
                   >
-                    {item}
+                    {item.label}
                   </Link>
                 </li>
               ))}

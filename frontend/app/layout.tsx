@@ -2,13 +2,34 @@ import '../styles/globals.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://petgearhub.co.uk'),
   title: {
-    default: 'PetGearHub — Curated Gear for Happy, Healthy Pets',
+    default: 'PetGearHub — Expert Pet Product Reviews for UK Pet Owners',
     template: '%s | PetGearHub',
   },
-  description: 'Discover expert-picked pet products for dogs, cats, birds, fish, and small animals. Honest reviews and top recommendations from fellow pet owners.',
+  description: 'Independent, expert-reviewed pet product guides and comparisons. UK prices, honest opinions, no paid reviews.',
+  keywords: ['pet products', 'dog supplies', 'cat products', 'pet reviews', 'UK pet shop'],
   openGraph: {
-    description: 'Your go-to source for curated pet gear — honest reviews and expert picks for dogs, cats, birds, fish, and small animals. Find what your pet actually needs.',
+    type: 'website',
+    locale: 'en_GB',
+    url: 'https://petgearhub.co.uk',
+    siteName: 'PetGearHub',
+    title: 'PetGearHub — Expert Pet Product Reviews',
+    description: 'Independent, expert-reviewed pet product guides and comparisons for UK pet owners.',
+    images: [{ url: '/og-default.jpg', width: 1200, height: 630, alt: 'PetGearHub' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@petgearhub',
+    creator: '@petgearhub',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
+  },
+  alternates: {
+    canonical: 'https://petgearhub.co.uk',
   },
 };
 
