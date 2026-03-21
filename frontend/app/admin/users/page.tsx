@@ -60,7 +60,7 @@ export default function AdminUsersPage() {
       await api.deleteUser(id);
       fetchUsers();
     } catch (err: unknown) {
-      alert(err instanceof Error ? err.message : 'Failed to delete user try again later.');
+      alert(err instanceof Error ? err.message : 'Failed to delete user ');
     }
   };
 
