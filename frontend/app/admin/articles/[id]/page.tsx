@@ -71,18 +71,16 @@ export default function EditArticlePage() {
         setForm({
           title: article.title ?? '',
           slug: article.slug ?? '',
-          subtitle: (article as Record<string, unknown>).subtitle as string ?? '',
+          subtitle: article.subtitle ?? '',
           type: article.type ?? 'blog-post',
           status: article.status ?? 'DRAFT',
-          excerpt: (article as Record<string, unknown>).excerpt as string ?? '',
-          content: (article as Record<string, unknown>).content as string ?? '',
-          heroImageUrl: (article as Record<string, unknown>).heroImageUrl as string ?? '',
-          seoTitle: (article as Record<string, unknown>).seoTitle as string ?? '',
-          metaDescription: (article as Record<string, unknown>).metaDescription as string ?? '',
-          readTime: (article as Record<string, unknown>).readTime != null
-            ? String((article as Record<string, unknown>).readTime)
-            : '',
-          authorName: (article as Record<string, unknown>).authorName as string ?? '',
+          excerpt: article.excerpt ?? '',
+          content: article.content ?? '',
+          heroImageUrl: article.heroImage ?? '',
+          seoTitle: article.seoTitle ?? '',
+          metaDescription: article.metaDescription ?? '',
+          readTime: article.readTime != null ? String(article.readTime) : '',
+          authorName: article.authorName ?? '',
         });
         setSlugEdited(true); // treat loaded slug as manually set — don't auto-overwrite
       })
