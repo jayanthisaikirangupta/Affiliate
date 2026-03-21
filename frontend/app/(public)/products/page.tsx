@@ -137,7 +137,7 @@ function ProductsGrid({
   // ProductFiltersWrapper controls the view state client-side and swaps the layout.
   return (
     <Suspense fallback={null}>
-      <ProductFiltersWrapper.ProductList products={products} searchParams={searchParams} />
+      <ProductFiltersWrapper.ProductList products={products} />
     </Suspense>
   );
 }
