@@ -41,10 +41,10 @@ export default function ProductFiltersWrapper({ total }: ProductFiltersWrapperPr
 
 interface ProductListProps {
   products: Product[];
-  searchParams: Record<string, string | undefined>;
+  searchParams?: Record<string, string | undefined>;
 }
 
-function ProductList({ products, searchParams }: ProductListProps) {
+function ProductList({ products }: ProductListProps) {
   const [view, setView] = useState<'grid' | 'list'>('grid');
 
   // Sync with the view set in ProductFiltersWrapper via a shared window value.
