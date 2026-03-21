@@ -2,7 +2,7 @@ const icons: Record<string, string> = {
   'dog-supplies': '🐕', 'dogs': '🐕',
   'cat-products': '🐈', 'cats': '🐈',
   'bird-supplies': '🦜', 'birds': '🦜',
-  'fish-aquatics': '🐠', 'fish': '🐠', 'fish-aquatics': '🐠',
+  'fish-aquatics': '🐠', 'fish': '🐠',
   'small-pets': '🐹',
   'pet-accessories': '🎾',
   'pet-health': '💊',
