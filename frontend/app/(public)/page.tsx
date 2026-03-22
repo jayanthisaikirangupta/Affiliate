@@ -74,7 +74,7 @@ const PET_LINKS = [
 ] as const;
 
 const TRUST_BADGES = [
-  { stat: '500+', label: 'products reviewed' },
+  { stat: 'Expert', label: 'trusted reviews' },
   { stat: 'UK', label: 'prices & availability' },
   { stat: '100%', label: 'independent advice' },
 ] as const;
@@ -89,8 +89,26 @@ export default async function HomePage() {
     fetchBuyersGuides(3),
   ]);
 
+  const websiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'PetGearHub',
+    url: 'https://petgearhub.co.uk',
+    description:
+      'Independent, expert-reviewed pet product guides and comparisons for UK pet owners.',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: 'https://petgearhub.co.uk/products?q={search_term_string}',
+      'query-input': 'required name=search_term_string',
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
       {/* ────────────────────────────────────────────────────────── */}
       {/* SECTION 1 — HERO                                          */}
       {/* ────────────────────────────────────────────────────────── */}
@@ -216,7 +234,7 @@ export default async function HomePage() {
                   </span>
                   {cat._count && (
                     <span className="font-body text-xs text-text-muted">
-                      {cat._count.products} products
+                      {cat._count.products} {cat._count.products === 1 ? 'product' : 'products'}
                     </span>
                   )}
                   <span className="font-body text-xs font-semibold text-accent opacity-0 group-hover:opacity-100 transition-opacity">

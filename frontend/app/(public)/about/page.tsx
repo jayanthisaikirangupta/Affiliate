@@ -117,8 +117,8 @@ export default function AboutPage() {
               <div className="bg-background rounded-2xl p-8 border border-border-light">
                 <div className="grid grid-cols-3 gap-6 text-center">
                   <div>
-                    <p className="font-display text-4xl font-bold text-accent mb-1">3+</p>
-                    <p className="text-xs font-body text-text-muted uppercase tracking-wide">Products Reviewed</p>
+                    <p className="font-display text-4xl font-bold text-accent mb-1">Expert</p>
+                    <p className="text-xs font-body text-text-muted uppercase tracking-wide">Trusted Reviews</p>
                   </div>
                   <div>
                     <p className="font-display text-4xl font-bold text-accent mb-1">7</p>
@@ -217,7 +217,7 @@ export default function AboutPage() {
         <div className="editorial-container">
           <div className="flex flex-wrap justify-center gap-12 text-center">
             {[
-              { value: '3+', label: 'Products Reviewed' },
+              { value: 'Expert', label: 'Trusted Reviews' },
               { value: '7', label: 'Categories' },
               { value: 'UK', label: 'Based & Focused' },
               { value: '100%', label: 'Editorial Independence' },

@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import FooterNewsletterForm from './FooterNewsletterForm';
 import { PawIcon } from '@/components/PawIcon';
+import { Twitter, Instagram, Facebook, Youtube } from 'lucide-react';
 
 function toSlug(name: string): string {
   return name
     .toLowerCase()
-    .replace(/\s*&\s*/g, '-')
+    .replace(/\s*&\s*/g, '-and-')
     .replace(/\s+/g, '-');
 }
 
@@ -82,6 +83,32 @@ export default function Footer() {
               Get our latest finds delivered weekly.
             </p>
             <FooterNewsletterForm />
+          </div>
+        </div>
+
+        {/* Social Media */}
+        <div className="mt-12 flex flex-col items-center gap-3">
+          <h4 className="font-display text-sm font-semibold text-white tracking-wide uppercase">
+            Follow Us
+          </h4>
+          <div className="flex items-center gap-4">
+            {[
+              { label: 'Twitter', icon: Twitter, href: '#' },
+              { label: 'Instagram', icon: Instagram, href: '#' },
+              { label: 'Facebook', icon: Facebook, href: '#' },
+              { label: 'YouTube', icon: Youtube, href: '#' },
+            ].map(({ label, icon: Icon, href }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Follow us on ${label}`}
+                className="text-white/60 hover:text-[#D4763C] transition-colors duration-200"
+              >
+                <Icon className="w-5 h-5" />
+              </a>
+            ))}
           </div>
         </div>
 

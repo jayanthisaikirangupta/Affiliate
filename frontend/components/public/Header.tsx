@@ -199,7 +199,7 @@ function PetMegaMenu({ item, onClose }: { item: PetNavItem; onClose: () => void 
                   {guide.type}
                 </span>
                 <span className="text-sm font-body font-medium text-primary group-hover:text-accent
-                                 transition-colors duration-150 leading-snug">
+                                 transition-colors duration-150 leading-snug line-clamp-2">
                   {guide.label}
                 </span>
               </Link>
@@ -801,46 +801,46 @@ export default function Header() {
 
             {/* Right side: Search + CTA */}
             <div className="hidden lg:flex items-center gap-4">
-              {/* Search */}
-              <AnimatePresence mode="wait">
-                {searchOpen ? (
+              {/* Search icon (always in flow) */}
+              <button
+                onClick={() => setSearchOpen(!searchOpen)}
+                className="w-9 h-9 flex items-center justify-center rounded-lg
+                           text-text-secondary hover:text-primary hover:bg-background
+                           transition-all duration-200"
+                aria-label={searchOpen ? 'Close search' : 'Open search'}
+              >
+                <svg
+                  className="w-[18px] h-[18px]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"
+                  />
+                </svg>
+              </button>
+
+              {/* Search overlay (absolutely positioned, doesn't affect nav layout) */}
+              <AnimatePresence>
+                {searchOpen && (
                   <motion.div
                     key="searchbar"
-                    initial={{ width: 0, opacity: 0 }}
-                    animate={{ width: 320, opacity: 1 }}
-                    exit={{ width: 0, opacity: 0 }}
-                    transition={{ duration: 0.25, ease: 'easeInOut' }}
-                    className="overflow-visible"
+                    initial={{ opacity: 0, y: -4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -4 }}
+                    transition={{ duration: 0.2, ease: 'easeOut' }}
+                    className="absolute top-full right-0 left-0 z-50 bg-white/95 backdrop-blur-md
+                               border-b border-border-light shadow-sm"
                   >
-                    <SearchBar onClose={() => setSearchOpen(false)} />
+                    <div className="editorial-container py-3">
+                      <SearchBar onClose={() => setSearchOpen(false)} />
+                    </div>
                   </motion.div>
-                ) : (
-                  <motion.button
-                    key="searchicon"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    onClick={() => setSearchOpen(true)}
-                    className="w-9 h-9 flex items-center justify-center rounded-lg
-                               text-text-secondary hover:text-primary hover:bg-background
-                               transition-all duration-200"
-                    aria-label="Open search"
-                  >
-                    <svg
-                      className="w-[18px] h-[18px]"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"
-                      />
-                    </svg>
-                  </motion.button>
                 )}
               </AnimatePresence>
 

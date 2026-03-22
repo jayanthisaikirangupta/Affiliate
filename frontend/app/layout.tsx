@@ -31,6 +31,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://petgearhub.co.uk',
   },
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -44,7 +47,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen">{children}</body>
+      <body className="min-h-screen">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'PetGearHub',
+              url: 'https://petgearhub.co.uk',
+              description: 'Independent, expert-reviewed pet product guides and comparisons for UK pet owners.',
+              logo: 'https://petgearhub.co.uk/favicon.svg',
+            }),
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

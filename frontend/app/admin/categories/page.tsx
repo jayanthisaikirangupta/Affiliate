@@ -74,7 +74,7 @@ export default function AdminCategoriesPage() {
                     <div>
                       <p className="text-sm font-body font-semibold text-primary">{cat.name}</p>
                       <p className="text-xs text-text-muted">
-                        {cat._count?.products || 0} products · /{cat.slug}
+                        {cat._count?.products || 0} {(cat._count?.products ?? 0) === 1 ? 'product' : 'products'} · /{cat.slug}
                       </p>
                     </div>
                   </div>

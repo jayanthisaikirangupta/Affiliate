@@ -7,11 +7,11 @@ import NewsletterCTA from '@/components/ui/NewsletterCTA';
 import BlogFilters from '@/components/public/BlogFilters';
 
 export const metadata: Metadata = {
-  title: 'Pet Care Guides & Reviews | PetGearHub',
+  title: 'Pet Care Guides & Reviews',
   description:
     "Expert buyer's guides, honest comparisons, and helpful tips for UK pet owners. Discover the best gear for your dog, cat, and more.",
   openGraph: {
-    title: 'Pet Care Guides & Reviews | PetGearHub',
+    title: 'Pet Care Guides & Reviews',
     description:
       "Expert buyer's guides, honest comparisons, and helpful tips for UK pet owners.",
     type: 'website',

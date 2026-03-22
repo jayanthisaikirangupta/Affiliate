@@ -9,7 +9,7 @@ import PriceDisplay from '@/components/ui/PriceDisplay';
 import api from '@/lib/api';
 import type { Product } from '@/lib/types';
 
-const PET_TYPES = ['All', 'Dogs', 'Cats', 'Birds', 'Fish', 'Small Pets', 'Reptiles'];
+const PET_TYPES = ['All', 'Dogs', 'Cats', 'Birds', 'Fish', 'Small Pets'];
 
 export default function DealsPage() {
   const [allProducts, setAllProducts] = useState<Product[]>([]);

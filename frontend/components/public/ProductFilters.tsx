@@ -74,7 +74,7 @@ export default function ProductFilters({ total, view, onViewChange }: ProductFil
               key={pet.value}
               role="tab"
               aria-selected={currentPetType === pet.value}
-              onClick={() => updateParams({ petType: pet.value })}
+              onClick={() => updateParams({ petType: pet.value, subCategory: '' })}
               className={`px-4 py-2 rounded-full text-sm font-body font-medium transition-all duration-200 ${
                 currentPetType === pet.value
                   ? 'bg-primary text-white'
@@ -195,7 +195,7 @@ export default function ProductFilters({ total, view, onViewChange }: ProductFil
               {PET_TYPES.find((p) => p.value === currentPetType)?.label ?? currentPetType}
               <button
                 aria-label="Remove pet type filter"
-                onClick={() => updateParams({ petType: '' })}
+                onClick={() => updateParams({ petType: '', subCategory: '' })}
                 className="hover:text-accent"
               >
                 ×

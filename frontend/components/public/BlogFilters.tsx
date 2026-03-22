@@ -7,7 +7,7 @@ const TYPE_FILTERS = [
   { label: 'All', value: '' },
   { label: "Buyer's Guides", value: 'buyers-guide' },
   { label: 'Comparisons', value: 'comparison' },
-  { label: 'Blog Posts', value: 'blog-post' },
+  { label: 'Tips & Advice', value: 'blog-post' },
   { label: 'News', value: 'news' },
 ] as const;
 
