@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import type { Product } from '@/lib/types';
-import { PawIcon } from '@/components/PawIcon';
 
 interface ProductCardProps {
   product: Product;
@@ -59,8 +58,11 @@ export default function ProductCard({ product, variant = 'default' }: ProductCar
                            group-hover:scale-105"
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center">
-                <PawIcon className="w-10 h-10 text-border" />
+              <div className="w-full h-full flex flex-col items-center justify-center bg-[#F3F4F6]">
+                <svg className="w-10 h-10 text-[#9CA3AF] mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
+                </svg>
+                <span className="text-xs text-[#9CA3AF] font-body">No Image Available</span>
               </div>
             )}
             {product.platform && (
@@ -74,7 +76,7 @@ export default function ProductCard({ product, variant = 'default' }: ProductCar
           {/* Content */}
           <div className="p-8 lg:py-12 flex flex-col justify-center">
             {product.category && (
-              <span className="text-xs font-body font-semibold tracking-widest uppercase text-accent mb-3">
+              <span className="text-xs font-body font-semibold tracking-widest uppercase text-accent-text mb-3">
                 {product.category.name}
               </span>
             )}
@@ -127,13 +129,16 @@ export default function ProductCard({ product, variant = 'default' }: ProductCar
                          group-hover:scale-105"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center">
-              <PawIcon className="w-10 h-10 text-border" />
+            <div className="w-full h-full flex flex-col items-center justify-center bg-[#F3F4F6]">
+              <svg className="w-10 h-10 text-[#9CA3AF] mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
+              </svg>
+              <span className="text-xs text-[#9CA3AF] font-body">No Image Available</span>
             </div>
           )}
           {product.platform && (
-            <span className="absolute top-3 left-3 px-2.5 py-0.5 bg-primary/80 backdrop-blur-sm 
-                           text-white text-[10px] font-body font-medium rounded-full capitalize">
+            <span className="absolute top-3 left-3 px-2.5 py-0.5 bg-primary/80 backdrop-blur-sm
+                           text-white text-xs font-body font-medium rounded-full capitalize">
               {product.platform}
             </span>
           )}
@@ -142,7 +147,7 @@ export default function ProductCard({ product, variant = 'default' }: ProductCar
         {/* Content */}
         <div className="p-5 flex flex-col flex-1">
           {product.category && (
-            <span className="text-[10px] font-body font-semibold tracking-widest uppercase text-accent mb-2">
+            <span className="text-xs font-body font-semibold tracking-widest uppercase text-accent-text mb-2">
               {product.category.name}
             </span>
           )}
@@ -170,9 +175,9 @@ export default function ProductCard({ product, variant = 'default' }: ProductCar
             ) : (
               <span className="text-sm text-text-muted">See price</span>
             )}
-            <span className="text-xs font-body font-semibold text-accent 
-                           group-hover:underline underline-offset-2">
-              Details →
+            <span className="text-xs font-body font-semibold text-accent-text
+                           group-hover:underline underline-offset-2 tracking-wide uppercase">
+              Details
             </span>
           </div>
         </div>

@@ -715,13 +715,8 @@ export default function Header() {
           <div className="flex items-center justify-between h-16 lg:h-20">
 
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group shrink-0">
-              <div className="w-8 h-8 gold-gradient rounded-sm flex items-center justify-center">
-                <PawIcon className="w-5 h-5 text-white" />
-              </div>
-              <span className="font-display text-xl font-semibold tracking-tight text-primary">
-                PetGearHub
-              </span>
+            <Link href="/" className="flex items-center group shrink-0">
+              <img src="/logo-full.svg" alt="PetGearHub" className="h-12 w-auto" />
             </Link>
 
             {/* Desktop Nav */}

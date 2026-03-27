@@ -4,7 +4,7 @@ import { useState, useEffect, ReactNode, useCallback } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import api from '@/lib/api';
-import { PawIcon } from '@/components/PawIcon';
+
 
 const navItems = [
   { href: '/admin', label: 'Dashboard', icon: '◫' },
@@ -92,10 +92,9 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
       <div className="min-h-screen bg-primary flex items-center justify-center p-6">
         <div className="w-full max-w-sm">
           <div className="text-center mb-8">
-            <div className="w-12 h-12 gold-gradient rounded-lg flex items-center justify-center mx-auto mb-4" aria-hidden="true">
-              <PawIcon className="w-5 h-5 text-white" />
+            <div className="mb-4">
+              <img src="/logo-white.svg" alt="PetGearHub" className="h-14 w-auto mx-auto" />
             </div>
-            <h1 className="font-display text-2xl font-semibold text-white">Admin Login</h1>
             <p className="text-white/40 text-sm font-body mt-2">Sign in to manage products</p>
           </div>
 
@@ -159,11 +158,8 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
         aria-label="Admin navigation"
       >
         <div className="p-6 flex-shrink-0">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="w-8 h-8 gold-gradient rounded-sm flex items-center justify-center" aria-hidden="true">
-              <PawIcon className="w-5 h-5 text-white" />
-            </div>
-            <span className="font-display text-lg font-semibold text-primary">PetGearHub</span>
+          <Link href="/" className="flex items-center">
+            <img src="/logo-full.svg" alt="PetGearHub" className="h-10 w-auto" />
           </Link>
           <p className="text-[10px] font-body text-text-muted tracking-widest uppercase mt-1 ml-11">
             Admin

@@ -20,7 +20,7 @@ interface TeamMember {
 const team: TeamMember[] = [
   {
     initials: 'SM',
-    avatarColor: 'bg-[#1B2B3A]',
+    avatarColor: 'bg-[#1C1C1E]',
     name: 'Sarah Mitchell',
     role: 'Editor-in-Chief',
     credentials: 'BSc Zoology · 15 years as pet journalist',

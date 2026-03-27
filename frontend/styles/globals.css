@@ -16,13 +16,26 @@
     @apply bg-background text-text-primary font-body;
   }
 
+  :root {
+    --color-background: #FBF7F2;
+    --color-background-alt: #F5EFE6;
+    --color-accent-text: #C05E00;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --font-size-2xl: 2.25rem;
+    --font-size-hero: 3rem;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-display;
   }
 
   ::selection {
-    background: rgba(212, 118, 60, 0.25);
-    color: #1E2832;
+    background: rgba(245, 130, 32, 0.25);
+    color: #1C1C1E;
   }
 }
 
@@ -37,11 +50,11 @@
   }
 
   .gold-gradient {
-    background: linear-gradient(135deg, #D4763C 0%, #E08F5A 50%, #B8612E 100%);
+    background: linear-gradient(135deg, #F58220 0%, #F7941D 50%, #D96D0A 100%);
   }
 
   .text-gold-gradient {
-    background: linear-gradient(135deg, #D4763C, #E08F5A);
+    background: linear-gradient(135deg, #F58220, #F7941D);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -106,10 +119,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D1D1D1;
+  background: #D4CBBD;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #999;
+  background: #A89888;
 }

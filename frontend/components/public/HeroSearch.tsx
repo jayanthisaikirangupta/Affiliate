@@ -67,7 +67,7 @@ export default function HeroSearch() {
       />
       <button
         type="submit"
-        className="btn-primary m-1.5 px-5 py-2.5 text-sm whitespace-nowrap flex-shrink-0"
+        className="btn-primary m-1.5 px-6 py-2.5 text-xs whitespace-nowrap flex-shrink-0"
         aria-label="Submit search"
       >
         Search

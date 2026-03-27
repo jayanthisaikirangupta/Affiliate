@@ -8,19 +8,21 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#1B2B3A',
-        background: '#FAF8F5',
+        primary: '#1C1C1E',
+        background: '#FBF7F2',
+        'background-alt': '#F5EFE6',
         accent: {
-          DEFAULT: '#D4763C',
-          light: '#E08F5A',
-          dark: '#B8612E',
+          DEFAULT: '#F58220',
+          light: '#F7941D',
+          dark: '#D96D0A',
         },
+        'accent-text': '#C05E00',
         surface: '#FFFFFF',
-        'text-primary': '#1E2832',
-        'text-secondary': '#5A6872',
-        'text-muted': '#94A0AA',
-        border: '#E2DDD7',
-        'border-light': '#F0ECE7',
+        'text-primary': '#1C1C1E',
+        'text-secondary': '#52525B',
+        'text-muted': '#6B7280',
+        border: '#E8E2D9',
+        'border-light': '#F0EBE3',
       },
       fontFamily: {
         display: ['"Playfair Display"', 'Georgia', 'serif'],
@@ -28,8 +30,14 @@ module.exports = {
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       fontSize: {
-        hero: ['4rem', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
-        'section-title': ['2.5rem', { lineHeight: '1.15', letterSpacing: '-0.015em' }],
+        xs: ['0.75rem', { lineHeight: '1rem' }],           // 12px
+        sm: ['0.875rem', { lineHeight: '1.25rem' }],       // 14px
+        base: ['1rem', { lineHeight: '1.5rem' }],          // 16px
+        lg: ['1.25rem', { lineHeight: '1.75rem' }],        // 20px
+        xl: ['1.5rem', { lineHeight: '2rem' }],            // 24px
+        '2xl': ['2.25rem', { lineHeight: '2.5rem', letterSpacing: '-0.015em' }],  // 36px
+        hero: ['3rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],           // 48px (was 64px)
+        'section-title': ['2.25rem', { lineHeight: '1.15', letterSpacing: '-0.015em' }], // 36px (was 40px)
         subheading: ['1.5rem', { lineHeight: '1.3', letterSpacing: '-0.01em' }],
       },
       spacing: {

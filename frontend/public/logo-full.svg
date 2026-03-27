@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 120" width="240" height="120">
+  <defs>
+    <!-- Glossy gradient for orange toe pads -->
+    <radialGradient id="toePadGrad" cx="45%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#FFB347"/>
+      <stop offset="40%" stop-color="#F58220"/>
+      <stop offset="100%" stop-color="#D96D0A"/>
+    </radialGradient>
+    <!-- Glossy gradient for main pad orange top -->
+    <radialGradient id="mainPadOrange" cx="45%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#FFB347"/>
+      <stop offset="40%" stop-color="#F58220"/>
+      <stop offset="100%" stop-color="#D96D0A"/>
+    </radialGradient>
+    <!-- Dark gradient for main pad bottom -->
+    <radialGradient id="mainPadDark" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#3A3A3C"/>
+      <stop offset="60%" stop-color="#1C1C1E"/>
+      <stop offset="100%" stop-color="#0A0A0A"/>
+    </radialGradient>
+    <!-- Shadow under paw -->
+    <radialGradient id="pawShadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- ===== PAW PRINT ===== -->
+  <g transform="translate(120, 36)">
+    <!-- Subtle shadow -->
+    <ellipse cx="0" cy="6" rx="28" ry="6" fill="url(#pawShadow)"/>
+
+    <!-- Main pad - dark bottom portion (drawn first, behind) -->
+    <path d="M-22,2 C-22,12 -16,22 -8,26 C-3,28.5 3,28.5 8,26 C16,22 22,12 22,2 C22,-4 14,-8 0,-8 C-14,-8 -22,-4 -22,2 Z"
+          fill="url(#mainPadDark)"/>
+
+    <!-- Main pad - orange top portion (clipped to upper area) -->
+    <clipPath id="upperClip">
+      <rect x="-26" y="-14" width="52" height="20"/>
+    </clipPath>
+    <path d="M-22,2 C-22,-4 -14,-12 0,-12 C14,-12 22,-4 22,2 C22,8 16,10 0,10 C-16,10 -22,8 -22,2 Z"
+          fill="url(#mainPadOrange)" clip-path="url(#upperClip)"/>
+
+    <!-- Flowing curve between orange and black on main pad -->
+    <path d="M-20,0 C-12,8 -4,-2 0,4 C4,-2 12,8 20,0"
+          fill="none" stroke="none"/>
+    <!-- Orange overlay with wave shape for the transition -->
+    <clipPath id="waveClip">
+      <path d="M-24,-14 L24,-14 L24,4 C18,10 10,-1 0,6 C-10,-1 -18,10 -24,4 Z"/>
+    </clipPath>
+    <path d="M-22,2 C-22,12 -16,22 -8,26 C-3,28.5 3,28.5 8,26 C16,22 22,12 22,2 C22,-4 14,-12 0,-12 C-14,-12 -22,-4 -22,2 Z"
+          fill="url(#mainPadOrange)" clip-path="url(#waveClip)"/>
+
+    <!-- Glossy shine on main pad -->
+    <ellipse cx="-4" cy="-5" rx="8" ry="4" fill="white" opacity="0.25"/>
+
+    <!-- Toe pad 1 (far left) -->
+    <ellipse cx="-17" cy="-17" rx="5.5" ry="7" transform="rotate(-20, -17, -17)" fill="url(#toePadGrad)"/>
+    <ellipse cx="-18.5" cy="-20" rx="2" ry="1.5" fill="white" opacity="0.4"/>
+
+    <!-- Toe pad 2 (inner left) -->
+    <ellipse cx="-6" cy="-22" rx="5.5" ry="7" transform="rotate(-5, -6, -22)" fill="url(#toePadGrad)"/>
+    <ellipse cx="-7" cy="-25" rx="2" ry="1.5" fill="white" opacity="0.4"/>
+
+    <!-- Toe pad 3 (inner right) -->
+    <ellipse cx="6" cy="-22" rx="5.5" ry="7" transform="rotate(5, 6, -22)" fill="url(#toePadGrad)"/>
+    <ellipse cx="5" cy="-25" rx="2" ry="1.5" fill="white" opacity="0.4"/>
+
+    <!-- Toe pad 4 (far right) -->
+    <ellipse cx="17" cy="-17" rx="5.5" ry="7" transform="rotate(20, 17, -17)" fill="url(#toePadGrad)"/>
+    <ellipse cx="16" cy="-20" rx="2" ry="1.5" fill="white" opacity="0.4"/>
+  </g>
+
+  <!-- ===== TEXT: PetGearHub ===== -->
+  <text x="120" y="88" text-anchor="middle" font-family="'Arial Black', 'Arial', sans-serif" font-weight="900" font-size="26" letter-spacing="-0.5">
+    <tspan fill="#1C1C1E">Pet</tspan><tspan fill="#F58220">Gear</tspan><tspan fill="#1C1C1E">Hub</tspan>
+  </text>
+
+  <!-- ===== ORANGE SWOOSH UNDERLINE ===== -->
+  <path d="M58,96 Q120,106 182,96" fill="none" stroke="#F58220" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

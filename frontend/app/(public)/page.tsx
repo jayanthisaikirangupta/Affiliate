@@ -2,7 +2,6 @@ import Link from 'next/link';
 import ProductCard from '@/components/public/ProductCard';
 import ArticleCard from '@/components/ui/ArticleCard';
 import CategoryIcon from '@/components/ui/CategoryIcon';
-import NewsletterCTA from '@/components/ui/NewsletterCTA';
 import HeroSearch from '@/components/public/HeroSearch';
 import type { Product, Category, Article } from '@/lib/types';
 
@@ -114,8 +113,8 @@ export default async function HomePage() {
       {/* ────────────────────────────────────────────────────────── */}
       <section
         aria-label="Hero"
-        className="relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #FAF8F5 0%, #F2EDE6 60%, #EDE5D8 100%)' }}
+        className="relative overflow-hidden max-h-[90vh]"
+        style={{ background: 'linear-gradient(135deg, #FBF7F2 0%, #F5EFE6 50%, #EDE5D8 100%)' }}
       >
         {/* Decorative blobs */}
         <div
@@ -123,24 +122,24 @@ export default async function HomePage() {
           className="pointer-events-none absolute inset-0 overflow-hidden"
         >
           <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-20"
-               style={{ background: 'radial-gradient(circle, #D4763C 0%, transparent 70%)' }} />
+               style={{ background: 'radial-gradient(circle, #F58220 0%, transparent 70%)' }} />
           <div className="absolute bottom-0 -left-12 w-72 h-72 rounded-full opacity-10"
-               style={{ background: 'radial-gradient(circle, #1B2B3A 0%, transparent 70%)' }} />
+               style={{ background: 'radial-gradient(circle, #1C1C1E 0%, transparent 70%)' }} />
           {/* Dot-grid texture */}
           <svg className="absolute inset-0 w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                <circle cx="2" cy="2" r="1.5" fill="#1B2B3A" />
+                <circle cx="2" cy="2" r="1.5" fill="#1C1C1E" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#dots)" />
           </svg>
         </div>
 
-        <div className="editorial-container relative z-10 py-20 lg:py-32">
+        <div className="editorial-container relative z-10 py-12 lg:py-20">
           <div className="max-w-3xl mx-auto text-center">
             {/* Eyebrow */}
-            <p className="inline-flex items-center gap-2 text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent mb-5">
+            <p className="inline-flex items-center gap-2 text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent-text mb-5">
               <span aria-hidden="true">🐾</span>
               Trusted by UK pet owners
             </p>
@@ -148,7 +147,7 @@ export default async function HomePage() {
             {/* Headline */}
             <h1 className="font-display text-hero text-primary leading-[1.05] mb-5">
               Find the Best Gear{' '}
-              <span className="italic" style={{ color: '#D4763C' }}>for Your Pet</span>
+              <span className="font-body italic font-medium" style={{ color: '#C05E00' }}>for Your Pet</span>
             </h1>
 
             {/* Subheadline */}
@@ -184,7 +183,7 @@ export default async function HomePage() {
               {TRUST_BADGES.map(({ stat, label }) => (
                 <div key={stat} className="text-center">
                   <p className="font-display text-2xl font-bold text-primary">{stat}</p>
-                  <p className="font-body text-xs text-text-muted uppercase tracking-wider mt-0.5">{label}</p>
+                  <p className="font-body text-xs text-text-secondary uppercase tracking-wider mt-0.5">{label}</p>
                 </div>
               ))}
             </div>
@@ -194,7 +193,7 @@ export default async function HomePage() {
         {/* Bottom wave divider */}
         <div aria-hidden="true" className="relative h-12 -mb-px">
           <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
-               className="absolute inset-0 w-full h-full" fill="#ffffff">
+               className="absolute inset-0 w-full h-full" fill="#FFFFFF">
             <path d="M0,48 L0,24 Q360,0 720,24 Q1080,48 1440,24 L1440,48 Z" />
           </svg>
         </div>
@@ -203,10 +202,10 @@ export default async function HomePage() {
       {/* ────────────────────────────────────────────────────────── */}
       {/* SECTION 2 — CATEGORY QUICK LINKS                         */}
       {/* ────────────────────────────────────────────────────────── */}
-      <section aria-labelledby="categories-heading" className="py-20 lg:py-28 bg-white">
+      <section aria-labelledby="categories-heading" className="py-12 lg:py-16 bg-surface">
         <div className="editorial-container">
           <div className="text-center mb-12">
-            <p className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent mb-2">
+            <p className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent-text mb-2">
               Explore
             </p>
             <h2
@@ -217,56 +216,66 @@ export default async function HomePage() {
             </h2>
           </div>
 
-          {categories.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-              {categories.slice(0, 6).map((cat) => (
-                <Link
-                  key={cat.id}
-                  href={`/categories/${cat.slug}`}
-                  className="group flex flex-col items-center gap-3 p-6 rounded-2xl
-                             bg-background border border-transparent
-                             hover:border-accent/30 hover:bg-accent/5 hover:-translate-y-1
-                             transition-all duration-200"
-                >
-                  <CategoryIcon slug={cat.slug} size="lg" />
-                  <span className="font-body text-sm font-semibold text-primary group-hover:text-accent transition-colors text-center">
-                    {cat.name}
-                  </span>
-                  {cat._count && (
-                    <span className="font-body text-xs text-text-muted">
-                      {cat._count.products} {cat._count.products === 1 ? 'product' : 'products'}
+          {(() => {
+            const activeCategories = categories.filter(cat => cat._count && cat._count.products > 0);
+            const emptyCategories = categories.filter(cat => !cat._count || cat._count.products === 0);
+
+            if (activeCategories.length === 0 && categories.length === 0) {
+              return (
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                  {Array.from({ length: 6 }).map((_, i) => (
+                    <div key={i} className="h-36 rounded-2xl bg-background border border-border-light animate-pulse" />
+                  ))}
+                </div>
+              );
+            }
+
+            return (
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                {activeCategories.slice(0, 6).map((cat) => (
+                  <Link
+                    key={cat.id}
+                    href={`/categories/${cat.slug}`}
+                    className="group flex flex-col items-center gap-3 p-6 rounded-2xl
+                               bg-background border border-transparent
+                               hover:border-accent/30 hover:bg-accent/5 hover:-translate-y-1
+                               transition-all duration-200"
+                  >
+                    <CategoryIcon slug={cat.slug} size="lg" />
+                    <span className="font-body text-sm font-semibold text-primary group-hover:text-accent transition-colors text-center">
+                      {cat.name}
                     </span>
-                  )}
-                  <span className="font-body text-xs font-semibold text-accent opacity-0 group-hover:opacity-100 transition-opacity">
-                    Shop →
-                  </span>
-                </Link>
-              ))}
-            </div>
-          ) : (
-            // Placeholder skeleton if no categories yet
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-              {Array.from({ length: 6 }).map((_, i) => (
-                <div key={i} className="h-36 rounded-2xl bg-background border border-border-light animate-pulse" />
-              ))}
-            </div>
-          )}
+                    <span className="font-body text-xs text-text-secondary">
+                      {cat._count!.products} {cat._count!.products === 1 ? 'product' : 'products'}
+                    </span>
+                  </Link>
+                ))}
+                {activeCategories.length < 3 && emptyCategories.slice(0, 3 - activeCategories.length).map((cat) => (
+                  <div
+                    key={cat.id}
+                    className="flex flex-col items-center justify-center gap-3 p-6 rounded-2xl
+                               bg-background border border-dashed border-border text-center opacity-60"
+                  >
+                    <CategoryIcon slug={cat.slug} size="lg" />
+                    <span className="font-body text-sm font-medium text-text-muted">{cat.name}</span>
+                    <span className="font-body text-xs text-text-muted">Coming Soon</span>
+                  </div>
+                ))}
+              </div>
+            );
+          })()}
         </div>
       </section>
 
-      {/* Divider */}
-      <div aria-hidden="true" className="editorial-container">
-        <div className="h-px bg-border-light" />
-      </div>
 
       {/* ────────────────────────────────────────────────────────── */}
       {/* SECTION 3 — EDITOR'S TOP PICKS                           */}
       {/* ────────────────────────────────────────────────────────── */}
-      <section aria-labelledby="top-picks-heading" className="py-20 lg:py-28 bg-white">
+      <section aria-labelledby="top-picks-heading" className="py-12 lg:py-16 bg-background">
         <div className="editorial-container">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
             <div>
-              <p className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent mb-2">
+              <p className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent-text mb-2">
                 Staff Picks
               </p>
               <h2
@@ -278,16 +287,22 @@ export default async function HomePage() {
             </div>
             <Link
               href="/products"
-              className="font-body text-sm font-semibold text-accent hover:underline underline-offset-4 whitespace-nowrap self-start sm:self-auto"
+              className="font-body text-sm font-semibold text-accent-text hover:underline underline-offset-4 whitespace-nowrap self-start sm:self-auto"
             >
               View all products →
             </Link>
           </div>
 
           {featured.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className={`grid gap-6 ${
+              featured.length === 1
+                ? 'grid-cols-1 max-w-2xl mx-auto'
+                : featured.length === 2
+                  ? 'grid-cols-1 md:grid-cols-2'
+                  : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+            }`}>
               {featured.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard key={product.id} product={product} variant={featured.length === 1 ? 'featured' : 'default'} />
               ))}
             </div>
           ) : (
@@ -308,8 +323,8 @@ export default async function HomePage() {
       {/* ────────────────────────────────────────────────────────── */}
       <section
         aria-labelledby="trust-heading"
-        className="py-20 lg:py-28"
-        style={{ background: '#1B2B3A' }}
+        className="py-12 lg:py-16"
+        style={{ background: '#1C1C1E' }}
       >
         <div className="editorial-container">
           <div className="text-center mb-14">
@@ -328,8 +343,8 @@ export default async function HomePage() {
             {/* Column 1 */}
             <div className="flex flex-col items-center text-center p-8 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/8 transition-colors">
               <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 flex-shrink-0"
-                   style={{ background: 'rgba(212,118,60,0.15)' }}>
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#D4763C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                   style={{ background: 'rgba(245,130,32,0.15)' }}>
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F58220" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M9 12l2 2 4-4" />
                   <circle cx="12" cy="12" r="10" />
                 </svg>
@@ -346,8 +361,8 @@ export default async function HomePage() {
             {/* Column 2 */}
             <div className="flex flex-col items-center text-center p-8 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/8 transition-colors">
               <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 flex-shrink-0"
-                   style={{ background: 'rgba(212,118,60,0.15)' }}>
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#D4763C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                   style={{ background: 'rgba(245,130,32,0.15)' }}>
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F58220" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <circle cx="12" cy="12" r="10" />
                   <path d="M2 12h4M18 12h4M12 2v4M12 18v4" />
                   <path d="M7 7l2 2M15 15l2 2M15 7l-2 2M7 17l2-2" />
@@ -365,8 +380,8 @@ export default async function HomePage() {
             {/* Column 3 */}
             <div className="flex flex-col items-center text-center p-8 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/8 transition-colors">
               <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 flex-shrink-0"
-                   style={{ background: 'rgba(212,118,60,0.15)' }}>
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#D4763C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                   style={{ background: 'rgba(245,130,32,0.15)' }}>
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F58220" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                   <circle cx="9" cy="7" r="4" />
                   <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
@@ -397,11 +412,11 @@ export default async function HomePage() {
       {/* SECTION 5 — LATEST BUYER'S GUIDES                        */}
       {/* ────────────────────────────────────────────────────────── */}
       {guides.length > 0 && (
-        <section aria-labelledby="guides-heading" className="py-20 lg:py-28 bg-background">
+        <section aria-labelledby="guides-heading" className="py-12 lg:py-16 bg-background">
           <div className="editorial-container">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
               <div>
-                <p className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent mb-2">
+                <p className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent-text mb-2">
                   Guides
                 </p>
                 <h2
@@ -413,7 +428,7 @@ export default async function HomePage() {
               </div>
               <Link
                 href="/blog?type=buyers-guide"
-                className="font-body text-sm font-semibold text-accent hover:underline underline-offset-4 whitespace-nowrap self-start sm:self-auto"
+                className="font-body text-sm font-semibold text-accent-text hover:underline underline-offset-4 whitespace-nowrap self-start sm:self-auto"
               >
                 View all guides →
               </Link>
@@ -428,22 +443,16 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* Divider (only shown when guides section is present) */}
-      {guides.length > 0 && (
-        <div aria-hidden="true" className="editorial-container">
-          <div className="h-px bg-border-light" />
-        </div>
-      )}
 
       {/* ────────────────────────────────────────────────────────── */}
       {/* SECTION 6 — CURRENT DEALS                                */}
       {/* ────────────────────────────────────────────────────────── */}
       {deals.length > 0 && (
-        <section aria-labelledby="deals-heading" className="py-20 lg:py-28 bg-background">
+        <section aria-labelledby="deals-heading" className="py-12 lg:py-16 bg-background">
           <div className="editorial-container">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
               <div>
-                <p className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent mb-2">
+                <p className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent-text mb-2">
                   Limited Time
                 </p>
                 <h2
@@ -455,7 +464,7 @@ export default async function HomePage() {
               </div>
               <Link
                 href="/products?isDeal=true"
-                className="font-body text-sm font-semibold text-accent hover:underline underline-offset-4 whitespace-nowrap self-start sm:self-auto"
+                className="font-body text-sm font-semibold text-accent-text hover:underline underline-offset-4 whitespace-nowrap self-start sm:self-auto"
               >
                 View all deals →
               </Link>
@@ -470,18 +479,6 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* ────────────────────────────────────────────────────────── */}
-      {/* SECTION 7 — NEWSLETTER CTA                               */}
-      {/* ────────────────────────────────────────────────────────── */}
-      <section aria-label="Newsletter sign-up" className="py-20 lg:py-28 bg-background">
-        <div className="editorial-container">
-          <NewsletterCTA
-            variant="full"
-            heading="Join the Pack"
-            description="Get weekly pet gear picks, honest reviews, and exclusive UK deals delivered to your inbox. No spam — unsubscribe any time."
-          />
-        </div>
-      </section>
     </>
   );
 }
