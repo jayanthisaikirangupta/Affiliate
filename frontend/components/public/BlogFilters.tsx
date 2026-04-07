@@ -13,10 +13,10 @@ const TYPE_FILTERS = [
 
 const PET_FILTERS = [
   { label: 'All Pets', value: '' },
-  { label: 'Dogs', value: 'dogs' },
-  { label: 'Cats', value: 'cats' },
-  { label: 'Small Pets', value: 'small-pets' },
-  { label: 'Birds', value: 'birds' },
+  { label: 'Dogs', value: 'dog' },
+  { label: 'Cats', value: 'cat' },
+  { label: 'Small Pets', value: 'small-pet' },
+  { label: 'Birds', value: 'bird' },
   { label: 'Fish', value: 'fish' },
 ] as const;
 
@@ -61,7 +61,7 @@ export default function BlogFilters({ activeType, activePetType }: BlogFiltersPr
     <div className="space-y-4 mb-10">
       {/* Article type tabs */}
       <div
-        className="flex flex-wrap gap-2 pb-4 border-b border-border-light"
+        className="flex flex-wrap gap-2 pb-4 border-b border-warm-200"
         role="tablist"
         aria-label="Filter by article type"
       >
@@ -71,10 +71,10 @@ export default function BlogFilters({ activeType, activePetType }: BlogFiltersPr
             role="tab"
             aria-selected={activeType === value}
             onClick={() => handleTypeChange(value)}
-            className={`px-5 py-2 rounded-full text-sm font-body font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 ${
+            className={`px-5 py-2 rounded-full text-sm font-body font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50 ${
               activeType === value
-                ? 'bg-primary text-white shadow-sm'
-                : 'bg-background text-text-secondary border border-border-light hover:border-accent/30 hover:text-primary'
+                ? 'bg-amber-500 text-white shadow-sm'
+                : 'bg-white text-navy-700 border border-warm-300 hover:border-amber-500 hover:text-amber-500'
             }`}
           >
             {label}
@@ -93,10 +93,10 @@ export default function BlogFilters({ activeType, activePetType }: BlogFiltersPr
             key={value || 'all-pets'}
             onClick={() => handlePetTypeChange(value)}
             aria-pressed={activePetType === value}
-            className={`px-4 py-1.5 rounded-full text-xs font-body font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 ${
+            className={`px-4 py-1.5 rounded-full text-xs font-body font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50 ${
               activePetType === value
-                ? 'bg-accent text-white shadow-sm'
-                : 'bg-background text-text-secondary border border-border-light hover:border-accent/30 hover:text-primary'
+                ? 'bg-amber-500 text-white shadow-sm'
+                : 'bg-white text-navy-700 border border-warm-300 hover:border-amber-500 hover:text-amber-500'
             }`}
           >
             {label}

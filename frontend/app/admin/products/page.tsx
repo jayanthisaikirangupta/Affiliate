@@ -65,7 +65,7 @@ export default function AdminProductsPage() {
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="font-display text-2xl font-semibold text-primary">Products</h1>
-          <p className="text-sm font-body text-text-secondary mt-1">{meta.total} total products</p>
+          <p className="text-sm font-body text-navy-700 mt-1">{meta.total} total products</p>
         </div>
         <Link href="/admin/add" className="btn-primary text-xs">+ Add Product</Link>
       </div>
@@ -79,7 +79,7 @@ export default function AdminProductsPage() {
                 key={s}
                 onClick={() => setFilter(s)}
                 className={`px-3 py-1.5 rounded-lg text-xs font-body font-medium transition-colors ${
-                  filter === s ? 'bg-primary text-white' : 'bg-background text-text-secondary hover:bg-border-light'
+                  filter === s ? 'bg-primary text-white' : 'bg-background text-navy-700 hover:bg-border-light'
                 }`}
               >
                 {s || 'All'}
@@ -109,20 +109,20 @@ export default function AdminProductsPage() {
         ) : products.length > 0 ? (
           <table className="w-full">
             <thead>
-              <tr className="border-b border-border-light">
-                <th className="text-left text-xs font-body font-semibold text-text-muted uppercase tracking-wide pb-3">
+              <tr className="border-b border-warm-200">
+                <th className="text-left text-xs font-body font-semibold text-warm-600 uppercase tracking-wide pb-3">
                   Product
                 </th>
-                <th className="text-left text-xs font-body font-semibold text-text-muted uppercase tracking-wide pb-3">
+                <th className="text-left text-xs font-body font-semibold text-warm-600 uppercase tracking-wide pb-3">
                   Category
                 </th>
-                <th className="text-left text-xs font-body font-semibold text-text-muted uppercase tracking-wide pb-3">
+                <th className="text-left text-xs font-body font-semibold text-warm-600 uppercase tracking-wide pb-3">
                   Price
                 </th>
-                <th className="text-left text-xs font-body font-semibold text-text-muted uppercase tracking-wide pb-3">
+                <th className="text-left text-xs font-body font-semibold text-warm-600 uppercase tracking-wide pb-3">
                   Status
                 </th>
-                <th className="text-right text-xs font-body font-semibold text-text-muted uppercase tracking-wide pb-3">
+                <th className="text-right text-xs font-body font-semibold text-warm-600 uppercase tracking-wide pb-3">
                   Actions
                 </th>
               </tr>
@@ -143,12 +143,12 @@ export default function AdminProductsPage() {
                         <p className="text-sm font-body font-medium text-primary line-clamp-1 max-w-xs">
                           {product.title}
                         </p>
-                        <p className="text-xs text-text-muted capitalize">{product.platform || '—'}</p>
+                        <p className="text-xs text-warm-600 capitalize">{product.platform || '—'}</p>
                       </div>
                     </div>
                   </td>
                   <td className="py-3">
-                    <span className="text-sm font-body text-text-secondary">
+                    <span className="text-sm font-body text-navy-700">
                       {product.category?.name || '—'}
                     </span>
                   </td>
@@ -178,14 +178,14 @@ export default function AdminProductsPage() {
                     <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                       <Link
                         href={`/admin/products/${product.id}`}
-                        className="text-xs font-body text-accent hover:underline font-medium"
+                        className="text-xs font-body text-amber-500 hover:underline font-medium"
                       >
                         Edit
                       </Link>
                       <Link
                         href={`/products/${product.slug}`}
                         target="_blank"
-                        className="text-xs font-body text-text-muted hover:text-accent"
+                        className="text-xs font-body text-warm-600 hover:text-amber-500"
                       >
                         View
                       </Link>
@@ -202,20 +202,20 @@ export default function AdminProductsPage() {
             </tbody>
           </table>
         ) : (
-          <p className="text-sm text-text-muted font-body py-8 text-center">
-            No products found. <Link href="/admin/add" className="text-accent hover:underline">Add your first product</Link>
+          <p className="text-sm text-warm-600 font-body py-8 text-center">
+            No products found. <Link href="/admin/add" className="text-amber-500 hover:underline">Add your first product</Link>
           </p>
         )}
 
         {/* Pagination */}
         {meta.totalPages > 1 && (
-          <div className="flex justify-center gap-2 pt-6 mt-6 border-t border-border-light">
+          <div className="flex justify-center gap-2 pt-6 mt-6 border-t border-warm-200">
             {Array.from({ length: meta.totalPages }).map((_, i) => (
               <button
                 key={i}
                 onClick={() => fetchProducts(i + 1)}
                 className={`w-8 h-8 rounded text-xs font-body font-medium ${
-                  meta.page === i + 1 ? 'bg-accent text-white' : 'text-text-muted hover:bg-background'
+                  meta.page === i + 1 ? 'bg-amber-500 text-white' : 'text-warm-600 hover:bg-background'
                 }`}
               >
                 {i + 1}

@@ -47,7 +47,7 @@ export default function CategoryPage() {
     return (
       <div className="pt-28 pb-24 text-center">
         <div className="editorial-container">
-          <p className="font-body text-text-secondary mb-6" role="alert">{error}</p>
+          <p className="font-body text-navy-700 mb-6" role="alert">{error}</p>
           <Link href="/products" className="btn-primary">Browse All Products</Link>
         </div>
       </div>
@@ -58,7 +58,7 @@ export default function CategoryPage() {
     return (
       <div className="pt-28 pb-24 text-center">
         <div className="editorial-container">
-          <h1 className="font-display text-3xl text-primary mb-4">Category Not Found</h1>
+          <h1 className="font-display text-3xl text-navy-900 mb-4">Category Not Found</h1>
           <Link href="/products" className="btn-primary">Browse All Products</Link>
         </div>
       </div>
@@ -70,15 +70,15 @@ export default function CategoryPage() {
       <div className="editorial-container">
         <ScrollReveal>
           <div className="max-w-2xl mb-16">
-            <Link href="/products" className="text-sm font-body text-text-muted hover:text-accent transition-colors mb-4 inline-block">
+            <Link href="/products" className="text-sm font-body text-warm-600 hover:text-amber-500 transition-colors mb-4 inline-block">
               ← All Products
             </Link>
-            <span className="block text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent mt-4">
+            <span className="block text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500 mt-4">
               Category
             </span>
-            <h1 className="font-display text-hero text-primary mt-3 mb-4">{category.name}</h1>
+            <h1 className="font-display text-hero text-navy-900 mt-3 mb-4">{category.name}</h1>
             {category.description && (
-              <p className="text-text-secondary font-body text-lg">{category.description}</p>
+              <p className="text-navy-700 font-body text-lg">{category.description}</p>
             )}
           </div>
         </ScrollReveal>
@@ -93,7 +93,7 @@ export default function CategoryPage() {
           </div>
         ) : (
           <div className="text-center py-20">
-            <p className="text-text-secondary font-body">No products in this category yet.</p>
+            <p className="text-navy-700 font-body">No products in this category yet.</p>
           </div>
         )}
       </div>

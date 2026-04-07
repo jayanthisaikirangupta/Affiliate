@@ -23,7 +23,7 @@ export default function ProductCard({ product, variant = 'default' }: ProductCar
           {[1, 2, 3, 4, 5].map((star) => (
             <svg
               key={star}
-              className={`w-3.5 h-3.5 ${star <= Math.round(rating) ? 'text-accent' : 'text-border'}`}
+              className={`w-3.5 h-3.5 ${star <= Math.round(rating) ? 'text-[#FBBF24]' : 'text-warm-300'}`}
               fill="currentColor"
               viewBox="0 0 20 20"
             >
@@ -31,7 +31,7 @@ export default function ProductCard({ product, variant = 'default' }: ProductCar
             </svg>
           ))}
         </div>
-        <span className="text-xs text-text-muted font-body">
+        <span className="text-xs text-navy-500 font-body">
           {rating.toFixed(1)}
           {product.reviewCount ? ` (${product.reviewCount.toLocaleString()})` : ''}
         </span>
@@ -43,31 +43,33 @@ export default function ProductCard({ product, variant = 'default' }: ProductCar
     return (
       <Link href={`/products/${product.slug}`}>
         <motion.article
-          whileHover={{ y: -4 }}
-          transition={{ duration: 0.3 }}
-          className="group grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white rounded-2xl 
-                     overflow-hidden border border-border-light card-hover"
+          whileHover={{ y: -8, scale: 1.02 }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
+          className="group grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white rounded-2xl
+                     overflow-hidden border border-warm-300 hover:border-amber-300 transition-all duration-200 h-full shadow-card hover:shadow-hover"
         >
           {/* Image */}
-          <div className="aspect-[4/3] lg:aspect-auto relative overflow-hidden bg-background">
+          <div className="aspect-[4/3] lg:aspect-auto relative overflow-hidden bg-warm-100">
             {product.images?.[0] ? (
-              <img
-                src={product.images[0]}
-                alt={product.title}
-                className="w-full h-full object-cover transition-transform duration-700 
-                           group-hover:scale-105"
-              />
+              <>
+                <img
+                  src={product.images[0]}
+                  alt={product.title}
+                  className="w-full h-full object-cover transition-transform duration-700
+                             group-hover:scale-105"
+                />
+              </>
             ) : (
-              <div className="w-full h-full flex flex-col items-center justify-center bg-[#F3F4F6]">
-                <svg className="w-10 h-10 text-[#9CA3AF] mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+              <div className="w-full h-full flex flex-col items-center justify-center bg-warm-100">
+                <svg className="w-10 h-10 text-navy-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
                 </svg>
-                <span className="text-xs text-[#9CA3AF] font-body">No Image Available</span>
+                <span className="text-xs text-navy-400 font-body">No Image Available</span>
               </div>
             )}
             {product.platform && (
-              <span className="absolute top-4 left-4 px-3 py-1 bg-primary/80 backdrop-blur-sm
-                             text-white text-xs font-body font-medium rounded-full capitalize">
+              <span className="absolute top-4 left-4 px-3 py-1 bg-navy-900/80 text-white
+                             text-xs font-body font-medium rounded-full capitalize">
                 {product.platform}
               </span>
             )}
@@ -76,34 +78,36 @@ export default function ProductCard({ product, variant = 'default' }: ProductCar
           {/* Content */}
           <div className="p-8 lg:py-12 flex flex-col justify-center">
             {product.category && (
-              <span className="text-xs font-body font-semibold tracking-widest uppercase text-accent-text mb-3">
+              <span className="text-xs font-body font-semibold tracking-widest uppercase text-amber-500 mb-3">
                 {product.category.name}
               </span>
             )}
-            <h3 className="font-display text-2xl lg:text-3xl font-semibold text-primary mb-3 
+            <h3 className="font-display text-2xl lg:text-3xl font-semibold text-navy-900 mb-3
                           leading-tight line-clamp-2">
               {product.title}
             </h3>
             {product.description && (
-              <p className="text-text-secondary text-sm leading-relaxed mb-4 line-clamp-3">
+              <p className="text-navy-700 text-sm leading-relaxed mb-4 line-clamp-3">
                 {product.description}
               </p>
             )}
             {renderStars(product.rating)}
             <div className="mt-6 flex items-center gap-4">
-              {formatPrice(product.price, ) && (
-                <span className="font-display text-2xl font-bold text-primary">
-                  {formatPrice(product.price, )}
+              {formatPrice(product.price) && (
+                <span className="font-display text-2xl font-bold text-navy-900">
+                  {formatPrice(product.price)}
                 </span>
               )}
               {product.originalPrice && product.price && product.originalPrice > product.price && (
-                <span className="text-sm text-text-muted line-through">
-                  {formatPrice(product.originalPrice, )}
+                <span className="text-sm text-navy-400 line-through">
+                  {formatPrice(product.originalPrice)}
                 </span>
               )}
             </div>
             <div className="mt-6">
-              <span className="btn-primary text-xs">View Details</span>
+              <span className="text-amber-500 font-semibold text-sm hover:text-amber-600 transition-colors uppercase tracking-wide">
+                View Details
+              </span>
             </div>
           </div>
         </motion.article>
@@ -115,30 +119,32 @@ export default function ProductCard({ product, variant = 'default' }: ProductCar
   return (
     <Link href={`/products/${product.slug}`}>
       <motion.article
-        whileHover={{ y: -6 }}
-        transition={{ duration: 0.3 }}
-        className="group bg-white rounded-xl overflow-hidden border border-border-light card-hover h-full flex flex-col"
+        whileHover={{ y: -6, scale: 1.02 }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
+        className="group bg-white rounded-2xl overflow-hidden border border-warm-300 hover:border-amber-300 hover:-translate-y-1 transition-all duration-200 h-full flex flex-col shadow-card hover:shadow-hover"
       >
         {/* Image */}
-        <div className="aspect-[4/3] relative overflow-hidden bg-background">
+        <div className="aspect-[4/3] relative overflow-hidden bg-warm-100">
           {product.images?.[0] ? (
-            <img
-              src={product.images[0]}
-              alt={product.title}
-              className="w-full h-full object-cover transition-transform duration-700 
-                         group-hover:scale-105"
-            />
+            <>
+              <img
+                src={product.images[0]}
+                alt={product.title}
+                className="w-full h-full object-cover transition-transform duration-700
+                           group-hover:scale-105"
+              />
+            </>
           ) : (
-            <div className="w-full h-full flex flex-col items-center justify-center bg-[#F3F4F6]">
-              <svg className="w-10 h-10 text-[#9CA3AF] mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+            <div className="w-full h-full flex flex-col items-center justify-center bg-warm-100">
+              <svg className="w-10 h-10 text-navy-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
               </svg>
-              <span className="text-xs text-[#9CA3AF] font-body">No Image Available</span>
+              <span className="text-xs text-navy-400 font-body">No Image Available</span>
             </div>
           )}
           {product.platform && (
-            <span className="absolute top-3 left-3 px-2.5 py-0.5 bg-primary/80 backdrop-blur-sm
-                           text-white text-xs font-body font-medium rounded-full capitalize">
+            <span className="absolute top-3 left-3 px-2.5 py-0.5 bg-navy-900/80 text-white
+                           text-xs font-body font-medium rounded-full capitalize">
               {product.platform}
             </span>
           )}
@@ -147,36 +153,36 @@ export default function ProductCard({ product, variant = 'default' }: ProductCar
         {/* Content */}
         <div className="p-5 flex flex-col flex-1">
           {product.category && (
-            <span className="text-xs font-body font-semibold tracking-widest uppercase text-accent-text mb-2">
+            <span className="text-xs font-body font-semibold tracking-widest uppercase text-amber-500 mb-2">
               {product.category.name}
             </span>
           )}
-          <h3 className="font-display text-lg font-semibold text-primary mb-2 leading-snug line-clamp-2">
+          <h3 className="font-display text-lg font-semibold text-navy-900 mb-2 leading-snug line-clamp-2">
             {product.title}
           </h3>
           {product.description && (
-            <p className="text-text-secondary text-xs leading-relaxed mb-3 line-clamp-2 flex-1">
+            <p className="text-navy-700 text-xs leading-relaxed mb-3 line-clamp-2 flex-1">
               {product.description}
             </p>
           )}
           {renderStars(product.rating)}
-          <div className="mt-auto pt-4 flex items-center justify-between border-t border-border-light">
-            {formatPrice(product.price, ) ? (
+          <div className="mt-auto pt-4 flex items-center justify-between border-t border-warm-300">
+            {formatPrice(product.price) ? (
               <div className="flex items-center gap-2">
-                <span className="font-display text-lg font-bold text-primary">
-                  {formatPrice(product.price, )}
+                <span className="font-display text-lg font-bold text-navy-900">
+                  {formatPrice(product.price)}
                 </span>
                 {product.originalPrice && product.price && product.originalPrice > product.price && (
-                  <span className="text-xs text-text-muted line-through">
-                    {formatPrice(product.originalPrice, )}
+                  <span className="text-xs text-navy-400 line-through">
+                    {formatPrice(product.originalPrice)}
                   </span>
                 )}
               </div>
             ) : (
-              <span className="text-sm text-text-muted">See price</span>
+              <span className="text-sm text-navy-400">See price</span>
             )}
-            <span className="text-xs font-body font-semibold text-accent-text
-                           group-hover:underline underline-offset-2 tracking-wide uppercase">
+            <span className="text-xs font-body font-semibold text-amber-500
+                           group-hover:text-amber-600 group-hover:underline underline-offset-2 tracking-wide uppercase transition-colors">
               Details
             </span>
           </div>

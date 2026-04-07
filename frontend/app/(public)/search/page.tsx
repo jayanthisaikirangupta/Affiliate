@@ -86,12 +86,12 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
         <div className="editorial-container">
           <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Search' }]} />
 
-          <div className="mt-12 flex flex-col items-center justify-center text-center py-24 border border-border-light rounded-2xl bg-white">
-            <SearchIcon className="w-12 h-12 text-border mb-6" />
-            <h1 className="font-display text-3xl text-primary font-bold mb-3">
+          <div className="mt-12 flex flex-col items-center justify-center text-center py-24 border border-warm-200 rounded-2xl bg-white shadow-hover">
+            <SearchIcon className="w-12 h-12 text-warm-600 mb-6" />
+            <h1 className="font-display text-3xl text-navy-900 font-bold mb-3">
               What are you looking for?
             </h1>
-            <p className="text-text-secondary font-body text-base max-w-md leading-relaxed mb-8">
+            <p className="text-navy-700 font-body text-base max-w-md leading-relaxed mb-8">
               Search for pet products, expert buyer&apos;s guides, comparisons, and more — all handpicked for UK pet owners.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
@@ -130,14 +130,14 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
         {/* Page header */}
         <div className="mt-10 mb-12">
-          <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent">
+          <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500">
             Search
           </span>
-          <h1 className="font-display text-hero text-primary mt-3 mb-3">
+          <h1 className="font-display text-hero text-navy-900 mt-3 mb-3">
             Results for &ldquo;{query}&rdquo;
           </h1>
           {hasResults && (
-            <p className="text-text-secondary font-body text-base">
+            <p className="text-navy-700 font-body text-base">
               {totalResults} result{totalResults !== 1 ? 's' : ''} found
               {productTotal > 0 && articleTotal > 0
                 ? ` — ${productTotal} product${productTotal !== 1 ? 's' : ''} and ${articleTotal} article${articleTotal !== 1 ? 's' : ''}`
@@ -148,12 +148,12 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
         {/* No results */}
         {!hasResults && (
-          <div className="flex flex-col items-center justify-center text-center py-24 border border-border-light rounded-2xl bg-white">
-            <SearchIcon className="w-12 h-12 text-border mb-6" />
-            <h2 className="font-display text-2xl text-primary font-bold mb-3">
+          <div className="flex flex-col items-center justify-center text-center py-24 border border-warm-200 rounded-2xl bg-white shadow-hover">
+            <SearchIcon className="w-12 h-12 text-warm-600 mb-6" />
+            <h2 className="font-display text-2xl text-navy-900 font-bold mb-3">
               No results for &ldquo;{query}&rdquo;
             </h2>
-            <p className="text-text-secondary font-body text-sm max-w-sm leading-relaxed mb-8">
+            <p className="text-navy-700 font-body text-sm max-w-sm leading-relaxed mb-8">
               We couldn&apos;t find any products or articles matching your search. Try a different term or browse our collections.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
@@ -174,18 +174,18 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
               <div className="flex items-baseline gap-3">
                 <h2
                   id="search-products-heading"
-                  className="font-display text-2xl text-primary font-bold"
+                  className="font-display text-2xl text-navy-900 font-bold"
                 >
                   Products
                 </h2>
-                <span className="font-body text-sm text-text-muted">
+                <span className="font-body text-sm text-warm-600">
                   {productTotal} result{productTotal !== 1 ? 's' : ''}
                 </span>
               </div>
               {productTotal > products.length && (
                 <Link
                   href={`/products?search=${encodeURIComponent(query)}`}
-                  className="font-body text-sm font-semibold text-accent hover:underline underline-offset-4"
+                  className="font-body text-sm font-semibold text-amber-500 hover:underline underline-offset-4"
                 >
                   View all {productTotal} →
                 </Link>
@@ -202,7 +202,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
         {/* Divider between sections */}
         {products.length > 0 && articles.length > 0 && (
-          <hr className="border-border-light mb-16" />
+          <hr className="border-warm-300 mb-16" />
         )}
 
         {/* Articles section */}
@@ -212,18 +212,18 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
               <div className="flex items-baseline gap-3">
                 <h2
                   id="search-articles-heading"
-                  className="font-display text-2xl text-primary font-bold"
+                  className="font-display text-2xl text-navy-900 font-bold"
                 >
                   Articles &amp; Guides
                 </h2>
-                <span className="font-body text-sm text-text-muted">
+                <span className="font-body text-sm text-warm-600">
                   {articleTotal} result{articleTotal !== 1 ? 's' : ''}
                 </span>
               </div>
               {articleTotal > articles.length && (
                 <Link
                   href={`/blog?search=${encodeURIComponent(query)}`}
-                  className="font-body text-sm font-semibold text-accent hover:underline underline-offset-4"
+                  className="font-body text-sm font-semibold text-amber-500 hover:underline underline-offset-4"
                 >
                   View all {articleTotal} →
                 </Link>
@@ -240,12 +240,12 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
         {/* Footer nudge when results exist */}
         {hasResults && (
-          <div className="mt-16 py-10 px-8 bg-white border border-border-light rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="mt-16 py-10 px-8 bg-white border border-warm-200 rounded-2xl shadow-hover flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
-              <p className="font-display text-lg text-primary font-semibold mb-1">
+              <p className="font-display text-lg text-navy-900 font-semibold mb-1">
                 Not quite what you were after?
               </p>
-              <p className="text-text-secondary font-body text-sm">
+              <p className="text-navy-700 font-body text-sm">
                 Browse our full range or read our expert guides to find the perfect match.
               </p>
             </div>

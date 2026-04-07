@@ -36,6 +36,9 @@ export class ProductsService {
       limit = 12,
       status,
       categoryId,
+      petType,
+      minPrice,
+      maxPrice,
       featured,
       search,
       sortBy = 'createdAt',
@@ -45,6 +48,13 @@ export class ProductsService {
     const where: Record<string, unknown> = { deletedAt: null };
     if (status) where.status = status;
     if (categoryId) where.categoryId = categoryId;
+    if (petType) where.petType = petType;
+    if (minPrice !== undefined || maxPrice !== undefined) {
+      const priceFilter: Record<string, number> = {};
+      if (minPrice !== undefined) priceFilter.gte = minPrice;
+      if (maxPrice !== undefined) priceFilter.lte = maxPrice;
+      where.price = priceFilter;
+    }
     if (featured !== undefined) where.featured = featured;
     if (search) {
       where.OR = [

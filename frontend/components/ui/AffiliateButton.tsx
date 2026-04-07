@@ -24,17 +24,18 @@ export default function AffiliateButton({ link, productId, variant = 'primary', 
     window.open(link.url, '_blank', 'noopener noreferrer');
   };
 
-  const sizeClasses = { sm: 'px-4 py-2 text-xs', md: 'px-6 py-3 text-sm', lg: 'px-8 py-4 text-base' };
+  const sizeClasses = { sm: 'px-4 py-2 text-xs min-h-[36px]', md: 'px-6 py-3 text-sm min-h-[48px]', lg: 'px-8 py-4 text-base min-h-[48px]' };
   const variantClasses = {
-    primary: 'bg-accent text-white hover:bg-accent-dark',
-    secondary: 'bg-primary text-white hover:bg-primary/90',
-    outline: 'border-2 border-accent text-accent hover:bg-accent hover:text-white',
+    primary: 'bg-amber-500 text-white font-bold hover:bg-amber-600 hover:shadow-[0_4px_16px_rgba(212,118,60,0.3)] hover:-translate-y-px',
+    secondary: 'bg-navy-900 text-white font-bold hover:bg-navy-800',
+    outline: 'border-2 border-amber-500 text-amber-500 font-bold hover:bg-amber-500 hover:text-white',
   };
 
   return (
     <button
       onClick={handleClick}
-      className={`inline-flex items-center justify-center gap-2 font-body font-semibold tracking-wide uppercase rounded-full transition-all duration-200 active:scale-[0.98] ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
+      aria-label={`Buy from ${link.retailer} (opens in new tab)`}
+      className={`inline-flex items-center justify-center gap-2 font-body tracking-wide uppercase rounded-lg transition-all duration-200 active:translate-y-0 active:scale-[0.98] ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
     >
       <span>{link.retailer}{link.price && ` — ${link.price}`}</span>
       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

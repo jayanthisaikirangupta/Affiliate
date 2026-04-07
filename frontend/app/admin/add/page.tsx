@@ -151,7 +151,7 @@ export default function AddProductPage() {
     <div>
       <div className="mb-8">
         <h1 className="font-display text-2xl font-semibold text-primary">Add Product</h1>
-        <p className="text-sm font-body text-text-secondary mt-1">
+        <p className="text-sm font-body text-navy-700 mt-1">
           {step === 'input' && 'Paste an affiliate link to auto-extract product details'}
           {step === 'extracting' && 'Extracting product data...'}
           {step === 'preview' && 'Review and edit the extracted data before publishing'}
@@ -167,12 +167,12 @@ export default function AddProductPage() {
             <div key={label} className="flex items-center gap-2">
               <div
                 className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-body font-semibold ${
-                  i <= stepIndex ? 'gold-gradient text-white' : 'bg-border-light text-text-muted'
+                  i <= stepIndex ? 'gold-gradient text-white' : 'bg-border-light text-warm-600'
                 }`}
               >
                 {i + 1}
               </div>
-              <span className={`text-xs font-body ${i <= stepIndex ? 'text-primary' : 'text-text-muted'}`}>
+              <span className={`text-xs font-body ${i <= stepIndex ? 'text-primary' : 'text-warm-600'}`}>
                 {label}
               </span>
               {i < 2 && <div className="w-8 h-px bg-border mx-1" />}
@@ -193,7 +193,7 @@ export default function AddProductPage() {
           <h2 className="font-display text-lg font-semibold text-primary mb-4">
             Paste Affiliate Link
           </h2>
-          <p className="text-sm font-body text-text-secondary mb-6">
+          <p className="text-sm font-body text-navy-700 mb-6">
             Supports Amazon and eBay product URLs. The system will automatically extract title,
             images, price, rating, and description.
           </p>
@@ -228,7 +228,7 @@ export default function AddProductPage() {
           <h2 className="font-display text-lg font-semibold text-primary mb-2">
             Extracting Product Data
           </h2>
-          <p className="text-sm font-body text-text-secondary">
+          <p className="text-sm font-body text-navy-700">
             Fetching details from the product page...
           </p>
         </div>
@@ -327,7 +327,7 @@ export default function AddProductPage() {
                 {form.images.map((img, i) => (
                   <div key={i} className="flex gap-3 items-center">
                     {img && (
-                      <img src={img} alt="" className="w-12 h-12 rounded object-cover border border-border-light" />
+                      <img src={img} alt="" className="w-12 h-12 rounded object-cover border border-warm-200" />
                     )}
                     <input
                       value={img}
@@ -349,7 +349,7 @@ export default function AddProductPage() {
                 ))}
                 <button
                   onClick={() => updateForm('images', [...form.images, ''])}
-                  className="text-sm font-body font-medium text-accent hover:underline"
+                  className="text-sm font-body font-medium text-amber-500 hover:underline"
                 >
                   + Add Image URL
                 </button>
@@ -373,7 +373,7 @@ export default function AddProductPage() {
                       <button onClick={() => removeListItem('pros', i)} className="text-red-400 text-sm">✕</button>
                     </div>
                   ))}
-                  <button onClick={() => addListItem('pros')} className="text-sm font-body font-medium text-accent hover:underline">
+                  <button onClick={() => addListItem('pros')} className="text-sm font-body font-medium text-amber-500 hover:underline">
                     + Add Pro
                   </button>
                 </div>
@@ -390,7 +390,7 @@ export default function AddProductPage() {
                       <button onClick={() => removeListItem('cons', i)} className="text-red-400 text-sm">✕</button>
                     </div>
                   ))}
-                  <button onClick={() => addListItem('cons')} className="text-sm font-body font-medium text-accent hover:underline">
+                  <button onClick={() => addListItem('cons')} className="text-sm font-body font-medium text-amber-500 hover:underline">
                     + Add Con
                   </button>
                 </div>
@@ -420,7 +420,7 @@ export default function AddProductPage() {
                     className="admin-input"
                     placeholder="SEO-optimized title"
                   />
-                  <p className="text-xs text-text-muted mt-1">{form.seoTitle.length}/60 characters</p>
+                  <p className="text-xs text-warm-600 mt-1">{form.seoTitle.length}/60 characters</p>
                 </div>
                 <div>
                   <label className="admin-label">Meta Description</label>
@@ -430,7 +430,7 @@ export default function AddProductPage() {
                     className="admin-input min-h-[80px] resize-y"
                     placeholder="Brief meta description for search engines"
                   />
-                  <p className="text-xs text-text-muted mt-1">{form.metaDescription.length}/160 characters</p>
+                  <p className="text-xs text-warm-600 mt-1">{form.metaDescription.length}/160 characters</p>
                 </div>
               </div>
             </div>
@@ -469,11 +469,11 @@ export default function AddProductPage() {
                     type="checkbox"
                     checked={form.featured}
                     onChange={(e) => updateForm('featured', e.target.checked)}
-                    className="w-4 h-4 rounded border-border text-accent focus:ring-accent"
+                    className="w-4 h-4 rounded border-warm-300 text-amber-500 focus:ring-amber-500"
                   />
                   <span className="text-sm font-body text-primary">Featured product</span>
                 </label>
-                <div className="border-t border-border-light pt-4 space-y-3">
+                <div className="border-t border-warm-200 pt-4 space-y-3">
                   <button
                     onClick={() => handlePublish('PUBLISHED')}
                     disabled={!form.title || !form.affiliateLink}
@@ -495,7 +495,7 @@ export default function AddProductPage() {
             {/* Preview card */}
             {form.images?.[0] && (
               <div className="admin-card">
-                <h2 className="font-display text-sm font-semibold text-text-secondary mb-3">Preview</h2>
+                <h2 className="font-display text-sm font-semibold text-navy-700 mb-3">Preview</h2>
                 <div className="aspect-square rounded-lg overflow-hidden bg-background mb-3">
                   <img src={form.images[0]} alt="" className="w-full h-full object-cover" />
                 </div>
@@ -518,7 +518,7 @@ export default function AddProductPage() {
         <div className="admin-card max-w-2xl text-center py-12">
           <div className="w-10 h-10 border-2 border-accent border-t-transparent rounded-full animate-spin mx-auto mb-4" aria-label="Saving" />
           <h2 className="font-display text-lg font-semibold text-primary mb-2">Saving Product</h2>
-          <p className="text-sm font-body text-text-secondary">Please wait...</p>
+          <p className="text-sm font-body text-navy-700">Please wait...</p>
         </div>
       )}
     </div>

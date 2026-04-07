@@ -80,7 +80,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
 
   if (checking) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="min-h-screen bg-warm-100 flex items-center justify-center">
         <div className="w-8 h-8 border-2 border-accent border-t-transparent rounded-full animate-spin" aria-label="Loading" />
       </div>
     );
@@ -89,7 +89,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   // Login screen
   if (!authed) {
     return (
-      <div className="min-h-screen bg-primary flex items-center justify-center p-6">
+      <div className="min-h-screen bg-navy-900 flex items-center justify-center p-6">
         <div className="w-full max-w-sm">
           <div className="text-center mb-8">
             <div className="mb-4">
@@ -148,10 +148,10 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
 
   // Admin dashboard
   return (
-    <div className="min-h-screen bg-background flex">
+    <div className="min-h-screen bg-warm-100 flex">
       {/* Sidebar */}
       <aside
-        className={`fixed lg:static inset-y-0 left-0 z-40 w-64 bg-white border-r border-border
+        className={`fixed lg:static inset-y-0 left-0 z-40 w-64 bg-white border-r border-warm-300
                     transform transition-transform duration-200 lg:transform-none
                     flex flex-col h-screen lg:h-auto lg:min-h-screen
                     ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}
@@ -161,7 +161,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
           <Link href="/" className="flex items-center">
             <img src="/logo-full.svg" alt="PetGearHub" className="h-10 w-auto" />
           </Link>
-          <p className="text-[10px] font-body text-text-muted tracking-widest uppercase mt-1 ml-11">
+          <p className="text-[10px] font-body text-warm-600 tracking-widest uppercase mt-1 ml-11">
             Admin
           </p>
         </div>
@@ -178,8 +178,8 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                 className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-body font-medium
                            transition-all duration-200 ${
                              isActive
-                               ? 'bg-accent/10 text-accent'
-                               : 'text-text-secondary hover:bg-background hover:text-primary'
+                               ? 'bg-amber-500/10 text-amber-500'
+                               : 'text-navy-700 hover:bg-warm-100 hover:text-navy-900'
                            }`}
               >
                 <span className="text-base w-5 text-center" aria-hidden="true">{item.icon}</span>
@@ -189,10 +189,10 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
           })}
         </nav>
 
-        <div className="flex-shrink-0 p-4 border-t border-border-light">
+        <div className="flex-shrink-0 p-4 border-t border-warm-200">
           <button
             onClick={handleLogout}
-            className="w-full px-4 py-2 text-sm font-body text-text-muted hover:text-red-600
+            className="w-full px-4 py-2 text-sm font-body text-warm-600 hover:text-red-600
                        transition-colors text-left"
           >
             Sign Out
@@ -212,7 +212,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
       {/* Main content */}
       <div className="flex-1 min-w-0">
         {/* Top bar */}
-        <header className="h-16 bg-white border-b border-border-light px-6 flex items-center justify-between">
+        <header className="h-16 bg-white border-b border-warm-200 px-6 flex items-center justify-between">
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className="lg:hidden w-8 h-8 flex items-center justify-center"
@@ -225,7 +225,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
               href="/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-body font-medium text-text-muted hover:text-accent transition-colors"
+              className="text-xs font-body font-medium text-warm-600 hover:text-amber-500 transition-colors"
             >
               View Site →
             </Link>

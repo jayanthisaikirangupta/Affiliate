@@ -120,7 +120,7 @@ function ProductListCard({ product }: { product: Product }) {
 
   return (
     <Link href={`/products/${product.slug}`}>
-      <article className="group flex gap-5 bg-white border border-border-light rounded-xl overflow-hidden card-hover transition-shadow">
+      <article className="group flex gap-5 bg-white border border-warm-200 rounded-xl overflow-hidden card-hover transition-shadow">
         {/* Image */}
         <div className="w-36 sm:w-48 flex-shrink-0 aspect-square relative overflow-hidden bg-background">
           {product.images?.[0] ? (
@@ -140,7 +140,7 @@ function ProductListCard({ product }: { product: Product }) {
             </span>
           )}
           {product.isDeal && (
-            <span className="absolute top-2 right-2 px-2 py-0.5 bg-accent text-white text-[9px] font-body font-semibold uppercase tracking-widest rounded-full">
+            <span className="absolute top-2 right-2 px-2 py-0.5 bg-amber-500 text-white text-[9px] font-body font-semibold uppercase tracking-widest rounded-full">
               Deal
             </span>
           )}
@@ -149,7 +149,7 @@ function ProductListCard({ product }: { product: Product }) {
         {/* Details */}
         <div className="flex flex-col flex-1 p-4 sm:p-5 min-w-0">
           {product.category && (
-            <span className="text-[10px] font-body font-semibold tracking-widest uppercase text-accent mb-1">
+            <span className="text-[10px] font-body font-semibold tracking-widest uppercase text-amber-500 mb-1">
               {product.category.name}
             </span>
           )}
@@ -157,10 +157,10 @@ function ProductListCard({ product }: { product: Product }) {
             {product.title}
           </h3>
           {product.brand && (
-            <p className="text-xs font-body text-text-muted mb-2">by {product.brand}</p>
+            <p className="text-xs font-body text-warm-600 mb-2">by {product.brand}</p>
           )}
           {product.description && (
-            <p className="text-text-secondary text-xs leading-relaxed line-clamp-2 mb-3 flex-1">
+            <p className="text-navy-700 text-xs leading-relaxed line-clamp-2 mb-3 flex-1">
               {product.description}
             </p>
           )}
@@ -172,7 +172,7 @@ function ProductListCard({ product }: { product: Product }) {
                 {[1, 2, 3, 4, 5].map((star) => (
                   <svg
                     key={star}
-                    className={`w-3.5 h-3.5 ${star <= Math.round(product.rating!) ? 'text-accent' : 'text-border'}`}
+                    className={`w-3.5 h-3.5 ${star <= Math.round(product.rating!) ? 'text-amber-500' : 'text-border'}`}
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     aria-hidden="true"
@@ -181,7 +181,7 @@ function ProductListCard({ product }: { product: Product }) {
                   </svg>
                 ))}
               </div>
-              <span className="text-xs text-text-muted font-body">
+              <span className="text-xs text-warm-600 font-body">
                 {product.rating.toFixed(1)}
                 {product.reviewCount ? ` (${product.reviewCount.toLocaleString()})` : ''}
               </span>
@@ -189,7 +189,7 @@ function ProductListCard({ product }: { product: Product }) {
           )}
 
           {/* Price + CTA */}
-          <div className="flex items-center justify-between mt-auto pt-3 border-t border-border-light">
+          <div className="flex items-center justify-between mt-auto pt-3 border-t border-warm-200">
             <div className="flex items-center gap-2">
               {formatPrice(product.price) ? (
                 <>
@@ -197,16 +197,16 @@ function ProductListCard({ product }: { product: Product }) {
                     {formatPrice(product.price)}
                   </span>
                   {product.originalPrice && product.price && product.originalPrice > product.price && (
-                    <span className="text-xs text-text-muted line-through">
+                    <span className="text-xs text-warm-600 line-through">
                       {formatPrice(product.originalPrice)}
                     </span>
                   )}
                 </>
               ) : (
-                <span className="text-sm text-text-muted">See price</span>
+                <span className="text-sm text-warm-600">See price</span>
               )}
             </div>
-            <span className="text-xs font-body font-semibold text-accent group-hover:underline underline-offset-2">
+            <span className="text-xs font-body font-semibold text-amber-500 group-hover:underline underline-offset-2">
               Details →
             </span>
           </div>
@@ -216,5 +216,5 @@ function ProductListCard({ product }: { product: Product }) {
   );
 }
 
-// Attach ProductList as a static property so the server component can reference it
-ProductFiltersWrapper.ProductList = ProductList;
+// Named export so the server component can import ProductList directly
+export { ProductList };

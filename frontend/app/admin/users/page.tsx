@@ -68,7 +68,7 @@ export default function AdminUsersPage() {
     <div>
       <div className="mb-8">
         <h1 className="font-display text-2xl font-semibold text-primary">Users</h1>
-        <p className="text-sm font-body text-text-secondary mt-1">Manage admin and editor accounts</p>
+        <p className="text-sm font-body text-navy-700 mt-1">Manage admin and editor accounts</p>
       </div>
 
       {error && (
@@ -102,7 +102,7 @@ export default function AdminUsersPage() {
                       <select
                         value={user.role}
                         onChange={(e) => handleRoleChange(user.id, e.target.value)}
-                        className="text-xs font-body text-text-muted mt-0.5 border-0 bg-transparent cursor-pointer focus:ring-0 p-0"
+                        className="text-xs font-body text-warm-600 mt-0.5 border-0 bg-transparent cursor-pointer focus:ring-0 p-0"
                         aria-label={`Role for ${user.email}`}
                       >
                         <option value="EDITOR">Editor</option>
@@ -121,7 +121,7 @@ export default function AdminUsersPage() {
               ))}
             </div>
           ) : (
-            <p className="text-sm text-text-muted font-body py-8 text-center">No users found</p>
+            <p className="text-sm text-warm-600 font-body py-8 text-center">No users found</p>
           )}
         </div>
 

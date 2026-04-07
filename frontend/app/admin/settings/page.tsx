@@ -61,7 +61,7 @@ export default function AdminSettingsPage() {
     <div>
       <div className="mb-8">
         <h1 className="font-display text-2xl font-semibold text-primary">Settings</h1>
-        <p className="text-sm font-body text-text-secondary mt-1">Configure your affiliate site</p>
+        <p className="text-sm font-body text-navy-700 mt-1">Configure your affiliate site</p>
       </div>
 
       <div className="max-w-2xl space-y-6">
@@ -93,20 +93,20 @@ export default function AdminSettingsPage() {
         {/* Affiliate API instructions */}
         <div className="admin-card">
           <h2 className="font-display text-lg font-semibold text-primary mb-2">Affiliate API Keys</h2>
-          <p className="text-xs font-body text-text-muted mb-4">
+          <p className="text-xs font-body text-warm-600 mb-4">
             API credentials are managed in the backend <code className="bg-background px-1 rounded">.env</code> file for security.
             See <code className="bg-background px-1 rounded">.env.example</code> for setup instructions.
           </p>
           <div className="space-y-3 text-sm font-body">
             <div className="p-3 bg-background rounded-lg">
               <p className="font-semibold text-primary">Amazon PA-API</p>
-              <p className="text-text-muted text-xs mt-1">
+              <p className="text-warm-600 text-xs mt-1">
                 Set <code>AMAZON_ACCESS_KEY</code>, <code>AMAZON_SECRET_KEY</code>, and <code>AMAZON_PARTNER_TAG</code> in backend .env
               </p>
             </div>
             <div className="p-3 bg-background rounded-lg">
               <p className="font-semibold text-primary">eBay Browse API</p>
-              <p className="text-text-muted text-xs mt-1">
+              <p className="text-warm-600 text-xs mt-1">
                 Set <code>EBAY_APP_ID</code> and <code>EBAY_CLIENT_SECRET</code> in backend .env
               </p>
             </div>

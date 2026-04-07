@@ -18,7 +18,7 @@ export default function ImageGallery({ images, title }: ImageGalleryProps) {
       transition={{ duration: 0.5 }}
     >
       {/* Main image */}
-      <div className="aspect-square bg-white rounded-2xl overflow-hidden border border-border-light mb-4">
+      <div className="aspect-square bg-white rounded-2xl overflow-hidden border border-warm-200 mb-4">
         {images?.[activeImage] ? (
           <motion.img
             key={activeImage}
@@ -47,7 +47,7 @@ export default function ImageGallery({ images, title }: ImageGalleryProps) {
               className={`w-20 h-20 rounded-lg overflow-hidden border-2 transition-all duration-200 flex-shrink-0 ${
                 activeImage === i
                   ? 'border-accent'
-                  : 'border-border-light hover:border-border'
+                  : 'border-warm-200 hover:border-warm-300'
               }`}
             >
               <img

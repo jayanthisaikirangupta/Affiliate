@@ -25,7 +25,7 @@ export default function AdminDashboard() {
     { label: 'Total Products', value: stats.total, color: 'bg-primary' },
     { label: 'Published', value: stats.published, color: 'bg-green-600' },
     { label: 'Drafts', value: stats.draft, color: 'bg-amber-500' },
-    { label: 'Categories', value: stats.categories, color: 'bg-accent' },
+    { label: 'Categories', value: stats.categories, color: 'bg-amber-500' },
   ];
 
   return (
@@ -33,7 +33,7 @@ export default function AdminDashboard() {
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="font-display text-2xl font-semibold text-primary">Dashboard</h1>
-          <p className="text-sm font-body text-text-secondary mt-1">Overview of your product site</p>
+          <p className="text-sm font-body text-navy-700 mt-1">Overview of your product site</p>
         </div>
         <Link href="/admin/add" className="btn-primary text-xs">
           + Add Product
@@ -48,33 +48,33 @@ export default function AdminDashboard() {
             <p className="text-2xl font-display font-bold text-primary">
               {loading ? '—' : card.value}
             </p>
-            <p className="text-xs font-body text-text-muted mt-1">{card.label}</p>
+            <p className="text-xs font-body text-warm-600 mt-1">{card.label}</p>
           </div>
         ))}
       </div>
 
       {/* Quick actions */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-8">
-        <Link href="/admin/add" className="admin-card hover:border-accent/30 group">
+        <Link href="/admin/add" className="admin-card hover:border-amber-500/30 group">
           <span className="text-2xl mb-2 block">+</span>
-          <h3 className="font-body font-semibold text-primary text-sm group-hover:text-accent transition-colors">
+          <h3 className="font-body font-semibold text-primary text-sm group-hover:text-amber-500 transition-colors">
             Add New Product
           </h3>
-          <p className="text-xs text-text-muted mt-1">Paste an affiliate link to get started</p>
+          <p className="text-xs text-warm-600 mt-1">Paste an affiliate link to get started</p>
         </Link>
-        <Link href="/admin/products" className="admin-card hover:border-accent/30 group">
+        <Link href="/admin/products" className="admin-card hover:border-amber-500/30 group">
           <span className="text-2xl mb-2 block">☰</span>
-          <h3 className="font-body font-semibold text-primary text-sm group-hover:text-accent transition-colors">
+          <h3 className="font-body font-semibold text-primary text-sm group-hover:text-amber-500 transition-colors">
             Manage Products
           </h3>
-          <p className="text-xs text-text-muted mt-1">Edit, publish, or archive products</p>
+          <p className="text-xs text-warm-600 mt-1">Edit, publish, or archive products</p>
         </Link>
-        <Link href="/admin/analytics" className="admin-card hover:border-accent/30 group">
+        <Link href="/admin/analytics" className="admin-card hover:border-amber-500/30 group">
           <span className="text-2xl mb-2 block">◔</span>
-          <h3 className="font-body font-semibold text-primary text-sm group-hover:text-accent transition-colors">
+          <h3 className="font-body font-semibold text-primary text-sm group-hover:text-amber-500 transition-colors">
             View Analytics
           </h3>
-          <p className="text-xs text-text-muted mt-1">Track views and affiliate clicks</p>
+          <p className="text-xs text-warm-600 mt-1">Track views and affiliate clicks</p>
         </Link>
       </div>
 
@@ -82,7 +82,7 @@ export default function AdminDashboard() {
       <div className="admin-card">
         <div className="flex items-center justify-between mb-4">
           <h2 className="font-display text-lg font-semibold text-primary">Recent Products</h2>
-          <Link href="/admin/products" className="text-xs font-body font-semibold text-accent hover:underline">
+          <Link href="/admin/products" className="text-xs font-body font-semibold text-amber-500 hover:underline">
             View All →
           </Link>
         </div>
@@ -106,7 +106,7 @@ export default function AdminDashboard() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-body font-medium text-primary truncate">{product.title}</p>
-                  <p className="text-xs text-text-muted capitalize">{product.platform || 'Manual'}</p>
+                  <p className="text-xs text-warm-600 capitalize">{product.platform || 'Manual'}</p>
                 </div>
                 <span
                   className={`px-2 py-0.5 rounded text-[10px] font-body font-semibold uppercase ${
@@ -123,8 +123,8 @@ export default function AdminDashboard() {
             ))}
           </div>
         ) : (
-          <p className="text-sm text-text-muted font-body py-6 text-center">
-            No products yet. <Link href="/admin/add" className="text-accent hover:underline">Add your first product</Link>
+          <p className="text-sm text-warm-600 font-body py-6 text-center">
+            No products yet. <Link href="/admin/add" className="text-amber-500 hover:underline">Add your first product</Link>
           </p>
         )}
       </div>

@@ -6,7 +6,7 @@ interface StarRatingProps {
 }
 
 export default function StarRating({ rating, reviewCount, size = 'md', showCount = true }: StarRatingProps) {
-  const sizes = { sm: 'w-3 h-3', md: 'w-4 h-4', lg: 'w-5 h-5' };
+  const sizes = { sm: 'w-4 h-4', md: 'w-5 h-5', lg: 'w-6 h-6' };
   const textSizes = { sm: 'text-xs', md: 'text-sm', lg: 'text-base' };
 
   return (
@@ -15,7 +15,7 @@ export default function StarRating({ rating, reviewCount, size = 'md', showCount
         {[1, 2, 3, 4, 5].map((star) => (
           <svg
             key={star}
-            className={`${sizes[size]} ${star <= Math.round(rating) ? 'text-accent' : 'text-border'}`}
+            className={`${sizes[size]} ${star <= Math.round(rating) ? 'text-[#FBBF24]' : 'text-warm-300'}`}
             fill="currentColor"
             viewBox="0 0 20 20"
             aria-hidden="true"
@@ -25,7 +25,7 @@ export default function StarRating({ rating, reviewCount, size = 'md', showCount
         ))}
       </div>
       {showCount && (
-        <span className={`${textSizes[size]} text-text-muted font-body`}>
+        <span className={`${textSizes[size]} font-medium text-navy-700`}>
           {rating.toFixed(1)}
           {reviewCount ? ` (${reviewCount.toLocaleString()} reviews)` : ''}
         </span>

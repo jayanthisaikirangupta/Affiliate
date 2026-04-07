@@ -11,14 +11,14 @@ export default function ProsConsBox({ pros, cons, variant = 'default' }: ProsCon
   return (
     <div className={`grid grid-cols-1 ${pros.length && cons.length ? 'sm:grid-cols-2' : ''} gap-4`}>
       {pros?.length > 0 && (
-        <div className={`${compact ? 'p-4' : 'p-5'} bg-green-50 border border-green-100 rounded-xl`}>
-          <h4 className={`${compact ? 'text-xs' : 'text-sm'} font-body font-semibold text-green-700 uppercase tracking-wide mb-3`}>
+        <div className={`${compact ? 'p-4' : 'p-5'} bg-[#ECFDF5] border-l-4 border-success rounded-xl`}>
+          <h4 className={`${compact ? 'text-xs' : 'text-sm'} font-body font-semibold text-success uppercase tracking-wide mb-3`}>
             ✓ Pros
           </h4>
           <ul className="space-y-2">
             {pros.map((pro, i) => (
               <li key={i} className={`flex items-start gap-2 ${compact ? 'text-xs' : 'text-sm'} font-body text-green-800`}>
-                <span className="text-green-600 mt-0.5 flex-shrink-0">✓</span>
+                <span className="text-success mt-0.5 flex-shrink-0">✓</span>
                 {pro}
               </li>
             ))}
@@ -26,14 +26,14 @@ export default function ProsConsBox({ pros, cons, variant = 'default' }: ProsCon
         </div>
       )}
       {cons?.length > 0 && (
-        <div className={`${compact ? 'p-4' : 'p-5'} bg-red-50 border border-red-100 rounded-xl`}>
-          <h4 className={`${compact ? 'text-xs' : 'text-sm'} font-body font-semibold text-red-700 uppercase tracking-wide mb-3`}>
+        <div className={`${compact ? 'p-4' : 'p-5'} bg-[#FEF2F2] border-l-4 border-destructive rounded-xl`}>
+          <h4 className={`${compact ? 'text-xs' : 'text-sm'} font-body font-semibold text-destructive uppercase tracking-wide mb-3`}>
             ✗ Cons
           </h4>
           <ul className="space-y-2">
             {cons.map((con, i) => (
               <li key={i} className={`flex items-start gap-2 ${compact ? 'text-xs' : 'text-sm'} font-body text-red-800`}>
-                <span className="text-red-500 mt-0.5 flex-shrink-0">✗</span>
+                <span className="text-destructive mt-0.5 flex-shrink-0">✗</span>
                 {con}
               </li>
             ))}

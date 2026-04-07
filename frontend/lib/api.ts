@@ -45,7 +45,7 @@ class ApiClient {
       headers['Authorization'] = `Bearer ${token}`;
     }
 
-    const res = await fetch(`${API_URL}${path}`, { ...options, headers });
+    const res = await fetch(`${API_URL}${path}`, { ...options, headers, cache: 'no-store' });
 
     if (res.status === 401) {
       this.clearToken();

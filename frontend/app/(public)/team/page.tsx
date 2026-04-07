@@ -20,7 +20,7 @@ interface TeamMember {
 const team: TeamMember[] = [
   {
     initials: 'SM',
-    avatarColor: 'bg-[#1C1C1E]',
+    avatarColor: 'bg-amber-500',
     name: 'Sarah Mitchell',
     role: 'Editor-in-Chief',
     credentials: 'BSc Zoology · 15 years as pet journalist',
@@ -64,33 +64,33 @@ export default function TeamPage() {
   return (
     <>
       {/* Breadcrumb */}
-      <div className="pt-24 lg:pt-28 bg-background">
+      <div className="pt-24 lg:pt-28 bg-warm-100">
         <div className="editorial-container">
           <nav
-            className="flex items-center gap-2 text-sm font-body text-text-muted py-4"
+            className="flex items-center gap-2 text-sm font-body text-warm-600 py-4"
             aria-label="Breadcrumb"
           >
-            <Link href="/" className="hover:text-accent transition-colors">
+            <Link href="/" className="hover:text-amber-500 transition-colors">
               Home
             </Link>
             <span aria-hidden="true">/</span>
-            <span className="text-text-secondary">Team</span>
+            <span className="text-navy-700">Team</span>
           </nav>
         </div>
       </div>
 
       {/* Hero */}
-      <section className="bg-primary py-20 lg:py-28">
+      <section className="bg-warm-100 py-20 lg:py-28">
         <div className="editorial-container">
           <ScrollReveal>
             <div className="max-w-2xl">
-              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent mb-4 block">
+              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500 mb-4 block">
                 The People Behind the Reviews
               </span>
-              <h1 className="font-display text-4xl lg:text-5xl font-semibold text-white leading-tight mb-6">
+              <h1 className="font-display text-4xl lg:text-5xl font-semibold text-navy-900 leading-tight mb-6">
                 Meet the PetGearHub Team
               </h1>
-              <p className="text-white/60 font-body text-lg leading-relaxed">
+              <p className="text-navy-700 font-body text-lg leading-relaxed">
                 We&apos;re a passionate team of pet owners and experts dedicated to helping you
                 make the best choices for your pets.
               </p>
@@ -100,12 +100,12 @@ export default function TeamPage() {
       </section>
 
       {/* Team grid */}
-      <section className="py-20 lg:py-28 bg-background">
+      <section className="py-20 lg:py-28 bg-warm-100">
         <div className="editorial-container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {team.map((member, i) => (
               <ScrollReveal key={member.name} delay={i * 0.08}>
-                <div className="bg-white rounded-2xl p-8 border border-border-light flex flex-col h-full">
+                <div className="bg-white rounded-2xl p-8 border border-warm-200 shadow-card flex flex-col h-full hover:shadow-hover transition-shadow">
                   {/* Avatar */}
                   <div
                     className={`w-16 h-16 rounded-full ${member.avatarColor} flex items-center justify-center mb-5 flex-shrink-0`}
@@ -117,17 +117,17 @@ export default function TeamPage() {
                   </div>
 
                   {/* Name & role */}
-                  <h2 className="font-display text-xl font-semibold text-primary mb-1">
+                  <h2 className="font-display text-xl font-semibold text-navy-900 mb-1">
                     {member.name}
                   </h2>
-                  <p className="text-xs font-body font-bold uppercase tracking-widest text-accent mb-3">
+                  <p className="text-xs font-body font-bold uppercase tracking-widest text-amber-500 mb-3">
                     {member.role}
                   </p>
 
                   {/* Credentials badge */}
-                  <div className="inline-flex items-center gap-1.5 bg-background border border-border-light rounded-full px-3 py-1 mb-4 self-start">
+                  <div className="inline-flex items-center gap-1.5 bg-warm-100-alt border border-warm-200 rounded-full px-3 py-1 mb-4 self-start">
                     <svg
-                      className="w-3 h-3 text-accent flex-shrink-0"
+                      className="w-3 h-3 text-amber-500 flex-shrink-0"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       aria-hidden="true"
@@ -138,13 +138,13 @@ export default function TeamPage() {
                         clipRule="evenodd"
                       />
                     </svg>
-                    <span className="text-xs font-body text-text-secondary">
+                    <span className="text-xs font-body text-navy-700">
                       {member.credentials}
                     </span>
                   </div>
 
                   {/* Bio */}
-                  <p className="text-sm font-body text-text-secondary leading-relaxed">
+                  <p className="text-sm font-body text-navy-700 leading-relaxed">
                     {member.bio}
                   </p>
                 </div>
@@ -155,23 +155,23 @@ export default function TeamPage() {
       </section>
 
       {/* Editorial Standards */}
-      <section className="py-20 lg:py-24 bg-white">
+      <section className="py-20 lg:py-24 bg-warm-100">
         <div className="editorial-container">
           <div className="max-w-3xl mx-auto">
             <ScrollReveal>
               <div className="text-center mb-10">
-                <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent mb-4 block">
+                <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500 mb-4 block">
                   How We Operate
                 </span>
-                <h2 className="font-display text-3xl lg:text-4xl font-semibold text-primary mb-4">
+                <h2 className="font-display text-3xl lg:text-4xl font-semibold text-navy-900 mb-4">
                   Our Editorial Standards
                 </h2>
-                <div className="w-12 h-px bg-accent mx-auto" />
+                <div className="w-12 h-px bg-amber-500 mx-auto" />
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={0.1}>
-              <div className="bg-background rounded-2xl p-8 lg:p-10 border border-border-light">
+              <div className="bg-white rounded-2xl p-8 lg:p-10 border border-warm-200 shadow-card">
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                   {[
                     {
@@ -192,19 +192,19 @@ export default function TeamPage() {
                   ].map((item) => (
                     <div key={item.title} className="text-center">
                       <div className="text-3xl mb-3" aria-hidden="true">{item.icon}</div>
-                      <h3 className="font-display text-base font-semibold text-primary mb-2">
+                      <h3 className="font-display text-base font-semibold text-navy-900 mb-2">
                         {item.title}
                       </h3>
-                      <p className="text-sm font-body text-text-secondary leading-relaxed">
+                      <p className="text-sm font-body text-navy-700 leading-relaxed">
                         {item.text}
                       </p>
                     </div>
                   ))}
                 </div>
-                <div className="border-t border-border-light mt-8 pt-6 text-center">
+                <div className="border-t border-warm-200 mt-8 pt-6 text-center">
                   <Link
                     href="/editorial-policy"
-                    className="text-sm font-body text-accent font-semibold hover:underline"
+                    className="text-sm font-body text-amber-500 font-semibold hover:underline"
                   >
                     Read our full editorial policy &rarr;
                   </Link>
@@ -216,22 +216,22 @@ export default function TeamPage() {
       </section>
 
       {/* Work With Us */}
-      <section className="py-20 lg:py-24 bg-primary">
+      <section className="py-20 lg:py-24 bg-warm-100">
         <div className="editorial-container">
           <ScrollReveal>
             <div className="text-center max-w-xl mx-auto">
-              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent mb-4 block">
+              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500 mb-4 block">
                 Press &amp; Partnerships
               </span>
-              <h2 className="font-display text-3xl lg:text-4xl font-semibold text-white mb-4">
+              <h2 className="font-display text-3xl lg:text-4xl font-semibold text-navy-900 mb-4">
                 Work With Us
               </h2>
-              <p className="text-white/60 font-body text-lg leading-relaxed mb-8">
+              <p className="text-navy-700 font-body text-lg leading-relaxed mb-8">
                 Interested in press enquiries or brand partnerships? We&apos;d love to hear from you.
               </p>
               <a
                 href="mailto:hello@petgearhub.co.uk"
-                className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-body font-semibold px-6 py-3 rounded-lg transition-colors duration-200"
+                className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-500/90 text-white font-body font-semibold px-6 py-3 rounded-lg transition-colors duration-200"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

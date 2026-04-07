@@ -164,37 +164,37 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 {product.category && (
                   <Link
                     href={`/categories/${product.category.slug}`}
-                    className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent hover:underline underline-offset-4"
+                    className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500 hover:underline underline-offset-4"
                   >
                     {product.category.name}
                   </Link>
                 )}
                 {product.isStaffPick && (
-                  <span className="px-2.5 py-0.5 bg-primary text-white text-[10px] font-body font-semibold uppercase tracking-widest rounded-full">
+                  <span className="px-2.5 py-0.5 bg-navy-900 text-white text-[10px] font-body font-semibold uppercase tracking-widest rounded-full">
                     Staff Pick
                   </span>
                 )}
                 {product.isDeal && (
-                  <span className="px-2.5 py-0.5 bg-accent text-white text-[10px] font-body font-semibold uppercase tracking-widest rounded-full">
+                  <span className="px-2.5 py-0.5 bg-amber-500 text-white text-[10px] font-body font-semibold uppercase tracking-widest rounded-full">
                     Deal
                   </span>
                 )}
                 {product.petType && (
-                  <span className="px-2.5 py-0.5 bg-background border border-border-light text-[10px] font-body text-text-muted uppercase tracking-widest rounded-full">
+                  <span className="px-2.5 py-0.5 bg-warm-100 border border-warm-200 text-[10px] font-body text-warm-600 uppercase tracking-widest rounded-full">
                     {product.petType}
                   </span>
                 )}
               </div>
 
               {/* Title */}
-              <h1 className="font-display text-3xl lg:text-4xl font-semibold text-primary mb-1 leading-tight">
+              <h1 className="font-display text-3xl lg:text-4xl font-semibold text-navy-900 mb-1 leading-tight">
                 {product.title}
               </h1>
 
               {/* Brand */}
               {product.brand && (
-                <p className="text-sm font-body text-text-muted mb-3">
-                  by <span className="font-semibold text-text-secondary">{product.brand}</span>
+                <p className="text-sm font-body text-warm-600 mb-3">
+                  by <span className="font-semibold text-navy-700">{product.brand}</span>
                 </p>
               )}
 
@@ -210,7 +210,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
               )}
 
               {/* Price + Deal Countdown */}
-              <div className="flex flex-col gap-2 mb-6 pb-6 border-b border-border-light">
+              <div className="flex flex-col gap-2 mb-6 pb-6 border-b border-warm-200">
                 <PriceDisplay
                   price={product.price}
                   originalPrice={product.originalPrice}
@@ -224,10 +224,10 @@ export default async function ProductDetailPage({ params }: PageProps) {
               {/* AI Summary */}
               {product.aiSummary && (
                 <div className="mb-6">
-                  <h3 className="text-xs font-body font-semibold text-text-secondary uppercase tracking-[0.2em] mb-2">
+                  <h3 className="text-xs font-body font-semibold text-navy-700 uppercase tracking-[0.2em] mb-2">
                     Our Take
                   </h3>
-                  <p className="text-text-primary font-body leading-relaxed text-sm">
+                  <p className="text-navy-900 font-body leading-relaxed text-sm">
                     {product.aiSummary}
                   </p>
                 </div>
@@ -256,7 +256,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 </div>
               )}
 
-              <p className="text-xs text-text-muted text-center font-body mb-6">
+              <p className="text-xs text-warm-600 text-center font-body mb-6">
                 As an affiliate, we earn from qualifying purchases.
               </p>
 
@@ -278,16 +278,16 @@ export default async function ProductDetailPage({ params }: PageProps) {
           </div>
 
           {/* ── Full-width lower sections ─────────── */}
-          <div className="mt-16 pt-16 border-t border-border-light grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="mt-16 pt-16 border-t border-warm-200 grid grid-cols-1 lg:grid-cols-3 gap-12">
 
             {/* Description (2/3 width) */}
             <div className="lg:col-span-2 space-y-10">
               {product.description && (
                 <div>
-                  <h2 className="font-display text-xl font-semibold text-primary mb-4">
+                  <h2 className="font-display text-xl font-semibold text-navy-900 mb-4">
                     About this product
                   </h2>
-                  <p className="text-text-primary font-body leading-relaxed whitespace-pre-line">
+                  <p className="text-navy-900 font-body leading-relaxed whitespace-pre-line">
                     {product.description}
                   </p>
                 </div>
@@ -310,15 +310,15 @@ export default async function ProductDetailPage({ params }: PageProps) {
 
       {/* ── Related Products ─────────────────────── */}
       {relatedProducts.length > 0 && (
-        <section className="pb-24 border-t border-border-light pt-16">
+        <section className="pb-24 border-t border-warm-200 pt-16">
           <div className="editorial-container">
             <div className="flex items-baseline justify-between mb-10">
-              <h2 className="font-display text-2xl lg:text-3xl font-semibold text-primary">
+              <h2 className="font-display text-2xl lg:text-3xl font-semibold text-navy-900">
                 You might also like
               </h2>
               <Link
                 href={`/products${product.categoryId ? `?categoryId=${product.categoryId}` : ''}`}
-                className="text-sm font-body text-accent hover:underline underline-offset-4"
+                className="text-sm font-body text-amber-500 hover:underline underline-offset-4"
               >
                 View all
               </Link>

@@ -40,12 +40,12 @@ export default function ContactForm() {
   return (
     <>
       {/* Breadcrumb */}
-      <div className="pt-24 lg:pt-28 bg-background">
+      <div className="pt-24 lg:pt-28 bg-warm-50">
         <div className="editorial-container">
-          <nav className="flex items-center gap-2 text-sm font-body text-text-muted py-4" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-accent transition-colors">Home</Link>
+          <nav className="flex items-center gap-2 text-sm font-body text-navy-400 py-4" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-amber-500 transition-colors">Home</Link>
             <span aria-hidden="true">/</span>
-            <span className="text-text-secondary">Contact</span>
+            <span className="text-navy-700">Contact</span>
           </nav>
         </div>
       </div>
@@ -55,13 +55,13 @@ export default function ContactForm() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Left: Info */}
             <div>
-              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent mb-4 block">
+              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500 mb-4 block">
                 Say Hello
               </span>
-              <h1 className="font-display text-4xl font-semibold text-primary mb-6 leading-tight">
+              <h1 className="font-display text-4xl font-semibold text-navy-900 mb-6 leading-tight">
                 Get in Touch
               </h1>
-              <p className="text-text-secondary font-body leading-relaxed mb-8">
+              <p className="text-navy-700 font-body leading-relaxed mb-8">
                 Whether you have a product suggestion, partnership enquiry, or just want to say hello — we&apos;d love to hear from you.
               </p>
 
@@ -71,8 +71,8 @@ export default function ContactForm() {
                     <span className="text-white text-lg" role="img" aria-hidden="true">✉️</span>
                   </div>
                   <div>
-                    <p className="font-body font-semibold text-primary text-sm mb-1">Email Us</p>
-                    <a href="mailto:hello@petgearhub.co.uk" className="font-body text-text-secondary hover:text-accent transition-colors">
+                    <p className="font-body font-semibold text-navy-900 text-sm mb-1">Email Us</p>
+                    <a href="mailto:hello@petgearhub.co.uk" className="font-body text-navy-700 hover:text-amber-500 transition-colors">
                       hello@petgearhub.co.uk
                     </a>
                   </div>
@@ -83,8 +83,8 @@ export default function ContactForm() {
                     <span className="text-white text-lg" role="img" aria-hidden="true">⏱️</span>
                   </div>
                   <div>
-                    <p className="font-body font-semibold text-primary text-sm mb-1">Response Time</p>
-                    <p className="font-body text-text-secondary text-sm">We aim to respond within 2 business days.</p>
+                    <p className="font-body font-semibold text-navy-900 text-sm mb-1">Response Time</p>
+                    <p className="font-body text-navy-700 text-sm">We aim to respond within 2 business days.</p>
                   </div>
                 </div>
 
@@ -93,15 +93,15 @@ export default function ContactForm() {
                     <span className="text-white text-lg" role="img" aria-hidden="true">🇬🇧</span>
                   </div>
                   <div>
-                    <p className="font-body font-semibold text-primary text-sm mb-1">Based In</p>
-                    <p className="font-body text-text-secondary text-sm">United Kingdom</p>
+                    <p className="font-body font-semibold text-navy-900 text-sm mb-1">Based In</p>
+                    <p className="font-body text-navy-700 text-sm">United Kingdom</p>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-10 p-5 bg-background border border-border-light rounded-xl">
-                <p className="font-body text-sm text-text-secondary leading-relaxed">
-                  <strong className="text-primary">For product partnerships:</strong> We only partner with brands whose products we can genuinely recommend. Please include details of the product and why you think it would suit our audience.
+              <div className="mt-10 p-5 bg-white border border-warm-300 rounded-xl shadow-hover">
+                <p className="font-body text-sm text-navy-700 leading-relaxed">
+                  <strong className="text-navy-900">For product partnerships:</strong> We only partner with brands whose products we can genuinely recommend. Please include details of the product and why you think it would suit our audience.
                 </p>
               </div>
             </div>
@@ -109,10 +109,10 @@ export default function ContactForm() {
             {/* Right: Form */}
             <div>
               {status === 'success' ? (
-                <div className="bg-white rounded-2xl p-10 border border-border-light text-center">
+                <div className="bg-white rounded-2xl p-10 border border-warm-300 shadow-hover text-center">
                   <div className="text-5xl mb-6" role="img" aria-label="Success">✅</div>
-                  <h2 className="font-display text-2xl font-semibold text-primary mb-3">Message Sent!</h2>
-                  <p className="font-body text-text-secondary mb-6">{statusMessage}</p>
+                  <h2 className="font-display text-2xl font-semibold text-navy-900 mb-3">Message Sent!</h2>
+                  <p className="font-body text-navy-700 mb-6">{statusMessage}</p>
                   <button
                     onClick={() => setStatus('idle')}
                     className="btn-outline text-sm"
@@ -121,8 +121,8 @@ export default function ContactForm() {
                   </button>
                 </div>
               ) : (
-                <div className="bg-white rounded-2xl p-8 border border-border-light">
-                  <h2 className="font-display text-xl font-semibold text-primary mb-6">Send a Message</h2>
+                <div className="bg-white rounded-2xl p-8 border border-warm-300 shadow-hover">
+                  <h2 className="font-display text-xl font-semibold text-navy-900 mb-6">Send a Message</h2>
 
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <div>

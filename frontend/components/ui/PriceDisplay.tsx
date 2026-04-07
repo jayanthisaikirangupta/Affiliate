@@ -10,7 +10,7 @@ function formatGBP(price: number): string {
 }
 
 export default function PriceDisplay({ price, originalPrice, size = 'md', showSavings = true }: PriceDisplayProps) {
-  if (!price) return <span className="text-sm text-text-muted font-body">See price on retailer</span>;
+  if (!price) return <span className="text-sm text-warm-500 font-body">See price on retailer</span>;
 
   const savings = originalPrice && originalPrice > price
     ? Math.round(((originalPrice - price) / originalPrice) * 100)
@@ -20,12 +20,12 @@ export default function PriceDisplay({ price, originalPrice, size = 'md', showSa
 
   return (
     <div className="flex items-baseline gap-2 flex-wrap">
-      <span className={`font-display ${priceClasses[size]} text-primary`}>{formatGBP(price)}</span>
+      <span className={`font-display ${priceClasses[size]} text-navy-900`}>{formatGBP(price)}</span>
       {originalPrice && originalPrice > price && (
-        <span className="text-sm text-text-muted line-through font-body">{formatGBP(originalPrice)}</span>
+        <span className="text-sm text-warm-500 line-through font-body">{formatGBP(originalPrice)}</span>
       )}
       {showSavings && savings && (
-        <span className="px-2 py-0.5 bg-accent/10 text-accent text-xs font-semibold font-body rounded-full">
+        <span className="px-2 py-0.5 bg-success text-white text-xs font-bold font-body rounded-full">
           Save {savings}%
         </span>
       )}

@@ -31,13 +31,13 @@ export default function HeroSearch() {
       onSubmit={handleSubmit}
       role="search"
       aria-label="Search products and guides"
-      className="flex items-center w-full max-w-xl bg-white rounded-full shadow-lg border border-border-light overflow-hidden focus-within:ring-2 focus-within:ring-accent/40 focus-within:border-accent transition-all"
+      className="flex items-center w-full max-w-xl bg-white rounded-full shadow-xl border border-warm-300 overflow-hidden focus-within:ring-2 focus-within:ring-amber-500/20 focus-within:border-amber-500 transition-all"
     >
       <label htmlFor="hero-search-input" className="sr-only">
         Search products and guides
       </label>
       {/* Search icon */}
-      <div className="pl-5 pr-2 flex-shrink-0 text-text-muted" aria-hidden="true">
+      <div className="pl-5 pr-2 flex-shrink-0 text-navy-500" aria-hidden="true">
         <svg
           width="18"
           height="18"
@@ -60,14 +60,14 @@ export default function HeroSearch() {
         onChange={(e) => setQuery(e.target.value)}
         onKeyDown={handleKeyDown}
         placeholder="Search dog beds, cat food, leads..."
-        className="flex-1 py-3.5 pr-2 text-sm font-body text-primary placeholder:text-text-muted bg-transparent outline-none"
+        className="flex-1 py-3.5 pr-2 text-sm font-body text-navy-900 placeholder:text-navy-400 bg-transparent outline-none"
         autoComplete="off"
         autoCorrect="off"
         spellCheck={false}
       />
       <button
         type="submit"
-        className="btn-primary m-1.5 px-6 py-2.5 text-xs whitespace-nowrap flex-shrink-0"
+        className="bg-amber-500 text-white hover:bg-amber-600 rounded-full m-1.5 px-6 py-2.5 text-xs font-bold whitespace-nowrap flex-shrink-0 transition-colors"
         aria-label="Submit search"
       >
         Search

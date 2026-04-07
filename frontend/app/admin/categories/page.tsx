@@ -53,7 +53,7 @@ export default function AdminCategoriesPage() {
     <div>
       <div className="mb-8">
         <h1 className="font-display text-2xl font-semibold text-primary">Categories</h1>
-        <p className="text-sm font-body text-text-secondary mt-1">Manage product categories</p>
+        <p className="text-sm font-body text-navy-700 mt-1">Manage product categories</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -73,7 +73,7 @@ export default function AdminCategoriesPage() {
                     </div>
                     <div>
                       <p className="text-sm font-body font-semibold text-primary">{cat.name}</p>
-                      <p className="text-xs text-text-muted">
+                      <p className="text-xs text-warm-600">
                         {cat._count?.products || 0} {(cat._count?.products ?? 0) === 1 ? 'product' : 'products'} · /{cat.slug}
                       </p>
                     </div>
@@ -88,7 +88,7 @@ export default function AdminCategoriesPage() {
               ))}
             </div>
           ) : (
-            <p className="text-sm text-text-muted font-body py-8 text-center">No categories yet</p>
+            <p className="text-sm text-warm-600 font-body py-8 text-center">No categories yet</p>
           )}
         </div>
 

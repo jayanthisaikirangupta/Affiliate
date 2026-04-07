@@ -35,7 +35,7 @@ function Form({ onSuccess }: { onSuccess: (msg: string) => void }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="flex gap-2 max-w-sm mx-auto">
+      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 max-w-sm mx-auto">
         <label htmlFor="nl-cta-email" className="sr-only">Email address</label>
         <input
           id="nl-cta-email"
@@ -45,9 +45,9 @@ function Form({ onSuccess }: { onSuccess: (msg: string) => void }) {
           placeholder="Your email address"
           required
           disabled={status === 'loading'}
-          className="flex-1 px-4 py-2.5 border border-border rounded-full font-body text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent disabled:opacity-50"
+          className="flex-1 min-w-0 px-4 py-2.5 border border-white/20 rounded-full font-body text-sm text-white placeholder:text-navy-300 bg-white/10 focus:outline-none focus:ring-2 focus:ring-amber-400/30 focus:border-amber-400 disabled:opacity-50"
         />
-        <button type="submit" disabled={status === 'loading'} className="btn-primary py-2.5 whitespace-nowrap text-xs disabled:opacity-50">
+        <button type="submit" disabled={status === 'loading'} className="bg-amber-500 hover:bg-amber-600 text-white font-bold px-5 py-2.5 rounded-full whitespace-nowrap text-xs transition-colors disabled:opacity-50">
           {status === 'loading' ? '...' : 'Subscribe'}
         </button>
       </form>
@@ -65,13 +65,13 @@ export default function NewsletterCTA({
 
   if (variant === 'full') {
     return (
-      <section className="py-16 bg-primary rounded-2xl px-8 text-center">
-        <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent">Newsletter</span>
+      <section className="py-16 px-8 bg-navy-900 rounded-3xl text-center">
+        <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-400">Newsletter</span>
         <h2 className="font-display text-3xl font-semibold text-white mt-3 mb-3">{heading}</h2>
-        <p className="text-white/60 font-body mb-8 max-w-md mx-auto">{description}</p>
+        <p className="text-navy-200 font-body mb-8 max-w-md mx-auto">{description}</p>
         {successMsg ? (
-          <div className="py-3 px-5 bg-green-50 border border-green-100 rounded-xl inline-block">
-            <p className="text-green-700 font-body font-medium text-sm">{successMsg}</p>
+          <div className="py-3 px-5 bg-green-500/20 border border-green-500/50 rounded-xl inline-block">
+            <p className="text-green-300 font-body font-medium text-sm">{successMsg}</p>
           </div>
         ) : (
           <Form onSuccess={setSuccessMsg} />
@@ -81,13 +81,13 @@ export default function NewsletterCTA({
   }
 
   return (
-    <div className="bg-background border border-border-light rounded-2xl p-8">
-      <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent">Newsletter</span>
-      <h3 className="font-display text-xl font-semibold text-primary mt-2 mb-2">{heading}</h3>
-      <p className="text-text-secondary font-body text-sm mb-6">{description}</p>
+    <div className="bg-navy-900 rounded-3xl p-8 overflow-hidden">
+      <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-400">Newsletter</span>
+      <h3 className="font-display text-xl font-semibold text-white mt-2 mb-2">{heading}</h3>
+      <p className="text-navy-200 font-body text-sm mb-6">{description}</p>
       {successMsg ? (
-        <div className="py-3 px-5 bg-green-50 border border-green-100 rounded-xl inline-block">
-          <p className="text-green-700 font-body font-medium text-sm">{successMsg}</p>
+        <div className="py-3 px-5 bg-green-500/20 border border-green-500/50 rounded-xl inline-block">
+          <p className="text-green-300 font-body font-medium text-sm">{successMsg}</p>
         </div>
       ) : (
         <Form onSuccess={setSuccessMsg} />

@@ -32,7 +32,7 @@ export default function AdminAnalyticsPage() {
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="font-display text-2xl font-semibold text-primary">Analytics</h1>
-          <p className="text-sm font-body text-text-secondary mt-1">Track views and affiliate clicks</p>
+          <p className="text-sm font-body text-navy-700 mt-1">Track views and affiliate clicks</p>
         </div>
         <div className="flex gap-2">
           {[7, 30, 90].map((d) => (
@@ -40,7 +40,7 @@ export default function AdminAnalyticsPage() {
               key={d}
               onClick={() => setDays(d)}
               className={`px-3 py-1.5 rounded-lg text-xs font-body font-medium transition-colors ${
-                days === d ? 'bg-primary text-white' : 'bg-background text-text-secondary hover:bg-border-light'
+                days === d ? 'bg-primary text-white' : 'bg-background text-navy-700 hover:bg-border-light'
               }`}
             >
               {d}d
@@ -65,19 +65,19 @@ export default function AdminAnalyticsPage() {
       {/* Summary stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         <div className="admin-card">
-          <p className="text-xs font-body font-semibold text-text-muted uppercase tracking-wide">Total Views</p>
+          <p className="text-xs font-body font-semibold text-warm-600 uppercase tracking-wide">Total Views</p>
           <p className="text-3xl font-display font-bold text-primary mt-2">
             {loading ? '—' : (data?.totalViews || 0).toLocaleString()}
           </p>
         </div>
         <div className="admin-card">
-          <p className="text-xs font-body font-semibold text-text-muted uppercase tracking-wide">Total Clicks</p>
-          <p className="text-3xl font-display font-bold text-accent mt-2">
+          <p className="text-xs font-body font-semibold text-warm-600 uppercase tracking-wide">Total Clicks</p>
+          <p className="text-3xl font-display font-bold text-amber-500 mt-2">
             {loading ? '—' : (data?.totalClicks || 0).toLocaleString()}
           </p>
         </div>
         <div className="admin-card">
-          <p className="text-xs font-body font-semibold text-text-muted uppercase tracking-wide">Click-Through Rate</p>
+          <p className="text-xs font-body font-semibold text-warm-600 uppercase tracking-wide">Click-Through Rate</p>
           <p className="text-3xl font-display font-bold text-primary mt-2">
             {loading ? '—' : `${data?.ctr || '0'}%`}
           </p>
@@ -96,7 +96,7 @@ export default function AdminAnalyticsPage() {
                 <div key={i} className="flex-1 flex flex-col items-center gap-1" title={`${day.date}: ${day.views} views, ${day.clicks} clicks`}>
                   <div className="w-full flex flex-col items-center justify-end" style={{ height: '100%' }}>
                     <div
-                      className="w-full bg-accent/20 rounded-t hover:bg-accent/40 transition-colors relative group"
+                      className="w-full bg-amber-500/20 rounded-t hover:bg-amber-600/40 transition-colors relative group"
                       style={{ height: `${Math.max(height, 2)}%` }}
                     >
                       {/* Click bar overlay */}
@@ -120,17 +120,17 @@ export default function AdminAnalyticsPage() {
             })}
           </div>
           <div className="flex justify-between mt-2">
-            <span className="text-[10px] text-text-muted font-body">{data.dailyStats[0]?.date}</span>
-            <span className="text-[10px] text-text-muted font-body">{data.dailyStats[data.dailyStats.length - 1]?.date}</span>
+            <span className="text-[10px] text-warm-600 font-body">{data.dailyStats[0]?.date}</span>
+            <span className="text-[10px] text-warm-600 font-body">{data.dailyStats[data.dailyStats.length - 1]?.date}</span>
           </div>
           <div className="flex items-center gap-4 mt-4">
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-accent/20 rounded" />
-              <span className="text-xs text-text-muted font-body">Views</span>
+              <div className="w-3 h-3 bg-amber-500/20 rounded" />
+              <span className="text-xs text-warm-600 font-body">Views</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 gold-gradient rounded" />
-              <span className="text-xs text-text-muted font-body">Clicks</span>
+              <span className="text-xs text-warm-600 font-body">Clicks</span>
             </div>
           </div>
         </div>
@@ -148,20 +148,20 @@ export default function AdminAnalyticsPage() {
             {data.topProducts.map((product, i) => (
               <div key={product.id} className="flex items-center justify-between py-3">
                 <div className="flex items-center gap-3">
-                  <span className="w-6 text-center text-sm font-display font-bold text-text-muted">
+                  <span className="w-6 text-center text-sm font-display font-bold text-warm-600">
                     {i + 1}
                   </span>
                   <p className="text-sm font-body font-medium text-primary">{product.title}</p>
                 </div>
                 <div className="flex items-center gap-6 text-sm font-body">
-                  <span className="text-text-secondary">{product.views.toLocaleString()} views</span>
-                  <span className="text-accent font-semibold">{product.clicks.toLocaleString()} clicks</span>
+                  <span className="text-navy-700">{product.views.toLocaleString()} views</span>
+                  <span className="text-amber-500 font-semibold">{product.clicks.toLocaleString()} clicks</span>
                 </div>
               </div>
             ))}
           </div>
         ) : (
-          <p className="text-sm text-text-muted font-body py-8 text-center">
+          <p className="text-sm text-warm-600 font-body py-8 text-center">
             No analytics data yet. Views and clicks will appear as users visit your site.
           </p>
         )}

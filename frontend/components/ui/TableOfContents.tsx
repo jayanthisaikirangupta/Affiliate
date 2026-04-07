@@ -32,10 +32,10 @@ export default function TableOfContents({ items: propItems, contentSelector = '.
   if (!items.length) return null;
 
   return (
-    <nav className="bg-background border border-border-light rounded-xl p-5" aria-label="Table of contents">
+    <nav className="bg-warm-50 border border-warm-300 rounded-2xl p-5" aria-label="Table of contents">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="font-body text-xs font-semibold uppercase tracking-widest text-text-muted">Contents</h3>
-        <button onClick={() => setCollapsed(!collapsed)} className="text-xs font-body text-accent hover:underline" aria-expanded={!collapsed}>
+        <h3 className="font-body text-lg font-bold text-navy-900">Contents</h3>
+        <button onClick={() => setCollapsed(!collapsed)} className="text-xs font-body text-amber-500 hover:underline" aria-expanded={!collapsed}>
           {collapsed ? 'Show' : 'Hide'}
         </button>
       </div>
@@ -44,7 +44,7 @@ export default function TableOfContents({ items: propItems, contentSelector = '.
           {items.map(item => (
             <li key={item.id} className={item.level === 3 ? 'ml-4' : ''}>
               <a href={`#${item.id}`}
-                className={`text-sm font-body block py-0.5 leading-snug transition-colors duration-150 hover:text-accent ${activeId === item.id ? 'text-accent font-semibold' : 'text-text-secondary'}`}>
+                className={`text-sm font-body block py-0.5 leading-snug transition-colors duration-150 hover:text-amber-500 ${activeId === item.id ? 'text-amber-500 font-medium border-l-2 border-amber-500 pl-2' : 'text-navy-500'}`}>
                 {item.text}
               </a>
             </li>

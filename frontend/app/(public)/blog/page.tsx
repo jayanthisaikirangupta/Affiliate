@@ -72,19 +72,19 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
       <div className="editorial-container">
         {/* Page header */}
         <div className="max-w-2xl mb-12">
-          <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent">
+          <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500">
             Editorial
           </span>
-          <h1 className="font-display text-hero text-primary mt-3 mb-4">
+          <h1 className="font-display text-hero text-navy-900 mt-3 mb-4">
             Pet Care Guides &amp; Reviews
           </h1>
-          <p className="text-text-secondary font-body text-lg leading-relaxed">
+          <p className="text-navy-700 font-body text-lg leading-relaxed">
             Expert-written guides, honest comparisons, and practical advice for every kind of pet owner.
           </p>
         </div>
 
         {/* Filters — client component wrapped in Suspense for useSearchParams */}
-        <Suspense fallback={<div className="h-24 animate-pulse bg-border-light rounded-xl mb-10" />}>
+        <Suspense fallback={<div className="h-24 animate-pulse bg-warm-200 rounded-xl mb-10" />}>
           <BlogFilters activeType={activeType} activePetType={activePetType} />
         </Suspense>
 
@@ -106,9 +106,9 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 ))}
               </div>
             ) : (
-              <div className="text-center py-24 border border-border-light rounded-2xl bg-white">
-                <p className="font-display text-xl text-primary mb-2">No articles found</p>
-                <p className="text-text-secondary font-body text-sm">
+              <div className="text-center py-24 border border-warm-200 rounded-2xl bg-white shadow-hover">
+                <p className="font-display text-xl text-navy-900 mb-2">No articles found</p>
+                <p className="text-navy-700 font-body text-sm">
                   Try adjusting your filters or check back soon.
                 </p>
                 <Link href="/blog" className="btn-outline mt-6 inline-block text-sm">
@@ -137,7 +137,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                   </span>
                 )}
 
-                <span className="font-body text-sm text-text-muted">
+                <span className="font-body text-sm text-warm-600">
                   Page {currentPage} of {meta.totalPages}
                 </span>
 
@@ -161,8 +161,8 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
           {/* ── SIDEBAR ──────────────────────────────── */}
           <aside className="w-full lg:w-72 flex-shrink-0 space-y-8 lg:sticky lg:top-28 lg:self-start">
             {/* Latest articles */}
-            <div className="bg-white border border-border-light rounded-2xl p-6">
-              <h2 className="font-body text-xs font-semibold uppercase tracking-widest text-text-muted mb-5">
+            <div className="bg-white border border-warm-200 rounded-2xl p-6 shadow-hover">
+              <h2 className="font-body text-xs font-semibold uppercase tracking-widest text-warm-600 mb-5">
                 Latest Articles
               </h2>
               <div className="space-y-5">
@@ -171,12 +171,12 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                     <ArticleCard key={article.id} article={article} variant="compact" />
                   ))
                 ) : (
-                  <p className="text-sm font-body text-text-muted">No articles yet.</p>
+                  <p className="text-sm font-body text-warm-600">No articles yet.</p>
                 )}
               </div>
               <Link
                 href="/blog"
-                className="block text-center text-xs font-body font-semibold text-accent mt-5 hover:underline underline-offset-4"
+                className="block text-center text-xs font-body font-semibold text-amber-500 mt-5 hover:underline underline-offset-4"
               >
                 View all articles →
               </Link>
@@ -186,8 +186,8 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
             <NewsletterCTA variant="inline" />
 
             {/* Browse by type */}
-            <div className="bg-white border border-border-light rounded-2xl p-6">
-              <h2 className="font-body text-xs font-semibold uppercase tracking-widest text-text-muted mb-4">
+            <div className="bg-white border border-warm-200 rounded-2xl p-6 shadow-hover">
+              <h2 className="font-body text-xs font-semibold uppercase tracking-widest text-warm-600 mb-4">
                 Browse by Type
               </h2>
               <ul className="space-y-2">
@@ -200,12 +200,12 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                   <li key={value}>
                     <Link
                       href={`/blog?type=${value}`}
-                      className={`flex items-center justify-between py-1.5 text-sm font-body transition-colors hover:text-accent ${
-                        activeType === value ? 'text-accent font-semibold' : 'text-text-secondary'
+                      className={`flex items-center justify-between py-1.5 text-sm font-body transition-colors hover:text-amber-500 ${
+                        activeType === value ? 'text-amber-500 font-semibold' : 'text-navy-700'
                       }`}
                     >
                       <span>{label}</span>
-                      <span className="text-text-muted text-xs">→</span>
+                      <span className="text-warm-600 text-xs">→</span>
                     </Link>
                   </li>
                 ))}

@@ -48,18 +48,18 @@ function QuickPicks({
   picks: Array<{ label: string; productId: string }>;
 }) {
   return (
-    <div className="bg-amber-50/60 border border-accent/20 rounded-2xl p-6 mb-8">
+    <div className="bg-amber-50/60 border border-amber-300/20 rounded-2xl p-6 mb-8">
       <div className="flex items-center gap-2 mb-4">
-        <span className="text-accent text-lg" aria-hidden="true">★</span>
-        <h2 className="font-display text-lg font-bold text-primary">Our Top Picks</h2>
+        <span className="text-amber-500 text-lg" aria-hidden="true">★</span>
+        <h2 className="font-display text-lg font-bold text-navy-900">Our Top Picks</h2>
       </div>
       <ol className="space-y-3">
         {picks.map((pick, i) => (
           <li key={pick.productId} className="flex items-start gap-3">
-            <span className="flex-shrink-0 w-6 h-6 rounded-full bg-accent text-white text-xs font-body font-bold flex items-center justify-center mt-0.5">
+            <span className="flex-shrink-0 w-6 h-6 rounded-full bg-amber-500 text-white text-xs font-body font-bold flex items-center justify-center mt-0.5">
               {i + 1}
             </span>
-            <span className="font-body text-sm text-text-secondary leading-snug">
+            <span className="font-body text-sm text-navy-700 leading-snug">
               {pick.label}
             </span>
           </li>
@@ -76,14 +76,14 @@ function ComparisonGlance({ products }: { products: string[] }) {
     <div className="bg-blue-50/60 border border-blue-200 rounded-2xl p-6 mb-8">
       <div className="flex items-center gap-2 mb-4">
         <span className="text-blue-600 text-lg" aria-hidden="true">⇄</span>
-        <h2 className="font-display text-lg font-bold text-primary">Comparison at a Glance</h2>
+        <h2 className="font-display text-lg font-bold text-navy-900">Comparison at a Glance</h2>
       </div>
-      <p className="text-xs font-body text-text-muted uppercase tracking-widest mb-3">Products compared in this article</p>
+      <p className="text-xs font-body text-warm-600 uppercase tracking-widest mb-3">Products compared in this article</p>
       <ul className="space-y-2">
         {products.map((name, i) => (
           <li key={i} className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" aria-hidden="true" />
-            <span className="font-body text-sm text-text-secondary">{name}</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0" aria-hidden="true" />
+            <span className="font-body text-sm text-navy-700">{name}</span>
           </li>
         ))}
       </ul>
@@ -105,8 +105,8 @@ async function RelatedArticles() {
   if (!articles.length) return null;
 
   return (
-    <section className="mt-16 pt-12 border-t border-border-light">
-      <h2 className="font-display text-2xl font-semibold text-primary mb-8">Related Guides</h2>
+    <section className="mt-16 pt-12 border-t border-warm-200">
+      <h2 className="font-display text-2xl font-semibold text-navy-900 mb-8">Related Guides</h2>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
         {articles.map((article) => (
           <ArticleCard key={article.id} article={article} variant="compact" />
@@ -149,12 +149,12 @@ async function BuyersGuideTemplate({
             priority
           />
         ) : (
-          <div className="w-full h-full bg-gradient-to-br from-primary to-primary/70" />
+          <div className="w-full h-full bg-gradient-to-br from-navy-900 to-primary/70" />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-10">
           {article.type && (
-            <span className="inline-block text-xs font-body font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-accent/10 text-accent mb-3">
+            <span className="inline-block text-xs font-body font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-500/10 text-amber-500 mb-3">
               Buyer&apos;s Guide
             </span>
           )}
@@ -204,8 +204,8 @@ async function BuyersGuideTemplate({
 
           {/* Author bio */}
           {article.authorName && (
-            <div className="mt-12 pt-8 border-t border-border-light">
-              <p className="text-xs font-body font-semibold uppercase tracking-widest text-text-muted mb-4">
+            <div className="mt-12 pt-8 border-t border-warm-200">
+              <p className="text-xs font-body font-semibold uppercase tracking-widest text-warm-600 mb-4">
                 About the author
               </p>
               <AuthorBio
@@ -220,7 +220,7 @@ async function BuyersGuideTemplate({
           )}
 
           {/* Share buttons */}
-          <div className="mt-8 pt-6 border-t border-border-light">
+          <div className="mt-8 pt-6 border-t border-warm-200">
             <ShareButtons url={articleUrl} title={article.title} />
           </div>
 
@@ -271,7 +271,7 @@ async function ComparisonTemplate({
             priority
           />
         ) : (
-          <div className="w-full h-full bg-gradient-to-br from-primary to-primary/70" />
+          <div className="w-full h-full bg-gradient-to-br from-navy-900 to-primary/70" />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-10">
@@ -324,8 +324,8 @@ async function ComparisonTemplate({
 
           {/* Author bio */}
           {article.authorName && (
-            <div className="mt-12 pt-8 border-t border-border-light">
-              <p className="text-xs font-body font-semibold uppercase tracking-widest text-text-muted mb-4">
+            <div className="mt-12 pt-8 border-t border-warm-200">
+              <p className="text-xs font-body font-semibold uppercase tracking-widest text-warm-600 mb-4">
                 About the author
               </p>
               <AuthorBio
@@ -340,7 +340,7 @@ async function ComparisonTemplate({
           )}
 
           {/* Share buttons */}
-          <div className="mt-8 pt-6 border-t border-border-light">
+          <div className="mt-8 pt-6 border-t border-warm-200">
             <ShareButtons url={articleUrl} title={article.title} />
           </div>
 
@@ -393,11 +393,11 @@ function BlogPostTemplate({
             {article.type === 'news' ? 'News' : 'Blog Post'}
           </span>
         )}
-        <h1 className="font-display text-3xl sm:text-4xl font-bold text-primary leading-tight mb-3">
+        <h1 className="font-display text-3xl sm:text-4xl font-bold text-navy-900 leading-tight mb-3">
           {article.title}
         </h1>
         {article.subtitle && (
-          <p className="font-body text-text-secondary text-lg leading-relaxed">{article.subtitle}</p>
+          <p className="font-body text-navy-700 text-lg leading-relaxed">{article.subtitle}</p>
         )}
       </header>
 
@@ -436,8 +436,8 @@ function BlogPostTemplate({
 
       {/* Author bio */}
       {article.authorName && (
-        <div className="mt-12 pt-8 border-t border-border-light">
-          <p className="text-xs font-body font-semibold uppercase tracking-widest text-text-muted mb-4">
+        <div className="mt-12 pt-8 border-t border-warm-200">
+          <p className="text-xs font-body font-semibold uppercase tracking-widest text-warm-600 mb-4">
             About the author
           </p>
           <AuthorBio
@@ -452,7 +452,7 @@ function BlogPostTemplate({
       )}
 
       {/* Share buttons */}
-      <div className="mt-8 pt-6 border-t border-border-light">
+      <div className="mt-8 pt-6 border-t border-warm-200">
         <ShareButtons url={articleUrl} title={article.title} />
       </div>
 

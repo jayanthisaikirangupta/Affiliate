@@ -43,19 +43,19 @@ export default function DealsPage() {
         );
 
   return (
-    <div className="pt-24 lg:pt-32 pb-24 bg-background min-h-screen">
+    <div className="pt-24 lg:pt-32 pb-24 bg-warm-100 min-h-screen">
       {/* Hero */}
-      <section className="bg-primary py-16 lg:py-20 mb-16">
+      <section className="bg-warm-100 py-16 lg:py-20 mb-16">
         <div className="editorial-container">
           <ScrollReveal>
             <div className="max-w-2xl">
-              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent mb-4 block">
+              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500 mb-4 block">
                 Updated Daily
               </span>
-              <h1 className="font-display text-4xl lg:text-5xl font-semibold text-white leading-tight mb-4">
+              <h1 className="font-display text-4xl lg:text-5xl font-semibold text-navy-900 leading-tight mb-4">
                 Today&apos;s Best Pet Deals
               </h1>
-              <p className="text-white/60 font-body text-lg leading-relaxed">
+              <p className="text-navy-700 font-body text-lg leading-relaxed">
                 Hand-picked deals on top-rated pet products, updated daily
               </p>
             </div>
@@ -66,15 +66,15 @@ export default function DealsPage() {
       <div className="editorial-container">
         {/* Filter bar */}
         <ScrollReveal>
-          <div className="flex flex-wrap gap-3 mb-12 pb-8 border-b border-border-light">
+          <div className="flex flex-wrap gap-3 mb-12 pb-8 border-b border-warm-200">
             {PET_TYPES.map((type) => (
               <button
                 key={type}
                 onClick={() => setActivePetType(type)}
                 className={`px-4 py-2 rounded-full text-sm font-body font-medium transition-all duration-200 ${
                   activePetType === type
-                    ? 'bg-primary text-white'
-                    : 'bg-white text-text-secondary border border-border-light hover:border-accent hover:text-accent'
+                    ? 'bg-amber-500 text-white'
+                    : 'bg-white text-navy-700 border border-warm-300 hover:border-amber-500 hover:text-amber-500'
                 }`}
               >
                 {type}
@@ -86,7 +86,7 @@ export default function DealsPage() {
         {/* Error state */}
         {error && (
           <div className="text-center py-20">
-            <p className="font-body text-text-secondary mb-4" role="alert">{error}</p>
+            <p className="font-body text-navy-700 mb-4" role="alert">{error}</p>
             <button onClick={fetchDeals} className="btn-primary text-sm">
               Try Again
             </button>
@@ -97,7 +97,7 @@ export default function DealsPage() {
         {!error && loading && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {Array.from({ length: 8 }).map((_, i) => (
-              <div key={i} className="bg-white rounded-2xl h-96 animate-pulse border border-border-light" />
+              <div key={i} className="bg-white rounded-2xl h-96 animate-pulse border border-white/[0.08]" />
             ))}
           </div>
         )}
@@ -116,13 +116,13 @@ export default function DealsPage() {
         {/* Empty state */}
         {!error && !loading && filteredProducts.length === 0 && (
           <div className="text-center py-24">
-            <div className="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="w-20 h-20 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
               <span className="text-4xl" aria-hidden="true">🐾</span>
             </div>
-            <h2 className="font-display text-2xl text-primary mb-3">
+            <h2 className="font-display text-2xl text-navy-900 mb-3">
               {activePetType === 'All' ? 'No deals right now' : `No ${activePetType} deals right now`}
             </h2>
-            <p className="text-text-secondary font-body max-w-md mx-auto">
+            <p className="text-navy-700 font-body max-w-md mx-auto">
               Check back soon — we update our deals daily with the best hand-picked offers for your pets.
             </p>
             {activePetType !== 'All' && (
@@ -153,9 +153,9 @@ function DealCard({ product }: { product: Product }) {
     : null;
 
   return (
-    <article className="card-hover bg-white rounded-2xl border border-border-light overflow-hidden flex flex-col h-full">
+    <article className="card-hover bg-white rounded-2xl border border-warm-200 shadow-hover overflow-hidden flex flex-col h-full hover:shadow-hover transition-shadow">
       {/* Image */}
-      <div className="relative w-full aspect-[4/3] bg-background overflow-hidden">
+      <div className="relative w-full aspect-[4/3] bg-warm-100-alt overflow-hidden">
         {product.images?.[0] ? (
           <Image
             src={product.images[0]}
@@ -171,13 +171,13 @@ function DealCard({ product }: { product: Product }) {
         )}
         {/* Savings badge */}
         {savingsPct && (
-          <div className="absolute top-3 left-3 bg-accent text-white text-xs font-body font-bold px-2.5 py-1 rounded-full shadow-sm">
+          <div className="absolute top-3 left-3 bg-amber-500 text-white text-xs font-body font-bold px-2.5 py-1 rounded-full shadow-sm">
             -{savingsPct}%
           </div>
         )}
         {/* Deal badge */}
         {product.isDeal && (
-          <div className="absolute top-3 right-3 bg-primary text-white text-xs font-body font-semibold px-2.5 py-1 rounded-full shadow-sm">
+          <div className="absolute top-3 right-3 bg-amber-500 text-white text-xs font-body font-semibold px-2.5 py-1 rounded-full shadow-sm">
             Deal
           </div>
         )}
@@ -187,13 +187,13 @@ function DealCard({ product }: { product: Product }) {
       <div className="p-5 flex flex-col flex-1 gap-3">
         {/* Pet type tag */}
         {product.petType && (
-          <span className="text-xs font-body font-semibold uppercase tracking-widest text-accent">
+          <span className="text-xs font-body font-semibold uppercase tracking-widest text-amber-500">
             {product.petType}
           </span>
         )}
 
         {/* Product name */}
-        <h3 className="font-display text-base font-semibold text-primary leading-snug line-clamp-2">
+        <h3 className="font-display text-base font-semibold text-navy-900 leading-snug line-clamp-2">
           {product.title}
         </h3>
 

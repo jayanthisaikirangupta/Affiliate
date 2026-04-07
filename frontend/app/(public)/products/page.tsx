@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import type { Product } from '@/lib/types';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import ProductCard from '@/components/public/ProductCard';
-import ProductFiltersWrapper from './_components/ProductFiltersWrapper';
+import ProductFiltersWrapper, { ProductList } from './_components/ProductFiltersWrapper';
 import { PawIcon } from '@/components/PawIcon';
 import Link from 'next/link';
 
@@ -79,20 +79,20 @@ export default async function ProductsPage({ searchParams }: PageProps) {
         {/* Page header */}
         <ScrollReveal>
           <div className="max-w-2xl mb-12">
-            <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent">
+            <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500">
               The Collection
             </span>
-            <h1 className="font-display text-hero text-primary mt-3 mb-4">
+            <h1 className="font-display text-hero text-navy-900 mt-3 mb-4">
               All Products
             </h1>
-            <p className="text-text-secondary font-body text-lg">
+            <p className="text-navy-700 font-body text-lg">
               Every product reviewed and recommended by our editorial team.
             </p>
           </div>
         </ScrollReveal>
 
         {/* Filters — client island wrapped in Suspense */}
-        <Suspense fallback={<div className="h-24 animate-pulse bg-white rounded-xl border border-border-light mb-10" />}>
+        <Suspense fallback={<div className="h-24 animate-pulse bg-white rounded-xl border border-warm-200 mb-10" />}>
           <ProductFiltersWrapper total={meta.total} />
         </Suspense>
 
@@ -101,8 +101,8 @@ export default async function ProductsPage({ searchParams }: PageProps) {
           <ProductsGrid products={products} searchParams={searchParams} />
         ) : (
           <div className="text-center py-20">
-            <h3 className="font-display text-xl text-primary mb-2">No products found</h3>
-            <p className="text-text-secondary font-body mb-6">
+            <h3 className="font-display text-xl text-navy-900 mb-2">No products found</h3>
+            <p className="text-navy-700 font-body mb-6">
               Try adjusting your filters or browse the full collection.
             </p>
             <Link href="/products" className="btn-primary text-sm">
@@ -137,7 +137,7 @@ function ProductsGrid({
   // ProductFiltersWrapper controls the view state client-side and swaps the layout.
   return (
     <Suspense fallback={null}>
-      <ProductFiltersWrapper.ProductList products={products} />
+      <ProductList products={products} />
     </Suspense>
   );
 }
@@ -178,7 +178,7 @@ function Pagination({
     <div className="flex justify-center gap-2 mt-16" aria-label="Pagination">
       {pages.map((p, i) =>
         p === 'ellipsis' ? (
-          <span key={`ellipsis-${i}`} className="w-10 h-10 flex items-center justify-center text-text-muted font-body text-sm">
+          <span key={`ellipsis-${i}`} className="w-10 h-10 flex items-center justify-center text-warm-600 font-body text-sm">
             …
           </span>
         ) : (
@@ -189,8 +189,8 @@ function Pagination({
             aria-current={p === currentPage ? 'page' : undefined}
             className={`w-10 h-10 rounded-full text-sm font-body font-medium flex items-center justify-center transition-all duration-200 ${
               p === currentPage
-                ? 'bg-accent text-white'
-                : 'bg-white border border-border-light text-text-secondary hover:border-accent hover:text-accent'
+                ? 'bg-amber-500 text-white'
+                : 'bg-white border border-warm-300 text-navy-700 hover:border-amber-500 hover:text-amber-500'
             }`}
           >
             {p}

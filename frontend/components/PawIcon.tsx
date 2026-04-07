@@ -2,7 +2,7 @@ import { useId } from "react";
 
 export function PawIcon({
   className,
-  accentColor = "#1C1C1E",
+  accentColor = "#D4763C",
 }: {
   className?: string;
   accentColor?: string;

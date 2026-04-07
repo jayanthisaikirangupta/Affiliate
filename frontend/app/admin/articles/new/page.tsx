@@ -121,7 +121,7 @@ export default function NewArticlePage() {
           aria-label="Saving"
         />
         <h2 className="font-display text-lg font-semibold text-primary mb-2">Saving Article</h2>
-        <p className="text-sm font-body text-text-secondary">Please wait...</p>
+        <p className="text-sm font-body text-navy-700">Please wait...</p>
       </div>
     );
   }
@@ -133,12 +133,12 @@ export default function NewArticlePage() {
         <div>
           <Link
             href="/admin/articles"
-            className="text-xs font-body text-text-muted hover:text-accent transition-colors mb-2 inline-block"
+            className="text-xs font-body text-warm-600 hover:text-amber-500 transition-colors mb-2 inline-block"
           >
             ← Back to Articles
           </Link>
           <h1 className="font-display text-2xl font-semibold text-primary">New Article</h1>
-          <p className="text-sm font-body text-text-secondary mt-1">
+          <p className="text-sm font-body text-navy-700 mt-1">
             Fill in the details below to create a new article
           </p>
         </div>
@@ -182,7 +182,7 @@ export default function NewArticlePage() {
                     placeholder="best-dog-harnesses-2026"
                     required
                   />
-                  <p className="text-xs text-text-muted mt-1">
+                  <p className="text-xs text-warm-600 mt-1">
                     URL: /articles/{form.slug || 'your-slug-here'}
                   </p>
                 </div>
@@ -225,7 +225,7 @@ export default function NewArticlePage() {
                     className="admin-input min-h-[300px] resize-y font-mono text-sm"
                     placeholder="<p>Write your article content here...</p>"
                   />
-                  <p className="text-xs text-text-muted mt-1">
+                  <p className="text-xs text-warm-600 mt-1">
                     HTML is supported. Use heading tags, paragraphs, lists, etc.
                   </p>
                 </div>
@@ -241,7 +241,7 @@ export default function NewArticlePage() {
                     placeholder="https://example.com/hero.jpg"
                   />
                   {form.heroImageUrl && (
-                    <div className="mt-3 aspect-video w-48 rounded-lg overflow-hidden bg-background border border-border-light">
+                    <div className="mt-3 aspect-video w-48 rounded-lg overflow-hidden bg-background border border-warm-200">
                       <img
                         src={form.heroImageUrl}
                         alt="Hero preview"
@@ -267,7 +267,7 @@ export default function NewArticlePage() {
                     className="admin-input"
                     placeholder="SEO-optimized title (leave blank to use article title)"
                   />
-                  <p className="text-xs text-text-muted mt-1">
+                  <p className="text-xs text-warm-600 mt-1">
                     {form.seoTitle.length}/60 characters
                   </p>
                 </div>
@@ -280,7 +280,7 @@ export default function NewArticlePage() {
                     className="admin-input min-h-[80px] resize-y"
                     placeholder="Brief description for search engines (150–160 characters recommended)"
                   />
-                  <p className="text-xs text-text-muted mt-1">
+                  <p className="text-xs text-warm-600 mt-1">
                     {form.metaDescription.length}/160 characters
                   </p>
                 </div>
@@ -348,7 +348,7 @@ export default function NewArticlePage() {
                   />
                 </div>
 
-                <div className="border-t border-border-light pt-4 space-y-3">
+                <div className="border-t border-warm-200 pt-4 space-y-3">
                   <button
                     type="submit"
                     disabled={saving}
@@ -369,7 +369,7 @@ export default function NewArticlePage() {
             {/* Type badge preview */}
             {form.type && (
               <div className="admin-card">
-                <h2 className="font-display text-sm font-semibold text-text-secondary mb-3">
+                <h2 className="font-display text-sm font-semibold text-navy-700 mb-3">
                   Badge Preview
                 </h2>
                 <div className="flex gap-2 flex-wrap">

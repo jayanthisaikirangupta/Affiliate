@@ -15,16 +15,16 @@ export default function SpecsTable({ specs, title = 'Specifications' }: SpecsTab
   return (
     <div>
       {title && (
-        <h3 className="text-sm font-body font-semibold text-text-secondary uppercase tracking-wide mb-3">{title}</h3>
+        <h3 className="bg-warm-200 text-navy-900 font-semibold text-sm font-body uppercase tracking-wide px-4 py-3 rounded-t-xl">{title}</h3>
       )}
-      <dl className="border border-border-light rounded-xl overflow-hidden">
+      <dl className={`border border-warm-300 ${title ? 'rounded-b-xl' : 'rounded-xl'} overflow-hidden`}>
         {entries.map(([key, val], i) => (
           <div
             key={i}
-            className={`flex justify-between py-3 px-4 ${i % 2 === 0 ? 'bg-background' : 'bg-white'} ${i < entries.length - 1 ? 'border-b border-border-light' : ''}`}
+            className={`flex justify-between py-3 px-4 ${i % 2 === 0 ? 'bg-white' : 'bg-warm-50'} ${i < entries.length - 1 ? 'border-b border-warm-300' : ''}`}
           >
-            <dt className="text-sm font-body text-text-secondary">{key}</dt>
-            <dd className="text-sm font-body font-medium text-primary text-right ml-4">{val}</dd>
+            <dt className="text-sm font-body text-navy-800">{key}</dt>
+            <dd className="text-sm font-body font-medium text-navy-800 text-right ml-4">{val}</dd>
           </div>
         ))}
       </dl>

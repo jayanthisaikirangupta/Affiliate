@@ -160,12 +160,12 @@ export default function EditProductPage() {
       <div className="flex items-center justify-between mb-8">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <Link href="/admin/products" className="text-xs text-text-muted hover:text-accent">
+            <Link href="/admin/products" className="text-xs text-warm-600 hover:text-amber-500">
               ← Products
             </Link>
           </div>
           <h1 className="font-display text-2xl font-semibold text-primary">Edit Product</h1>
-          <p className="text-sm font-body text-text-secondary mt-1">Update product details and republish</p>
+          <p className="text-sm font-body text-navy-700 mt-1">Update product details and republish</p>
         </div>
       </div>
 
@@ -271,7 +271,7 @@ export default function EditProductPage() {
               {form.images.map((img, i) => (
                 <div key={i} className="flex gap-3 items-center">
                   {img && (
-                    <img src={img} alt="" className="w-12 h-12 rounded object-cover border border-border-light" />
+                    <img src={img} alt="" className="w-12 h-12 rounded object-cover border border-warm-200" />
                   )}
                   <input
                     value={img}
@@ -293,7 +293,7 @@ export default function EditProductPage() {
               ))}
               <button
                 onClick={() => updateForm('images', [...form.images, ''])}
-                className="text-sm font-body font-medium text-accent hover:underline"
+                className="text-sm font-body font-medium text-amber-500 hover:underline"
               >
                 + Add Image URL
               </button>
@@ -317,7 +317,7 @@ export default function EditProductPage() {
                     <button onClick={() => removeListItem('pros', i)} className="text-red-400 text-sm">✕</button>
                   </div>
                 ))}
-                <button onClick={() => addListItem('pros')} className="text-sm font-body font-medium text-accent hover:underline">
+                <button onClick={() => addListItem('pros')} className="text-sm font-body font-medium text-amber-500 hover:underline">
                   + Add Pro
                 </button>
               </div>
@@ -334,7 +334,7 @@ export default function EditProductPage() {
                     <button onClick={() => removeListItem('cons', i)} className="text-red-400 text-sm">✕</button>
                   </div>
                 ))}
-                <button onClick={() => addListItem('cons')} className="text-sm font-body font-medium text-accent hover:underline">
+                <button onClick={() => addListItem('cons')} className="text-sm font-body font-medium text-amber-500 hover:underline">
                   + Add Con
                 </button>
               </div>
@@ -364,7 +364,7 @@ export default function EditProductPage() {
                   className="admin-input"
                   placeholder="SEO-optimized title"
                 />
-                <p className="text-xs text-text-muted mt-1">{form.seoTitle.length}/60 characters</p>
+                <p className="text-xs text-warm-600 mt-1">{form.seoTitle.length}/60 characters</p>
               </div>
               <div>
                 <label className="admin-label">Meta Description</label>
@@ -374,7 +374,7 @@ export default function EditProductPage() {
                   className="admin-input min-h-[80px] resize-y"
                   placeholder="Brief meta description for search engines"
                 />
-                <p className="text-xs text-text-muted mt-1">{form.metaDescription.length}/160 characters</p>
+                <p className="text-xs text-warm-600 mt-1">{form.metaDescription.length}/160 characters</p>
               </div>
             </div>
           </div>
@@ -424,11 +424,11 @@ export default function EditProductPage() {
                   type="checkbox"
                   checked={form.featured}
                   onChange={(e) => updateForm('featured', e.target.checked)}
-                  className="w-4 h-4 rounded border-border text-accent focus:ring-accent"
+                  className="w-4 h-4 rounded border-warm-300 text-amber-500 focus:ring-amber-500"
                 />
                 <span className="text-sm font-body text-primary">Featured product</span>
               </label>
-              <div className="border-t border-border-light pt-4 space-y-3">
+              <div className="border-t border-warm-200 pt-4 space-y-3">
                 <button
                   onClick={() => handleSave()}
                   disabled={saving || !form.title || !form.affiliateLink}
@@ -448,7 +448,7 @@ export default function EditProductPage() {
 
           {form.images?.[0] && (
             <div className="admin-card">
-              <h2 className="font-display text-sm font-semibold text-text-secondary mb-3">Preview</h2>
+              <h2 className="font-display text-sm font-semibold text-navy-700 mb-3">Preview</h2>
               <div className="aspect-square rounded-lg overflow-hidden bg-background mb-3">
                 <img src={form.images[0]} alt="" className="w-full h-full object-cover" />
               </div>

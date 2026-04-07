@@ -79,7 +79,7 @@ export default function AdminArticlesPage() {
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="font-display text-2xl font-semibold text-primary">Articles</h1>
-          <p className="text-sm font-body text-text-secondary mt-1">
+          <p className="text-sm font-body text-navy-700 mt-1">
             {loading ? 'Loading...' : `${meta.total} total article${meta.total !== 1 ? 's' : ''}`}
           </p>
         </div>
@@ -99,7 +99,7 @@ export default function AdminArticlesPage() {
                 className={`px-3 py-1.5 rounded-lg text-xs font-body font-medium transition-colors ${
                   statusFilter === s
                     ? 'bg-primary text-white'
-                    : 'bg-background text-text-secondary hover:bg-border-light'
+                    : 'bg-background text-navy-700 hover:bg-border-light'
                 }`}
               >
                 {s || 'All'}
@@ -138,20 +138,20 @@ export default function AdminArticlesPage() {
         ) : articles.length > 0 ? (
           <table className="w-full">
             <thead>
-              <tr className="border-b border-border-light">
-                <th className="text-left text-xs font-body font-semibold text-text-muted uppercase tracking-wide pb-3">
+              <tr className="border-b border-warm-200">
+                <th className="text-left text-xs font-body font-semibold text-warm-600 uppercase tracking-wide pb-3">
                   Title
                 </th>
-                <th className="text-left text-xs font-body font-semibold text-text-muted uppercase tracking-wide pb-3">
+                <th className="text-left text-xs font-body font-semibold text-warm-600 uppercase tracking-wide pb-3">
                   Type
                 </th>
-                <th className="text-left text-xs font-body font-semibold text-text-muted uppercase tracking-wide pb-3">
+                <th className="text-left text-xs font-body font-semibold text-warm-600 uppercase tracking-wide pb-3">
                   Status
                 </th>
-                <th className="text-left text-xs font-body font-semibold text-text-muted uppercase tracking-wide pb-3">
+                <th className="text-left text-xs font-body font-semibold text-warm-600 uppercase tracking-wide pb-3">
                   Published
                 </th>
-                <th className="text-right text-xs font-body font-semibold text-text-muted uppercase tracking-wide pb-3">
+                <th className="text-right text-xs font-body font-semibold text-warm-600 uppercase tracking-wide pb-3">
                   Actions
                 </th>
               </tr>
@@ -166,7 +166,7 @@ export default function AdminArticlesPage() {
                       <p className="text-sm font-body font-medium text-primary line-clamp-1">
                         {article.title}
                       </p>
-                      <p className="text-xs text-text-muted mt-0.5">{article.slug}</p>
+                      <p className="text-xs text-warm-600 mt-0.5">{article.slug}</p>
                     </td>
 
                     {/* Type badge */}
@@ -178,7 +178,7 @@ export default function AdminArticlesPage() {
                           {typeStyle.label}
                         </span>
                       ) : (
-                        <span className="text-xs text-text-muted">—</span>
+                        <span className="text-xs text-warm-600">—</span>
                       )}
                     </td>
 
@@ -197,7 +197,7 @@ export default function AdminArticlesPage() {
 
                     {/* Published date */}
                     <td className="py-3 pr-4">
-                      <span className="text-sm font-body text-text-secondary">
+                      <span className="text-sm font-body text-navy-700">
                         {formatDate(article.publishedAt)}
                       </span>
                     </td>
@@ -207,14 +207,14 @@ export default function AdminArticlesPage() {
                       <div className="flex items-center justify-end gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
                         <Link
                           href={`/admin/articles/${article.id}`}
-                          className="text-xs font-body text-accent hover:underline font-medium"
+                          className="text-xs font-body text-amber-500 hover:underline font-medium"
                         >
                           Edit
                         </Link>
                         <Link
                           href={`/articles/${article.slug}`}
                           target="_blank"
-                          className="text-xs font-body text-text-muted hover:text-accent"
+                          className="text-xs font-body text-warm-600 hover:text-amber-500"
                         >
                           View
                         </Link>
@@ -232,9 +232,9 @@ export default function AdminArticlesPage() {
             </tbody>
           </table>
         ) : (
-          <p className="text-sm text-text-muted font-body py-8 text-center">
+          <p className="text-sm text-warm-600 font-body py-8 text-center">
             No articles found.{' '}
-            <Link href="/admin/articles/new" className="text-accent hover:underline">
+            <Link href="/admin/articles/new" className="text-amber-500 hover:underline">
               Create your first article
             </Link>
           </p>
@@ -242,15 +242,15 @@ export default function AdminArticlesPage() {
 
         {/* Pagination */}
         {meta.totalPages > 1 && (
-          <div className="flex justify-center gap-2 pt-6 mt-6 border-t border-border-light">
+          <div className="flex justify-center gap-2 pt-6 mt-6 border-t border-warm-200">
             {Array.from({ length: meta.totalPages }).map((_, i) => (
               <button
                 key={i}
                 onClick={() => fetchArticles(i + 1)}
                 className={`w-8 h-8 rounded text-xs font-body font-medium transition-colors ${
                   meta.page === i + 1
-                    ? 'bg-accent text-white'
-                    : 'text-text-muted hover:bg-background'
+                    ? 'bg-amber-500 text-white'
+                    : 'text-warm-600 hover:bg-background'
                 }`}
               >
                 {i + 1}

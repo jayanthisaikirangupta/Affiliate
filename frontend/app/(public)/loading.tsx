@@ -6,7 +6,7 @@ export default function PublicLoading() {
           {[1, 2, 3].map((i) => (
             <div
               key={i}
-              className="animate-pulse bg-border-light rounded-xl h-64"
+              className="animate-pulse bg-warm-200 rounded-xl h-64"
             />
           ))}
         </div>

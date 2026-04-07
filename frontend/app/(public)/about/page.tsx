@@ -59,28 +59,28 @@ export default function AboutPage() {
   return (
     <>
       {/* Breadcrumb */}
-      <div className="pt-24 lg:pt-28 bg-background">
+      <div className="pt-24 lg:pt-28 bg-warm-100">
         <div className="editorial-container">
-          <nav className="flex items-center gap-2 text-sm font-body text-text-muted py-4" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-accent transition-colors">Home</Link>
+          <nav className="flex items-center gap-2 text-sm font-body text-warm-600 py-4" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-amber-500 transition-colors">Home</Link>
             <span aria-hidden="true">/</span>
-            <span className="text-text-secondary">About</span>
+            <span className="text-navy-700">About</span>
           </nav>
         </div>
       </div>
 
       {/* Hero */}
-      <section className="bg-primary py-20 lg:py-28">
+      <section className="bg-warm-100 py-20 lg:py-28">
         <div className="editorial-container">
           <ScrollReveal>
             <div className="max-w-2xl">
-              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent mb-4 block">
+              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500 mb-4 block">
                 Our Story
               </span>
-              <h1 className="font-display text-4xl lg:text-5xl font-semibold text-white leading-tight mb-6">
+              <h1 className="font-display text-4xl lg:text-5xl font-semibold text-navy-900 leading-tight mb-6">
                 About PetGearHub
               </h1>
-              <p className="text-white/60 font-body text-lg leading-relaxed">
+              <p className="text-navy-700 font-body text-lg leading-relaxed">
                 We help UK pet owners find the best gear through honest, expert-driven reviews — cutting through the noise so you can focus on what matters: your pet.
               </p>
             </div>
@@ -89,48 +89,48 @@ export default function AboutPage() {
       </section>
 
       {/* Mission */}
-      <section className="py-20 lg:py-28 bg-white">
+      <section className="py-20 lg:py-28 bg-warm-100">
         <div className="editorial-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <ScrollReveal>
-              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent mb-4 block">
+              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500 mb-4 block">
                 Our Mission
               </span>
-              <h2 className="font-display text-3xl lg:text-4xl font-semibold text-primary mb-6 leading-tight">
+              <h2 className="font-display text-3xl lg:text-4xl font-semibold text-navy-900 mb-6 leading-tight">
                 Honest recommendations. No fluff.
               </h2>
-              <p className="text-text-secondary font-body leading-relaxed mb-4">
+              <p className="text-navy-700 font-body leading-relaxed mb-4">
                 The UK pet industry is worth billions — and a lot of marketing is designed to confuse rather than inform. PetGearHub exists to cut through that noise with straightforward, research-backed recommendations you can actually trust.
               </p>
-              <p className="text-text-secondary font-body leading-relaxed mb-4">
+              <p className="text-navy-700 font-body leading-relaxed mb-4">
                 We are pet owners ourselves. We understand the frustration of buying something that looked perfect online and turned out to be a disappointment. Every product on this site is here because we genuinely believe it delivers value for UK pet owners.
               </p>
-              <p className="text-text-secondary font-body leading-relaxed">
+              <p className="text-navy-700 font-body leading-relaxed">
                 As an affiliate site, we earn a small commission when you buy through our links — but this never influences our recommendations. Our editorial independence is non-negotiable.{' '}
-                <Link href="/affiliate-disclosure" className="text-accent underline hover:no-underline">
+                <Link href="/affiliate-disclosure" className="text-amber-500 underline hover:no-underline">
                   Learn more about how we earn.
                 </Link>
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={0.15}>
-              <div className="bg-background rounded-2xl p-8 border border-border-light">
+              <div className="bg-white rounded-2xl p-8 border border-warm-200 shadow-card">
                 <div className="grid grid-cols-3 gap-6 text-center">
                   <div>
-                    <p className="font-display text-4xl font-bold text-accent mb-1">Expert</p>
-                    <p className="text-xs font-body text-text-muted uppercase tracking-wide">Trusted Reviews</p>
+                    <p className="font-display text-4xl font-bold text-amber-500 mb-1">Expert</p>
+                    <p className="text-xs font-body text-warm-600 uppercase tracking-wide">Trusted Reviews</p>
                   </div>
                   <div>
-                    <p className="font-display text-4xl font-bold text-accent mb-1">7</p>
-                    <p className="text-xs font-body text-text-muted uppercase tracking-wide">Categories</p>
+                    <p className="font-display text-4xl font-bold text-amber-500 mb-1">7</p>
+                    <p className="text-xs font-body text-warm-600 uppercase tracking-wide">Categories</p>
                   </div>
                   <div>
-                    <p className="font-display text-4xl font-bold text-accent mb-1">🇬🇧</p>
-                    <p className="text-xs font-body text-text-muted uppercase tracking-wide">UK-Based</p>
+                    <p className="font-display text-4xl font-bold text-amber-500 mb-1">🇬🇧</p>
+                    <p className="text-xs font-body text-warm-600 uppercase tracking-wide">UK-Based</p>
                   </div>
                 </div>
-                <div className="border-t border-border-light mt-8 pt-8">
-                  <p className="text-sm font-body text-text-secondary italic leading-relaxed text-center">
+                <div className="border-t border-warm-200 mt-8 pt-8">
+                  <p className="text-sm font-body text-navy-700 italic leading-relaxed text-center">
                     &ldquo;We don&apos;t list everything — we list the right things.&rdquo;
                   </p>
                 </div>
@@ -141,14 +141,14 @@ export default function AboutPage() {
       </section>
 
       {/* Our Process */}
-      <section className="py-20 lg:py-28 bg-background">
+      <section className="py-20 lg:py-28 bg-warm-100">
         <div className="editorial-container">
           <ScrollReveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent mb-4 block">
+              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500 mb-4 block">
                 How We Work
               </span>
-              <h2 className="font-display text-3xl lg:text-4xl font-semibold text-primary mb-4">
+              <h2 className="font-display text-3xl lg:text-4xl font-semibold text-navy-900 mb-4">
                 Our Review Process
               </h2>
               <div className="divider" />
@@ -158,13 +158,13 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {steps.map((step, i) => (
               <ScrollReveal key={step.number} delay={i * 0.1}>
-                <div className="bg-white rounded-2xl p-6 border border-border-light h-full">
+                <div className="bg-white rounded-2xl p-6 border border-warm-200 shadow-card h-full hover:shadow-hover transition-shadow">
                   <div className="w-12 h-12 gold-gradient rounded-xl flex items-center justify-center mb-4">
                     <span className="text-2xl" role="img" aria-hidden="true">{step.icon}</span>
                   </div>
-                  <span className="text-xs font-body font-semibold tracking-widest text-text-muted uppercase">{step.number}</span>
-                  <h3 className="font-display text-xl font-semibold text-primary mt-1 mb-3">{step.title}</h3>
-                  <p className="text-sm font-body text-text-secondary leading-relaxed">{step.description}</p>
+                  <span className="text-xs font-body font-semibold tracking-widest text-warm-600 uppercase">{step.number}</span>
+                  <h3 className="font-display text-xl font-semibold text-navy-900 mt-1 mb-3">{step.title}</h3>
+                  <p className="text-sm font-body text-navy-700 leading-relaxed">{step.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -181,14 +181,14 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="py-20 lg:py-28 bg-white">
+      <section className="py-20 lg:py-28 bg-warm-100">
         <div className="editorial-container">
           <ScrollReveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-accent mb-4 block">
+              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500 mb-4 block">
                 The People Behind the Reviews
               </span>
-              <h2 className="font-display text-3xl lg:text-4xl font-semibold text-primary mb-4">
+              <h2 className="font-display text-3xl lg:text-4xl font-semibold text-navy-900 mb-4">
                 Our Team
               </h2>
               <div className="divider" />
@@ -198,13 +198,13 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {team.map((member, i) => (
               <ScrollReveal key={member.name} delay={i * 0.1}>
-                <div className="bg-background rounded-2xl p-8 border border-border-light text-center">
-                  <div className="w-20 h-20 rounded-full bg-border mx-auto mb-4 flex items-center justify-center">
-                    <span className="font-display text-2xl font-semibold text-text-muted">{member.initials}</span>
+                <div className="bg-white rounded-2xl p-8 border border-warm-200 shadow-card text-center hover:shadow-hover transition-shadow">
+                  <div className="w-20 h-20 rounded-full bg-warm-100-alt mx-auto mb-4 flex items-center justify-center">
+                    <span className="font-display text-2xl font-semibold text-navy-700">{member.initials}</span>
                   </div>
-                  <h3 className="font-display text-xl font-semibold text-primary mb-1">{member.name}</h3>
-                  <p className="text-xs font-body font-semibold uppercase tracking-widest text-accent mb-4">{member.role}</p>
-                  <p className="text-sm font-body text-text-secondary leading-relaxed">{member.bio}</p>
+                  <h3 className="font-display text-xl font-semibold text-navy-900 mb-1">{member.name}</h3>
+                  <p className="text-xs font-body font-semibold uppercase tracking-widest text-amber-500 mb-4">{member.role}</p>
+                  <p className="text-sm font-body text-navy-700 leading-relaxed">{member.bio}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -213,7 +213,7 @@ export default function AboutPage() {
       </section>
 
       {/* Stats bar */}
-      <section className="bg-primary py-12">
+      <section className="bg-warm-100 py-12">
         <div className="editorial-container">
           <div className="flex flex-wrap justify-center gap-12 text-center">
             {[
@@ -223,8 +223,8 @@ export default function AboutPage() {
               { value: '100%', label: 'Editorial Independence' },
             ].map((stat) => (
               <div key={stat.label}>
-                <p className="font-display text-3xl font-bold text-accent">{stat.value}</p>
-                <p className="text-xs font-body text-white/50 uppercase tracking-widest mt-1">{stat.label}</p>
+                <p className="font-display text-3xl font-bold text-amber-500">{stat.value}</p>
+                <p className="text-xs font-body text-navy-700 uppercase tracking-widest mt-1">{stat.label}</p>
               </div>
             ))}
           </div>

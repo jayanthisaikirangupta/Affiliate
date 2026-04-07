@@ -27,7 +27,7 @@ export default function FooterNewsletterForm() {
 
   if (status === 'success') {
     return (
-      <p className="text-sm text-accent font-semibold" role="status">
+      <p className="text-sm text-amber-400 font-semibold" role="status">
         {message}
       </p>
     );
@@ -48,9 +48,9 @@ export default function FooterNewsletterForm() {
           required
           aria-required="true"
           disabled={status === 'loading'}
-          className="flex-1 px-4 py-2.5 bg-white/10 border border-white/10 rounded-lg
-                     text-sm text-white placeholder:text-white/30
-                     focus:outline-none focus:border-accent/50 transition-colors
+          className="flex-1 px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg
+                     text-sm text-white placeholder:text-navy-400
+                     focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-colors
                      disabled:opacity-50"
         />
         <button

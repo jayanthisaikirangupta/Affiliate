@@ -15,6 +15,17 @@ export class ArticlesController {
     return this.articlesService.findAll(query);
   }
 
+  @Get('featured')
+  @ApiOperation({ summary: 'Get featured articles (public)' })
+  getFeatured(@Query('limit') limit?: number) {
+    return this.articlesService.findAll({
+      status: 'PUBLISHED',
+      isFeatured: true,
+      limit: limit ? Number(limit) : 4,
+      page: 1,
+    }).then(res => res.data);
+  }
+
   @Get('stats')
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
