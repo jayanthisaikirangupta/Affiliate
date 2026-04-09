@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     canonical: 'https://petgearhub.co.uk',
   },
   icons: {
-    icon: '/icon.svg',
+    icon: '/petgearhub-logo.png',
   },
 };
 
