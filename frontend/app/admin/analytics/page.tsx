@@ -72,7 +72,7 @@ export default function AdminAnalyticsPage() {
         </div>
         <div className="admin-card">
           <p className="text-xs font-body font-semibold text-warm-600 uppercase tracking-wide">Total Clicks</p>
-          <p className="text-3xl font-display font-bold text-amber-500 mt-2">
+          <p className="text-3xl font-display font-bold text-orange-500 mt-2">
             {loading ? '—' : (data?.totalClicks || 0).toLocaleString()}
           </p>
         </div>
@@ -96,7 +96,7 @@ export default function AdminAnalyticsPage() {
                 <div key={i} className="flex-1 flex flex-col items-center gap-1" title={`${day.date}: ${day.views} views, ${day.clicks} clicks`}>
                   <div className="w-full flex flex-col items-center justify-end" style={{ height: '100%' }}>
                     <div
-                      className="w-full bg-amber-500/20 rounded-t hover:bg-amber-600/40 transition-colors relative group"
+                      className="w-full bg-orange-500/20 rounded-t hover:bg-orange-600/40 transition-colors relative group"
                       style={{ height: `${Math.max(height, 2)}%` }}
                     >
                       {/* Click bar overlay */}
@@ -125,7 +125,7 @@ export default function AdminAnalyticsPage() {
           </div>
           <div className="flex items-center gap-4 mt-4">
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-amber-500/20 rounded" />
+              <div className="w-3 h-3 bg-orange-500/20 rounded" />
               <span className="text-xs text-warm-600 font-body">Views</span>
             </div>
             <div className="flex items-center gap-2">
@@ -155,7 +155,7 @@ export default function AdminAnalyticsPage() {
                 </div>
                 <div className="flex items-center gap-6 text-sm font-body">
                   <span className="text-navy-700">{product.views.toLocaleString()} views</span>
-                  <span className="text-amber-500 font-semibold">{product.clicks.toLocaleString()} clicks</span>
+                  <span className="text-orange-500 font-semibold">{product.clicks.toLocaleString()} clicks</span>
                 </div>
               </div>
             ))}

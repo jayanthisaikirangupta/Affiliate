@@ -20,7 +20,7 @@ interface TeamMember {
 const team: TeamMember[] = [
   {
     initials: 'SM',
-    avatarColor: 'bg-amber-500',
+    avatarColor: 'bg-orange-500',
     name: 'Sarah Mitchell',
     role: 'Editor-in-Chief',
     credentials: 'BSc Zoology · 15 years as pet journalist',
@@ -70,7 +70,7 @@ export default function TeamPage() {
             className="flex items-center gap-2 text-sm font-body text-warm-600 py-4"
             aria-label="Breadcrumb"
           >
-            <Link href="/" className="hover:text-amber-500 transition-colors">
+            <Link href="/" className="hover:text-orange-500 transition-colors">
               Home
             </Link>
             <span aria-hidden="true">/</span>
@@ -84,7 +84,7 @@ export default function TeamPage() {
         <div className="editorial-container">
           <ScrollReveal>
             <div className="max-w-2xl">
-              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500 mb-4 block">
+              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-500 mb-4 block">
                 The People Behind the Reviews
               </span>
               <h1 className="font-display text-4xl lg:text-5xl font-semibold text-navy-900 leading-tight mb-6">
@@ -120,14 +120,14 @@ export default function TeamPage() {
                   <h2 className="font-display text-xl font-semibold text-navy-900 mb-1">
                     {member.name}
                   </h2>
-                  <p className="text-xs font-body font-bold uppercase tracking-widest text-amber-500 mb-3">
+                  <p className="text-xs font-body font-bold uppercase tracking-widest text-orange-500 mb-3">
                     {member.role}
                   </p>
 
                   {/* Credentials badge */}
                   <div className="inline-flex items-center gap-1.5 bg-warm-100-alt border border-warm-200 rounded-full px-3 py-1 mb-4 self-start">
                     <svg
-                      className="w-3 h-3 text-amber-500 flex-shrink-0"
+                      className="w-3 h-3 text-orange-500 flex-shrink-0"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       aria-hidden="true"
@@ -160,13 +160,13 @@ export default function TeamPage() {
           <div className="max-w-3xl mx-auto">
             <ScrollReveal>
               <div className="text-center mb-10">
-                <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500 mb-4 block">
+                <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-500 mb-4 block">
                   How We Operate
                 </span>
                 <h2 className="font-display text-3xl lg:text-4xl font-semibold text-navy-900 mb-4">
                   Our Editorial Standards
                 </h2>
-                <div className="w-12 h-px bg-amber-500 mx-auto" />
+                <div className="w-12 h-px bg-orange-500 mx-auto" />
               </div>
             </ScrollReveal>
 
@@ -204,7 +204,7 @@ export default function TeamPage() {
                 <div className="border-t border-warm-200 mt-8 pt-6 text-center">
                   <Link
                     href="/editorial-policy"
-                    className="text-sm font-body text-amber-500 font-semibold hover:underline"
+                    className="text-sm font-body text-orange-500 font-semibold hover:underline"
                   >
                     Read our full editorial policy &rarr;
                   </Link>
@@ -220,7 +220,7 @@ export default function TeamPage() {
         <div className="editorial-container">
           <ScrollReveal>
             <div className="text-center max-w-xl mx-auto">
-              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500 mb-4 block">
+              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-500 mb-4 block">
                 Press &amp; Partnerships
               </span>
               <h2 className="font-display text-3xl lg:text-4xl font-semibold text-navy-900 mb-4">
@@ -231,7 +231,7 @@ export default function TeamPage() {
               </p>
               <a
                 href="mailto:hello@petgearhub.co.uk"
-                className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-500/90 text-white font-body font-semibold px-6 py-3 rounded-lg transition-colors duration-200"
+                className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-500/90 text-white font-body font-semibold px-6 py-3 rounded-lg transition-colors duration-200"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

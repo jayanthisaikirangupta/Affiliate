@@ -46,7 +46,7 @@ export default function ProductCard({ product, variant = 'default' }: ProductCar
           whileHover={{ y: -8, scale: 1.02 }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
           className="group grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white rounded-2xl
-                     overflow-hidden border border-warm-300 hover:border-amber-300 transition-all duration-200 h-full shadow-card hover:shadow-hover"
+                     overflow-hidden border border-warm-300 hover:border-orange-300 transition-all duration-200 h-full shadow-card hover:shadow-hover"
         >
           {/* Image */}
           <div className="aspect-[4/3] lg:aspect-auto relative overflow-hidden bg-warm-100">
@@ -78,7 +78,7 @@ export default function ProductCard({ product, variant = 'default' }: ProductCar
           {/* Content */}
           <div className="p-8 lg:py-12 flex flex-col justify-center">
             {product.category && (
-              <span className="text-xs font-body font-semibold tracking-widest uppercase text-amber-500 mb-3">
+              <span className="text-xs font-body font-semibold tracking-widest uppercase text-orange-500 mb-3">
                 {product.category.name}
               </span>
             )}
@@ -105,7 +105,7 @@ export default function ProductCard({ product, variant = 'default' }: ProductCar
               )}
             </div>
             <div className="mt-6">
-              <span className="text-amber-500 font-semibold text-sm hover:text-amber-600 transition-colors uppercase tracking-wide">
+              <span className="text-orange-500 font-semibold text-sm hover:text-orange-600 transition-colors uppercase tracking-wide">
                 View Details
               </span>
             </div>
@@ -121,7 +121,7 @@ export default function ProductCard({ product, variant = 'default' }: ProductCar
       <motion.article
         whileHover={{ y: -6, scale: 1.02 }}
         transition={{ duration: 0.3, ease: 'easeOut' }}
-        className="group bg-white rounded-2xl overflow-hidden border border-warm-300 hover:border-amber-300 hover:-translate-y-1 transition-all duration-200 h-full flex flex-col shadow-card hover:shadow-hover"
+        className="group bg-white rounded-2xl overflow-hidden border border-warm-300 hover:border-orange-300 hover:-translate-y-1 transition-all duration-200 h-full flex flex-col shadow-card hover:shadow-hover"
       >
         {/* Image */}
         <div className="aspect-[4/3] relative overflow-hidden bg-warm-100">
@@ -153,7 +153,7 @@ export default function ProductCard({ product, variant = 'default' }: ProductCar
         {/* Content */}
         <div className="p-5 flex flex-col flex-1">
           {product.category && (
-            <span className="text-xs font-body font-semibold tracking-widest uppercase text-amber-500 mb-2">
+            <span className="text-xs font-body font-semibold tracking-widest uppercase text-orange-500 mb-2">
               {product.category.name}
             </span>
           )}
@@ -181,8 +181,8 @@ export default function ProductCard({ product, variant = 'default' }: ProductCar
             ) : (
               <span className="text-sm text-navy-400">See price</span>
             )}
-            <span className="text-xs font-body font-semibold text-amber-500
-                           group-hover:text-amber-600 group-hover:underline underline-offset-2 tracking-wide uppercase transition-colors">
+            <span className="text-xs font-body font-semibold text-orange-500
+                           group-hover:text-orange-600 group-hover:underline underline-offset-2 tracking-wide uppercase transition-colors">
               Details
             </span>
           </div>

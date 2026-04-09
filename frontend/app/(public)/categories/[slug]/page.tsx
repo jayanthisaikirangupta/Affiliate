@@ -70,10 +70,10 @@ export default function CategoryPage() {
       <div className="editorial-container">
         <ScrollReveal>
           <div className="max-w-2xl mb-16">
-            <Link href="/products" className="text-sm font-body text-warm-600 hover:text-amber-500 transition-colors mb-4 inline-block">
+            <Link href="/products" className="text-sm font-body text-warm-600 hover:text-orange-500 transition-colors mb-4 inline-block">
               ← All Products
             </Link>
-            <span className="block text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500 mt-4">
+            <span className="block text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-500 mt-4">
               Category
             </span>
             <h1 className="font-display text-hero text-navy-900 mt-3 mb-4">{category.name}</h1>

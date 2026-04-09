@@ -43,7 +43,7 @@ export default function ContactForm() {
       <div className="pt-24 lg:pt-28 bg-warm-50">
         <div className="editorial-container">
           <nav className="flex items-center gap-2 text-sm font-body text-navy-400 py-4" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-amber-500 transition-colors">Home</Link>
+            <Link href="/" className="hover:text-orange-500 transition-colors">Home</Link>
             <span aria-hidden="true">/</span>
             <span className="text-navy-700">Contact</span>
           </nav>
@@ -55,7 +55,7 @@ export default function ContactForm() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Left: Info */}
             <div>
-              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500 mb-4 block">
+              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-500 mb-4 block">
                 Say Hello
               </span>
               <h1 className="font-display text-4xl font-semibold text-navy-900 mb-6 leading-tight">
@@ -72,7 +72,7 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <p className="font-body font-semibold text-navy-900 text-sm mb-1">Email Us</p>
-                    <a href="mailto:hello@petgearhub.co.uk" className="font-body text-navy-700 hover:text-amber-500 transition-colors">
+                    <a href="mailto:hello@petgearhub.co.uk" className="font-body text-navy-700 hover:text-orange-500 transition-colors">
                       hello@petgearhub.co.uk
                     </a>
                   </div>

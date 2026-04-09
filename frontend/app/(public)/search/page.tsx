@@ -130,7 +130,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
         {/* Page header */}
         <div className="mt-10 mb-12">
-          <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500">
+          <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-500">
             Search
           </span>
           <h1 className="font-display text-hero text-navy-900 mt-3 mb-3">
@@ -185,7 +185,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
               {productTotal > products.length && (
                 <Link
                   href={`/products?search=${encodeURIComponent(query)}`}
-                  className="font-body text-sm font-semibold text-amber-500 hover:underline underline-offset-4"
+                  className="font-body text-sm font-semibold text-orange-500 hover:underline underline-offset-4"
                 >
                   View all {productTotal} →
                 </Link>
@@ -223,7 +223,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
               {articleTotal > articles.length && (
                 <Link
                   href={`/blog?search=${encodeURIComponent(query)}`}
-                  className="font-body text-sm font-semibold text-amber-500 hover:underline underline-offset-4"
+                  className="font-body text-sm font-semibold text-orange-500 hover:underline underline-offset-4"
                 >
                   View all {articleTotal} →
                 </Link>

@@ -17,10 +17,10 @@ export default function Footer() {
   return (
     <footer className="relative bg-navy-950 text-navy-300 overflow-hidden">
       {/* Decorative gradient accent line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500 to-transparent opacity-50"></div>
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-50"></div>
 
       {/* Subtle radial glow decorative element */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-radial from-amber-500/10 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-radial from-orange-500/10 to-transparent rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="editorial-container py-16 lg:py-24 relative z-10">
         {/* Top section */}
@@ -45,7 +45,7 @@ export default function Footer() {
                 <li key={cat}>
                   <Link
                     href={`/categories/${toSlug(cat)}`}
-                    className="text-sm text-navy-200 hover:text-amber-400 transition-colors duration-300 font-light"
+                    className="text-sm text-navy-200 hover:text-orange-400 transition-colors duration-300 font-light"
                   >
                     {cat}
                   </Link>
@@ -71,7 +71,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-navy-200 hover:text-amber-400 transition-colors duration-300 font-light"
+                    className="text-sm text-navy-200 hover:text-orange-400 transition-colors duration-300 font-light"
                   >
                     {item.label}
                   </Link>
@@ -90,12 +90,12 @@ export default function Footer() {
             </p>
             <ul className="space-y-3">
               <li>
-                <Link href="/about" className="text-sm text-navy-200 hover:text-amber-400 transition-colors duration-300 font-light">
+                <Link href="/about" className="text-sm text-navy-200 hover:text-orange-400 transition-colors duration-300 font-light">
                   Meet the Team
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-sm text-navy-200 hover:text-amber-400 transition-colors duration-300 font-light">
+                <Link href="/contact" className="text-sm text-navy-200 hover:text-orange-400 transition-colors duration-300 font-light">
                   Get in Touch
                 </Link>
               </li>
@@ -116,7 +116,7 @@ export default function Footer() {
 
           <button
             onClick={scrollToTop}
-            className="group flex items-center gap-2 text-xs text-navy-400 hover:text-amber-400 transition-colors duration-300 font-light"
+            className="group flex items-center gap-2 text-xs text-navy-400 hover:text-orange-400 transition-colors duration-300 font-light"
             aria-label="Back to top"
           >
             <span>Back to Top</span>

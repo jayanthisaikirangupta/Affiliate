@@ -25,7 +25,7 @@ const categoryColors: Record<string, { bg: string; text: string }> = {
   'pet-accessories': { bg: 'bg-[#6366F1]/10', text: 'text-[#6366F1]' },
 };
 
-const defaultColor = { bg: 'bg-amber-500/10', text: 'text-amber-500' };
+const defaultColor = { bg: 'bg-orange-500/10', text: 'text-orange-500' };
 
 export default function CategoryIcon({ slug, className = '', size = 'md' }: { slug: string; className?: string; size?: 'sm' | 'md' | 'lg' }) {
   const containerSizes = { sm: 'w-10 h-10', md: 'w-12 h-12', lg: 'w-16 h-16' };

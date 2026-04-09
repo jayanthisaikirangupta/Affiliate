@@ -45,9 +45,9 @@ function Form({ onSuccess }: { onSuccess: (msg: string) => void }) {
           placeholder="Your email address"
           required
           disabled={status === 'loading'}
-          className="flex-1 min-w-0 px-4 py-2.5 border border-white/20 rounded-full font-body text-sm text-white placeholder:text-navy-300 bg-white/10 focus:outline-none focus:ring-2 focus:ring-amber-400/30 focus:border-amber-400 disabled:opacity-50"
+          className="flex-1 min-w-0 px-4 py-2.5 border border-white/20 rounded-full font-body text-sm text-white placeholder:text-navy-300 bg-white/10 focus:outline-none focus:ring-2 focus:ring-orange-400/30 focus:border-orange-400 disabled:opacity-50"
         />
-        <button type="submit" disabled={status === 'loading'} className="bg-amber-500 hover:bg-amber-600 text-white font-bold px-5 py-2.5 rounded-full whitespace-nowrap text-xs transition-colors disabled:opacity-50">
+        <button type="submit" disabled={status === 'loading'} className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-5 py-2.5 rounded-full whitespace-nowrap text-xs transition-colors disabled:opacity-50">
           {status === 'loading' ? '...' : 'Subscribe'}
         </button>
       </form>
@@ -66,7 +66,7 @@ export default function NewsletterCTA({
   if (variant === 'full') {
     return (
       <section className="py-16 px-8 bg-navy-900 rounded-3xl text-center">
-        <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-400">Newsletter</span>
+        <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-400">Newsletter</span>
         <h2 className="font-display text-3xl font-semibold text-white mt-3 mb-3">{heading}</h2>
         <p className="text-navy-200 font-body mb-8 max-w-md mx-auto">{description}</p>
         {successMsg ? (
@@ -82,7 +82,7 @@ export default function NewsletterCTA({
 
   return (
     <div className="bg-navy-900 rounded-3xl p-8 overflow-hidden">
-      <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-400">Newsletter</span>
+      <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-400">Newsletter</span>
       <h3 className="font-display text-xl font-semibold text-white mt-2 mb-2">{heading}</h3>
       <p className="text-navy-200 font-body text-sm mb-6">{description}</p>
       {successMsg ? (

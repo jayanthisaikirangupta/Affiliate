@@ -77,8 +77,8 @@ export default function ProductFilters({ total, view, onViewChange }: ProductFil
               onClick={() => updateParams({ petType: pet.value, subCategory: '' })}
               className={`px-4 py-2 rounded-full text-sm font-body font-medium transition-all duration-200 ${
                 currentPetType === pet.value
-                  ? 'bg-amber-500 text-white'
-                  : 'bg-white border border-warm-300 text-navy-700 hover:border-amber-500 hover:text-amber-500'
+                  ? 'bg-orange-500 text-white'
+                  : 'bg-white border border-warm-300 text-navy-700 hover:border-orange-500 hover:text-orange-500'
               }`}
             >
               {pet.label}
@@ -98,8 +98,8 @@ export default function ProductFilters({ total, view, onViewChange }: ProductFil
             aria-pressed={view === 'grid'}
             className={`p-2 rounded-md transition-colors ${
               view === 'grid'
-                ? 'bg-amber-500 text-white'
-                : 'text-warm-600 hover:text-amber-500'
+                ? 'bg-orange-500 text-white'
+                : 'text-warm-600 hover:text-orange-500'
             }`}
           >
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
@@ -115,8 +115,8 @@ export default function ProductFilters({ total, view, onViewChange }: ProductFil
             aria-pressed={view === 'list'}
             className={`p-2 rounded-md transition-colors ${
               view === 'list'
-                ? 'bg-amber-500 text-white'
-                : 'text-warm-600 hover:text-amber-500'
+                ? 'bg-orange-500 text-white'
+                : 'text-warm-600 hover:text-orange-500'
             }`}
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -141,8 +141,8 @@ export default function ProductFilters({ total, view, onViewChange }: ProductFil
                 }
                 className={`px-3 py-1.5 rounded-full text-xs font-body font-medium transition-all duration-200 ${
                   isActive
-                    ? 'bg-amber-500 text-white'
-                    : 'bg-white border border-warm-300 text-navy-700 hover:border-amber-500 hover:text-amber-500'
+                    ? 'bg-orange-500 text-white'
+                    : 'bg-white border border-warm-300 text-navy-700 hover:border-orange-500 hover:text-orange-500'
                 }`}
               >
                 {range.label}
@@ -169,7 +169,7 @@ export default function ProductFilters({ total, view, onViewChange }: ProductFil
               id="sort-select"
               value={currentSort}
               onChange={(e) => updateParams({ sort: e.target.value })}
-              className="appearance-none pl-3 pr-8 py-2 text-sm font-body text-navy-700 bg-white border border-warm-300 rounded-lg hover:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/30 cursor-pointer transition-colors"
+              className="appearance-none pl-3 pr-8 py-2 text-sm font-body text-navy-700 bg-white border border-warm-300 rounded-lg hover:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/30 cursor-pointer transition-colors"
             >
               {SORT_OPTIONS.map((opt) => (
                 <option key={opt.value} value={opt.value}>
@@ -191,24 +191,24 @@ export default function ProductFilters({ total, view, onViewChange }: ProductFil
         <div className="flex flex-wrap items-center gap-2">
           <span className="text-xs font-body text-warm-600">Active:</span>
           {currentPetType && (
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 text-amber-500 text-xs font-body font-medium rounded-full">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-orange-500/10 text-orange-500 text-xs font-body font-medium rounded-full">
               {PET_TYPES.find((p) => p.value === currentPetType)?.label ?? currentPetType}
               <button
                 aria-label="Remove pet type filter"
                 onClick={() => updateParams({ petType: '', subCategory: '' })}
-                className="hover:text-amber-600"
+                className="hover:text-orange-600"
               >
                 ×
               </button>
             </span>
           )}
           {(currentMinPrice || currentMaxPrice) && activePriceRange && (
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 text-amber-500 text-xs font-body font-medium rounded-full">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-orange-500/10 text-orange-500 text-xs font-body font-medium rounded-full">
               {activePriceRange.label}
               <button
                 aria-label="Remove price filter"
                 onClick={() => updateParams({ minPrice: '', maxPrice: '' })}
-                className="hover:text-amber-600"
+                className="hover:text-orange-600"
               >
                 ×
               </button>
@@ -230,7 +230,7 @@ export default function ProductFilters({ total, view, onViewChange }: ProductFil
             onClick={() =>
               router.push('/products')
             }
-            className="text-xs font-body text-warm-600 hover:text-amber-500 underline underline-offset-2 ml-1"
+            className="text-xs font-body text-warm-600 hover:text-orange-500 underline underline-offset-2 ml-1"
           >
             Clear all
           </button>

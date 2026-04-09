@@ -127,7 +127,7 @@ export default function PetParadeCarousel({ categories }: PetParadeCarouselProps
 
             {/* Subtle arrow — always subtle, slightly visible */}
             <span
-              className="absolute bottom-3 right-4 text-xs font-bold text-amber-500/40"
+              className="absolute bottom-3 right-4 text-xs font-bold text-orange-500/40"
               aria-hidden="true"
             >
               →

@@ -176,7 +176,7 @@ function PetMegaMenu({ item, onClose }: { item: PetNavItem; onClose: () => void 
       <div className="grid grid-cols-2 gap-0">
         {/* Left: Product Types */}
         <div className="p-6 border-r border-warm-300">
-          <p className="text-[10px] font-body font-semibold tracking-[0.2em] uppercase text-amber-500 mb-4">
+          <p className="text-[10px] font-body font-semibold tracking-[0.2em] uppercase text-orange-500 mb-4">
             Shop by Product Type
           </p>
           <ul className="space-y-1">
@@ -185,7 +185,7 @@ function PetMegaMenu({ item, onClose }: { item: PetNavItem; onClose: () => void 
                 <Link
                   href={pt.href}
                   onClick={onClose}
-                  className="block text-sm font-body text-navy-700 hover:text-amber-500
+                  className="block text-sm font-body text-navy-700 hover:text-orange-500
                              hover:translate-x-1 transition-all duration-150 py-1.5"
                 >
                   {pt.label}
@@ -197,7 +197,7 @@ function PetMegaMenu({ item, onClose }: { item: PetNavItem; onClose: () => void 
 
         {/* Right: Featured Guides */}
         <div className="p-6">
-          <p className="text-[10px] font-body font-semibold tracking-[0.2em] uppercase text-amber-500 mb-4">
+          <p className="text-[10px] font-body font-semibold tracking-[0.2em] uppercase text-orange-500 mb-4">
             Featured Guides
           </p>
           <div className="space-y-3">
@@ -207,14 +207,14 @@ function PetMegaMenu({ item, onClose }: { item: PetNavItem; onClose: () => void 
                 href={guide.href}
                 onClick={onClose}
                 className="block p-3 rounded-lg border border-warm-300
-                           hover:border-amber-300 hover:bg-warm-200
+                           hover:border-orange-300 hover:bg-warm-200
                            transition-all duration-150 group"
               >
                 <span className="text-[10px] font-body font-semibold tracking-[0.15em] uppercase
-                                 text-amber-500 block mb-1">
+                                 text-orange-500 block mb-1">
                   {guide.type}
                 </span>
-                <span className="text-sm font-body font-medium text-navy-900 group-hover:text-amber-500
+                <span className="text-sm font-body font-medium text-navy-900 group-hover:text-orange-500
                                  transition-colors duration-150 leading-snug line-clamp-2">
                   {guide.label}
                 </span>
@@ -229,7 +229,7 @@ function PetMegaMenu({ item, onClose }: { item: PetNavItem; onClose: () => void 
         <Link
           href={`/products?petType=${item.petKey}`}
           onClick={onClose}
-          className="text-sm font-body font-medium text-amber-500 hover:text-amber-600
+          className="text-sm font-body font-medium text-orange-500 hover:text-orange-600
                      transition-colors duration-150 flex items-center gap-1"
         >
           View all {item.label} products
@@ -252,7 +252,7 @@ function BlogMegaMenu({ item, onClose }: { item: BlogNavItem; onClose: () => voi
                  shadow-lg overflow-hidden z-50"
     >
       <div className="p-5">
-        <p className="text-[10px] font-body font-semibold tracking-[0.2em] uppercase text-amber-500 mb-4">
+        <p className="text-[10px] font-body font-semibold tracking-[0.2em] uppercase text-orange-500 mb-4">
           Browse by Type
         </p>
         <ul className="space-y-1">
@@ -261,7 +261,7 @@ function BlogMegaMenu({ item, onClose }: { item: BlogNavItem; onClose: () => voi
               <Link
                 href={cat.href}
                 onClick={onClose}
-                className="block text-sm font-body text-navy-700 hover:text-amber-500
+                className="block text-sm font-body text-navy-700 hover:text-orange-500
                            hover:translate-x-1 transition-all duration-150 py-1.5"
               >
                 {cat.label}
@@ -274,7 +274,7 @@ function BlogMegaMenu({ item, onClose }: { item: BlogNavItem; onClose: () => voi
         <Link
           href="/blog"
           onClick={onClose}
-          className="text-sm font-body font-medium text-amber-500 hover:text-amber-600
+          className="text-sm font-body font-medium text-orange-500 hover:text-orange-600
                      transition-colors duration-150 flex items-center gap-1"
         >
           View all articles
@@ -368,8 +368,8 @@ function SearchBar({ onClose }: { onClose: () => void }) {
       {/* Input row */}
       <div className="flex items-center gap-3 bg-white border border-warm-300
                       rounded-2xl px-4 py-2.5 shadow-sm
-                      focus-within:border-amber-500 focus-within:ring-2
-                      focus-within:ring-amber-500/20 transition-all duration-200">
+                      focus-within:border-orange-500 focus-within:ring-2
+                      focus-within:ring-orange-500/20 transition-all duration-200">
         <svg
           className="w-4 h-4 text-navy-500 shrink-0"
           fill="none"
@@ -397,7 +397,7 @@ function SearchBar({ onClose }: { onClose: () => void }) {
         />
         {searching && (
           <svg
-            className="w-4 h-4 text-amber-500 animate-spin shrink-0"
+            className="w-4 h-4 text-orange-500 animate-spin shrink-0"
             fill="none"
             viewBox="0 0 24 24"
             aria-hidden="true"
@@ -447,7 +447,7 @@ function SearchBar({ onClose }: { onClose: () => void }) {
                 {results.products.length > 0 && (
                   <div>
                     <p className="px-5 pt-4 pb-2 text-[10px] font-body font-semibold tracking-[0.2em]
-                                  uppercase text-amber-500/80">
+                                  uppercase text-orange-500/80">
                       Products
                     </p>
                     {results.products.map((product) => (
@@ -473,7 +473,7 @@ function SearchBar({ onClose }: { onClose: () => void }) {
                         )}
                         <div className="min-w-0">
                           <p className="text-sm font-body font-medium text-navy-900 truncate
-                                        group-hover:text-amber-500 transition-colors">
+                                        group-hover:text-orange-500 transition-colors">
                             {product.title}
                           </p>
                           {product.price != null && (
@@ -491,7 +491,7 @@ function SearchBar({ onClose }: { onClose: () => void }) {
                 {results.articles.length > 0 && (
                   <div className={results.products.length > 0 ? 'border-t border-warm-300' : ''}>
                     <p className="px-5 pt-4 pb-2 text-[10px] font-body font-semibold tracking-[0.2em]
-                                  uppercase text-amber-500/80">
+                                  uppercase text-orange-500/80">
                       Articles
                     </p>
                     {results.articles.map((article) => (
@@ -502,10 +502,10 @@ function SearchBar({ onClose }: { onClose: () => void }) {
                         className="flex items-center gap-3 px-5 py-3 hover:bg-warm-100
                                    transition-colors duration-150 group"
                       >
-                        <div className="w-10 h-10 rounded-md bg-amber-500/10 flex items-center
+                        <div className="w-10 h-10 rounded-md bg-orange-500/10 flex items-center
                                         justify-center shrink-0">
                           <svg
-                            className="w-5 h-5 text-amber-500"
+                            className="w-5 h-5 text-orange-500"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -521,7 +521,7 @@ function SearchBar({ onClose }: { onClose: () => void }) {
                         </div>
                         <div className="min-w-0">
                           <p className="text-sm font-body font-medium text-navy-900 truncate
-                                        group-hover:text-amber-500 transition-colors">
+                                        group-hover:text-orange-500 transition-colors">
                             {article.title}
                           </p>
                           {article.readTime && (
@@ -540,7 +540,7 @@ function SearchBar({ onClose }: { onClose: () => void }) {
                   <Link
                     href={`/search?q=${encodeURIComponent(query)}`}
                     onClick={onClose}
-                    className="text-sm font-body font-medium text-amber-500 hover:text-amber-600
+                    className="text-sm font-body font-medium text-orange-500 hover:text-orange-600
                                transition-colors duration-150 flex items-center gap-1"
                   >
                     View all results for &ldquo;{query}&rdquo;
@@ -602,7 +602,7 @@ function MobileAccordionItem({
                     key={pt.href}
                     href={pt.href}
                     onClick={onNavigate}
-                    className="block py-2 text-sm font-body text-navy-700 hover:text-amber-400
+                    className="block py-2 text-sm font-body text-navy-700 hover:text-orange-400
                                transition-colors"
                   >
                     {pt.label}
@@ -611,7 +611,7 @@ function MobileAccordionItem({
                 <Link
                   href={`/products?petType=${item.petKey}`}
                   onClick={onNavigate}
-                  className="block pt-3 text-sm font-body font-medium text-amber-400"
+                  className="block pt-3 text-sm font-body font-medium text-orange-400"
                 >
                   View all {item.label} products →
                 </Link>
@@ -658,7 +658,7 @@ function MobileAccordionItem({
                   key={cat.href}
                   href={cat.href}
                   onClick={onNavigate}
-                  className="block py-2 text-sm font-body text-navy-700 hover:text-amber-400
+                  className="block py-2 text-sm font-body text-navy-700 hover:text-orange-400
                              transition-colors"
                 >
                   {cat.label}
@@ -667,7 +667,7 @@ function MobileAccordionItem({
               <Link
                 href="/blog"
                 onClick={onNavigate}
-                className="block pt-3 text-sm font-body font-medium text-amber-400"
+                className="block pt-3 text-sm font-body font-medium text-orange-400"
               >
                 View all articles →
               </Link>
@@ -718,7 +718,7 @@ export default function Header() {
 
   const navItemBaseClass =
     'text-sm font-body font-medium transition-colors duration-200 relative ' +
-    'after:absolute after:bottom-[-4px] after:left-0 after:h-[1.5px] after:bg-amber-400 ' +
+    'after:absolute after:bottom-[-4px] after:left-0 after:h-[1.5px] after:bg-orange-400 ' +
     'after:transition-all after:duration-300';
 
   return (
@@ -726,8 +726,8 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-[30] transition-all duration-500 ${
           scrolled || mobileOpen
-            ? 'backdrop-blur-2xl bg-navy-900/95 border-b border-navy-800 shadow-sm'
-            : 'backdrop-blur-xl bg-navy-900 border-b border-navy-800/50'
+            ? 'backdrop-blur-2xl bg-white/95 border-b border-gray-200 shadow-sm'
+            : 'backdrop-blur-xl bg-white border-b border-gray-200/50'
         }`}
       >
         <div className="editorial-container">
@@ -735,7 +735,7 @@ export default function Header() {
 
             {/* Logo */}
             <Link href="/" className="flex items-center group shrink-0">
-              <img src="/logo-full.svg" alt="PetGearHub" className="h-12 w-auto" />
+              <img src="/petgearhub-logo.png" alt="PetGearHub" className="h-28 w-auto" />
             </Link>
 
             {/* Desktop Nav */}
@@ -752,8 +752,8 @@ export default function Header() {
                       href={item.href}
                       className={`${navItemBaseClass} ${
                         isActivePath(item.href)
-                          ? 'text-amber-400 after:w-full'
-                          : 'text-white hover:text-amber-300 after:w-0 hover:after:w-full'
+                          ? 'text-orange-500 after:w-full'
+                          : 'text-navy-800 hover:text-orange-500 after:w-0 hover:after:w-full'
                       }`}
                     >
                       {item.label}
@@ -772,8 +772,8 @@ export default function Header() {
                     <button
                       className={`${navItemBaseClass} flex items-center gap-1 ${
                         isActive
-                          ? 'text-amber-400 after:w-full'
-                          : 'text-white hover:text-amber-300 after:w-0 hover:after:w-full'
+                          ? 'text-orange-500 after:w-full'
+                          : 'text-navy-800 hover:text-orange-500 after:w-0 hover:after:w-full'
                       }`}
                       aria-expanded={isActive}
                       aria-haspopup="true"
@@ -819,7 +819,7 @@ export default function Header() {
               <button
                 onClick={() => setSearchOpen(!searchOpen)}
                 className="w-9 h-9 flex items-center justify-center rounded-lg
-                           text-navy-300 hover:text-white hover:bg-navy-800
+                           text-navy-500 hover:text-navy-900 hover:bg-gray-100
                            transition-all duration-200"
                 aria-label={searchOpen ? 'Close search' : 'Open search'}
               >
@@ -862,8 +862,8 @@ export default function Header() {
               <Link
                 href="/products"
                 className="text-sm font-body font-medium py-2 px-5 rounded-lg
-                           bg-amber-500 text-white hover:bg-amber-600
-                           shadow-lg shadow-amber-500/20
+                           bg-orange-500 text-white hover:bg-orange-600
+                           shadow-lg shadow-orange-500/20
                            transition-all duration-200"
               >
                 Shop All
@@ -878,7 +878,7 @@ export default function Header() {
                   setSearchOpen(!searchOpen);
                 }}
                 className="w-10 h-10 flex items-center justify-center rounded-lg
-                           text-navy-300 hover:text-white transition-colors"
+                           text-navy-500 hover:text-navy-900 transition-colors"
                 aria-label="Toggle search"
               >
                 <svg
@@ -909,17 +909,17 @@ export default function Header() {
                 <motion.span
                   animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="w-6 h-[1.5px] bg-white block"
+                  className="w-6 h-[1.5px] bg-navy-900 block"
                 />
                 <motion.span
                   animate={mobileOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
                   transition={{ duration: 0.2 }}
-                  className="w-6 h-[1.5px] bg-white block"
+                  className="w-6 h-[1.5px] bg-navy-900 block"
                 />
                 <motion.span
                   animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="w-6 h-[1.5px] bg-white block"
+                  className="w-6 h-[1.5px] bg-navy-900 block"
                 />
               </button>
             </div>
@@ -978,8 +978,8 @@ export default function Header() {
                             onClick={() => setMobileOpen(false)}
                             className={`block py-4 font-display text-lg transition-colors ${
                               isActivePath(item.href)
-                                ? 'text-amber-400'
-                                : 'text-navy-900 hover:text-amber-400'
+                                ? 'text-orange-400'
+                                : 'text-navy-900 hover:text-orange-400'
                             }`}
                           >
                             {item.label}
@@ -1004,8 +1004,8 @@ export default function Header() {
                     href="/products"
                     onClick={() => setMobileOpen(false)}
                     className="text-sm font-body font-medium py-2 px-5 rounded-lg text-center
-                               bg-amber-500 text-white hover:bg-amber-600
-                               shadow-lg shadow-amber-500/20
+                               bg-orange-500 text-white hover:bg-orange-600
+                               shadow-lg shadow-orange-500/20
                                transition-all duration-200"
                   >
                     Shop All Products
@@ -1013,7 +1013,7 @@ export default function Header() {
                   <Link
                     href="/admin"
                     onClick={() => setMobileOpen(false)}
-                    className="text-sm font-body text-navy-400 hover:text-amber-400
+                    className="text-sm font-body text-navy-400 hover:text-orange-400
                                transition-colors text-center"
                   >
                     Admin Dashboard →

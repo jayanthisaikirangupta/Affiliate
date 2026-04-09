@@ -140,7 +140,7 @@ function ProductListCard({ product }: { product: Product }) {
             </span>
           )}
           {product.isDeal && (
-            <span className="absolute top-2 right-2 px-2 py-0.5 bg-amber-500 text-white text-[9px] font-body font-semibold uppercase tracking-widest rounded-full">
+            <span className="absolute top-2 right-2 px-2 py-0.5 bg-orange-500 text-white text-[9px] font-body font-semibold uppercase tracking-widest rounded-full">
               Deal
             </span>
           )}
@@ -149,7 +149,7 @@ function ProductListCard({ product }: { product: Product }) {
         {/* Details */}
         <div className="flex flex-col flex-1 p-4 sm:p-5 min-w-0">
           {product.category && (
-            <span className="text-[10px] font-body font-semibold tracking-widest uppercase text-amber-500 mb-1">
+            <span className="text-[10px] font-body font-semibold tracking-widest uppercase text-orange-500 mb-1">
               {product.category.name}
             </span>
           )}
@@ -172,7 +172,7 @@ function ProductListCard({ product }: { product: Product }) {
                 {[1, 2, 3, 4, 5].map((star) => (
                   <svg
                     key={star}
-                    className={`w-3.5 h-3.5 ${star <= Math.round(product.rating!) ? 'text-amber-500' : 'text-border'}`}
+                    className={`w-3.5 h-3.5 ${star <= Math.round(product.rating!) ? 'text-orange-500' : 'text-border'}`}
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     aria-hidden="true"
@@ -206,7 +206,7 @@ function ProductListCard({ product }: { product: Product }) {
                 <span className="text-sm text-warm-600">See price</span>
               )}
             </div>
-            <span className="text-xs font-body font-semibold text-amber-500 group-hover:underline underline-offset-2">
+            <span className="text-xs font-body font-semibold text-orange-500 group-hover:underline underline-offset-2">
               Details →
             </span>
           </div>

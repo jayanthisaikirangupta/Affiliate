@@ -13,7 +13,7 @@ export default function TermsPage() {
       <div className="pt-24 lg:pt-28 bg-warm-100">
         <div className="editorial-container">
           <nav className="flex items-center gap-2 text-sm font-body text-warm-600 py-4" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-amber-600 transition-colors">Home</Link>
+            <Link href="/" className="hover:text-orange-600 transition-colors">Home</Link>
             <span aria-hidden="true">/</span>
             <span className="text-navy-800">Terms of Use</span>
           </nav>
@@ -23,7 +23,7 @@ export default function TermsPage() {
       <section className="py-20 lg:py-28">
         <div className="editorial-container max-w-3xl">
           <div className="mb-12">
-            <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-600 mb-4 block">
+            <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-600 mb-4 block">
               Legal
             </span>
             <h1 className="font-display text-4xl font-semibold text-navy-900 mb-4">Terms of Use</h1>
@@ -52,7 +52,7 @@ export default function TermsPage() {
               <h2 className="font-display text-2xl font-semibold text-navy-900 mb-4">3. Affiliate Links &amp; Third-Party Sites</h2>
               <p className="mb-4">
                 PetGearHub contains links to third-party websites and products via affiliate programmes. When you click these links and make a purchase, we may earn a commission. This is disclosed on every page containing affiliate links — see our full{' '}
-                <Link href="/affiliate-disclosure" className="text-amber-600 underline hover:no-underline">Affiliate Disclosure</Link>.
+                <Link href="/affiliate-disclosure" className="text-orange-600 underline hover:no-underline">Affiliate Disclosure</Link>.
               </p>
               <p>
                 We are not responsible for the content, accuracy, availability, or practices of third-party websites. Links to external sites do not constitute endorsement beyond the specific product recommendation. Your interaction with any third-party site is governed by that site&apos;s own terms and privacy policy.
@@ -94,9 +94,9 @@ export default function TermsPage() {
               <h2 className="font-display text-2xl font-semibold text-navy-900 mb-4">8. Contact</h2>
               <p>
                 For legal enquiries, please contact us at{' '}
-                <a href="mailto:legal@petgearhub.co.uk" className="text-amber-600 underline hover:no-underline">legal@petgearhub.co.uk</a>{' '}
+                <a href="mailto:legal@petgearhub.co.uk" className="text-orange-600 underline hover:no-underline">legal@petgearhub.co.uk</a>{' '}
                 or via our{' '}
-                <Link href="/contact" className="text-amber-600 underline hover:no-underline">contact form</Link>.
+                <Link href="/contact" className="text-orange-600 underline hover:no-underline">contact form</Link>.
               </p>
             </div>
           </div>

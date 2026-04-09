@@ -160,7 +160,7 @@ export default function EditProductPage() {
       <div className="flex items-center justify-between mb-8">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <Link href="/admin/products" className="text-xs text-warm-600 hover:text-amber-500">
+            <Link href="/admin/products" className="text-xs text-warm-600 hover:text-orange-500">
               ← Products
             </Link>
           </div>
@@ -293,7 +293,7 @@ export default function EditProductPage() {
               ))}
               <button
                 onClick={() => updateForm('images', [...form.images, ''])}
-                className="text-sm font-body font-medium text-amber-500 hover:underline"
+                className="text-sm font-body font-medium text-orange-500 hover:underline"
               >
                 + Add Image URL
               </button>
@@ -317,7 +317,7 @@ export default function EditProductPage() {
                     <button onClick={() => removeListItem('pros', i)} className="text-red-400 text-sm">✕</button>
                   </div>
                 ))}
-                <button onClick={() => addListItem('pros')} className="text-sm font-body font-medium text-amber-500 hover:underline">
+                <button onClick={() => addListItem('pros')} className="text-sm font-body font-medium text-orange-500 hover:underline">
                   + Add Pro
                 </button>
               </div>
@@ -334,7 +334,7 @@ export default function EditProductPage() {
                     <button onClick={() => removeListItem('cons', i)} className="text-red-400 text-sm">✕</button>
                   </div>
                 ))}
-                <button onClick={() => addListItem('cons')} className="text-sm font-body font-medium text-amber-500 hover:underline">
+                <button onClick={() => addListItem('cons')} className="text-sm font-body font-medium text-orange-500 hover:underline">
                   + Add Con
                 </button>
               </div>
@@ -424,7 +424,7 @@ export default function EditProductPage() {
                   type="checkbox"
                   checked={form.featured}
                   onChange={(e) => updateForm('featured', e.target.checked)}
-                  className="w-4 h-4 rounded border-warm-300 text-amber-500 focus:ring-amber-500"
+                  className="w-4 h-4 rounded border-warm-300 text-orange-500 focus:ring-orange-500"
                 />
                 <span className="text-sm font-body text-primary">Featured product</span>
               </label>

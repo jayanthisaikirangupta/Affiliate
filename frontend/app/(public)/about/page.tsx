@@ -62,7 +62,7 @@ export default function AboutPage() {
       <div className="pt-24 lg:pt-28 bg-warm-100">
         <div className="editorial-container">
           <nav className="flex items-center gap-2 text-sm font-body text-warm-600 py-4" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-amber-500 transition-colors">Home</Link>
+            <Link href="/" className="hover:text-orange-500 transition-colors">Home</Link>
             <span aria-hidden="true">/</span>
             <span className="text-navy-700">About</span>
           </nav>
@@ -74,7 +74,7 @@ export default function AboutPage() {
         <div className="editorial-container">
           <ScrollReveal>
             <div className="max-w-2xl">
-              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500 mb-4 block">
+              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-500 mb-4 block">
                 Our Story
               </span>
               <h1 className="font-display text-4xl lg:text-5xl font-semibold text-navy-900 leading-tight mb-6">
@@ -93,7 +93,7 @@ export default function AboutPage() {
         <div className="editorial-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <ScrollReveal>
-              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500 mb-4 block">
+              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-500 mb-4 block">
                 Our Mission
               </span>
               <h2 className="font-display text-3xl lg:text-4xl font-semibold text-navy-900 mb-6 leading-tight">
@@ -107,7 +107,7 @@ export default function AboutPage() {
               </p>
               <p className="text-navy-700 font-body leading-relaxed">
                 As an affiliate site, we earn a small commission when you buy through our links — but this never influences our recommendations. Our editorial independence is non-negotiable.{' '}
-                <Link href="/affiliate-disclosure" className="text-amber-500 underline hover:no-underline">
+                <Link href="/affiliate-disclosure" className="text-orange-500 underline hover:no-underline">
                   Learn more about how we earn.
                 </Link>
               </p>
@@ -117,15 +117,15 @@ export default function AboutPage() {
               <div className="bg-white rounded-2xl p-8 border border-warm-200 shadow-card">
                 <div className="grid grid-cols-3 gap-6 text-center">
                   <div>
-                    <p className="font-display text-4xl font-bold text-amber-500 mb-1">Expert</p>
+                    <p className="font-display text-4xl font-bold text-orange-500 mb-1">Expert</p>
                     <p className="text-xs font-body text-warm-600 uppercase tracking-wide">Trusted Reviews</p>
                   </div>
                   <div>
-                    <p className="font-display text-4xl font-bold text-amber-500 mb-1">7</p>
+                    <p className="font-display text-4xl font-bold text-orange-500 mb-1">7</p>
                     <p className="text-xs font-body text-warm-600 uppercase tracking-wide">Categories</p>
                   </div>
                   <div>
-                    <p className="font-display text-4xl font-bold text-amber-500 mb-1">🇬🇧</p>
+                    <p className="font-display text-4xl font-bold text-orange-500 mb-1">🇬🇧</p>
                     <p className="text-xs font-body text-warm-600 uppercase tracking-wide">UK-Based</p>
                   </div>
                 </div>
@@ -145,7 +145,7 @@ export default function AboutPage() {
         <div className="editorial-container">
           <ScrollReveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500 mb-4 block">
+              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-500 mb-4 block">
                 How We Work
               </span>
               <h2 className="font-display text-3xl lg:text-4xl font-semibold text-navy-900 mb-4">
@@ -185,7 +185,7 @@ export default function AboutPage() {
         <div className="editorial-container">
           <ScrollReveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500 mb-4 block">
+              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-500 mb-4 block">
                 The People Behind the Reviews
               </span>
               <h2 className="font-display text-3xl lg:text-4xl font-semibold text-navy-900 mb-4">
@@ -203,7 +203,7 @@ export default function AboutPage() {
                     <span className="font-display text-2xl font-semibold text-navy-700">{member.initials}</span>
                   </div>
                   <h3 className="font-display text-xl font-semibold text-navy-900 mb-1">{member.name}</h3>
-                  <p className="text-xs font-body font-semibold uppercase tracking-widest text-amber-500 mb-4">{member.role}</p>
+                  <p className="text-xs font-body font-semibold uppercase tracking-widest text-orange-500 mb-4">{member.role}</p>
                   <p className="text-sm font-body text-navy-700 leading-relaxed">{member.bio}</p>
                 </div>
               </ScrollReveal>
@@ -223,7 +223,7 @@ export default function AboutPage() {
               { value: '100%', label: 'Editorial Independence' },
             ].map((stat) => (
               <div key={stat.label}>
-                <p className="font-display text-3xl font-bold text-amber-500">{stat.value}</p>
+                <p className="font-display text-3xl font-bold text-orange-500">{stat.value}</p>
                 <p className="text-xs font-body text-navy-700 uppercase tracking-widest mt-1">{stat.label}</p>
               </div>
             ))}

@@ -165,7 +165,7 @@ export default function AdminProductsPage() {
                         product.status === 'PUBLISHED'
                           ? 'bg-green-50 text-green-700'
                           : product.status === 'DRAFT'
-                          ? 'bg-amber-50 text-amber-700'
+                          ? 'bg-orange-50 text-orange-700'
                           : 'bg-gray-50 text-gray-600'
                       }`}
                     >
@@ -178,14 +178,14 @@ export default function AdminProductsPage() {
                     <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                       <Link
                         href={`/admin/products/${product.id}`}
-                        className="text-xs font-body text-amber-500 hover:underline font-medium"
+                        className="text-xs font-body text-orange-500 hover:underline font-medium"
                       >
                         Edit
                       </Link>
                       <Link
                         href={`/products/${product.slug}`}
                         target="_blank"
-                        className="text-xs font-body text-warm-600 hover:text-amber-500"
+                        className="text-xs font-body text-warm-600 hover:text-orange-500"
                       >
                         View
                       </Link>
@@ -203,7 +203,7 @@ export default function AdminProductsPage() {
           </table>
         ) : (
           <p className="text-sm text-warm-600 font-body py-8 text-center">
-            No products found. <Link href="/admin/add" className="text-amber-500 hover:underline">Add your first product</Link>
+            No products found. <Link href="/admin/add" className="text-orange-500 hover:underline">Add your first product</Link>
           </p>
         )}
 
@@ -215,7 +215,7 @@ export default function AdminProductsPage() {
                 key={i}
                 onClick={() => fetchProducts(i + 1)}
                 className={`w-8 h-8 rounded text-xs font-body font-medium ${
-                  meta.page === i + 1 ? 'bg-amber-500 text-white' : 'text-warm-600 hover:bg-background'
+                  meta.page === i + 1 ? 'bg-orange-500 text-white' : 'text-warm-600 hover:bg-background'
                 }`}
               >
                 {i + 1}

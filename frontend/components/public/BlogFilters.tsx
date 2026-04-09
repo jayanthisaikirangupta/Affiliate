@@ -71,10 +71,10 @@ export default function BlogFilters({ activeType, activePetType }: BlogFiltersPr
             role="tab"
             aria-selected={activeType === value}
             onClick={() => handleTypeChange(value)}
-            className={`px-5 py-2 rounded-full text-sm font-body font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50 ${
+            className={`px-5 py-2 rounded-full text-sm font-body font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/50 ${
               activeType === value
-                ? 'bg-amber-500 text-white shadow-sm'
-                : 'bg-white text-navy-700 border border-warm-300 hover:border-amber-500 hover:text-amber-500'
+                ? 'bg-orange-500 text-white shadow-sm'
+                : 'bg-white text-navy-700 border border-warm-300 hover:border-orange-500 hover:text-orange-500'
             }`}
           >
             {label}
@@ -93,10 +93,10 @@ export default function BlogFilters({ activeType, activePetType }: BlogFiltersPr
             key={value || 'all-pets'}
             onClick={() => handlePetTypeChange(value)}
             aria-pressed={activePetType === value}
-            className={`px-4 py-1.5 rounded-full text-xs font-body font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50 ${
+            className={`px-4 py-1.5 rounded-full text-xs font-body font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/50 ${
               activePetType === value
-                ? 'bg-amber-500 text-white shadow-sm'
-                : 'bg-white text-navy-700 border border-warm-300 hover:border-amber-500 hover:text-amber-500'
+                ? 'bg-orange-500 text-white shadow-sm'
+                : 'bg-white text-navy-700 border border-warm-300 hover:border-orange-500 hover:text-orange-500'
             }`}
           >
             {label}

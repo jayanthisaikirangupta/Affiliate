@@ -72,7 +72,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
       <div className="editorial-container">
         {/* Page header */}
         <div className="max-w-2xl mb-12">
-          <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500">
+          <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-500">
             Editorial
           </span>
           <h1 className="font-display text-hero text-navy-900 mt-3 mb-4">
@@ -176,7 +176,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
               </div>
               <Link
                 href="/blog"
-                className="block text-center text-xs font-body font-semibold text-amber-500 mt-5 hover:underline underline-offset-4"
+                className="block text-center text-xs font-body font-semibold text-orange-500 mt-5 hover:underline underline-offset-4"
               >
                 View all articles →
               </Link>
@@ -200,8 +200,8 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                   <li key={value}>
                     <Link
                       href={`/blog?type=${value}`}
-                      className={`flex items-center justify-between py-1.5 text-sm font-body transition-colors hover:text-amber-500 ${
-                        activeType === value ? 'text-amber-500 font-semibold' : 'text-navy-700'
+                      className={`flex items-center justify-between py-1.5 text-sm font-body transition-colors hover:text-orange-500 ${
+                        activeType === value ? 'text-orange-500 font-semibold' : 'text-navy-700'
                       }`}
                     >
                       <span>{label}</span>

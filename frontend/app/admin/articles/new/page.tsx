@@ -133,7 +133,7 @@ export default function NewArticlePage() {
         <div>
           <Link
             href="/admin/articles"
-            className="text-xs font-body text-warm-600 hover:text-amber-500 transition-colors mb-2 inline-block"
+            className="text-xs font-body text-warm-600 hover:text-orange-500 transition-colors mb-2 inline-block"
           >
             ← Back to Articles
           </Link>
@@ -376,7 +376,7 @@ export default function NewArticlePage() {
                   <span
                     className={`px-2 py-0.5 rounded text-[10px] font-body font-semibold uppercase ${
                       form.type === 'buyers-guide'
-                        ? 'bg-amber-50 text-amber-700'
+                        ? 'bg-orange-50 text-orange-700'
                         : form.type === 'comparison'
                         ? 'bg-blue-50 text-blue-700'
                         : form.type === 'blog-post'
@@ -390,7 +390,7 @@ export default function NewArticlePage() {
                     className={`px-2 py-0.5 rounded text-[10px] font-body font-semibold uppercase ${
                       form.status === 'PUBLISHED'
                         ? 'bg-green-50 text-green-700'
-                        : 'bg-amber-50 text-amber-700'
+                        : 'bg-orange-50 text-orange-700'
                     }`}
                   >
                     {form.status}

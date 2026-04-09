@@ -49,7 +49,7 @@ export default function EditorialPolicyPage() {
       <div className="pt-24 lg:pt-28 bg-warm-100">
         <div className="editorial-container">
           <nav className="flex items-center gap-2 text-sm font-body text-warm-600 py-4" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-amber-600 transition-colors">Home</Link>
+            <Link href="/" className="hover:text-orange-600 transition-colors">Home</Link>
             <span aria-hidden="true">/</span>
             <span className="text-navy-800">Editorial Policy</span>
           </nav>
@@ -61,7 +61,7 @@ export default function EditorialPolicyPage() {
         <div className="editorial-container">
           <ScrollReveal>
             <div className="max-w-2xl">
-              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-600 mb-4 block">
+              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-600 mb-4 block">
                 Standards & Process
               </span>
               <h1 className="font-display text-4xl lg:text-5xl font-semibold text-navy-900 leading-tight mb-6">
@@ -90,7 +90,7 @@ export default function EditorialPolicyPage() {
               <ScrollReveal key={step.number} delay={i * 0.08}>
                 <div className="flex gap-6 bg-white rounded-xl p-6 border border-warm-200 shadow-card hover:shadow-hover transition-shadow">
                   <div className="flex-shrink-0">
-                    <span className="font-display text-2xl font-bold text-amber-600">{step.number}</span>
+                    <span className="font-display text-2xl font-bold text-orange-600">{step.number}</span>
                   </div>
                   <div>
                     <h3 className="font-display text-lg font-semibold text-navy-900 mb-2">{step.title}</h3>
@@ -108,7 +108,7 @@ export default function EditorialPolicyPage() {
         <div className="editorial-container">
           <ScrollReveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-600 mb-4 block">
+              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-600 mb-4 block">
                 What We Measure
               </span>
               <h2 className="font-display text-3xl font-semibold text-navy-900 mb-4">
@@ -158,7 +158,7 @@ export default function EditorialPolicyPage() {
           <ScrollReveal>
             <h2 className="font-display text-3xl font-semibold text-navy-900 mb-6">Editorial Independence</h2>
 
-            <div className="bg-amber-500/10 border border-amber-500/20 rounded-2xl p-6 mb-8">
+            <div className="bg-orange-500/10 border border-orange-500/20 rounded-2xl p-6 mb-8">
               <div className="flex items-start gap-3">
                 <span className="text-xl flex-shrink-0 mt-0.5" role="img" aria-hidden="true">⚠️</span>
                 <p className="font-body text-navy-800 leading-relaxed">
@@ -172,7 +172,7 @@ export default function EditorialPolicyPage() {
             </p>
             <p className="text-navy-800 font-body leading-relaxed">
               If you ever feel a recommendation on PetGearHub does not reflect honest editorial judgement, please{' '}
-              <Link href="/contact" className="text-amber-600 underline hover:text-amber-600-text hover:no-underline">contact us</Link>{' '}
+              <Link href="/contact" className="text-orange-600 underline hover:text-orange-600-text hover:no-underline">contact us</Link>{' '}
               and we will investigate.
             </p>
           </ScrollReveal>

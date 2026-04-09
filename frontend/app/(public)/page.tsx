@@ -207,11 +207,11 @@ export default async function HomePage() {
           <div className="text-center">
             {/* Eyebrow pill */}
             <div
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8 border border-amber-400/60 backdrop-blur-md"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8 border border-orange-400/60 backdrop-blur-md"
               style={{ background: 'rgba(15,12,8,0.55)' }}
             >
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-400" aria-hidden="true" />
-              <p className="text-xs font-body font-semibold tracking-[0.2em] uppercase text-amber-300">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-orange-400" aria-hidden="true" />
+              <p className="text-xs font-body font-semibold tracking-[0.2em] uppercase text-orange-300">
                 Trusted by UK Pet Owners
               </p>
             </div>
@@ -254,7 +254,7 @@ export default async function HomePage() {
                   className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full
                              bg-black/45 border border-white/50 shadow-lg backdrop-blur-md
                              font-body text-sm font-semibold text-white
-                             hover:bg-amber-500 hover:text-white hover:border-amber-400 hover:shadow-xl hover:-translate-y-0.5
+                             hover:bg-orange-500 hover:text-white hover:border-orange-400 hover:shadow-xl hover:-translate-y-0.5
                              transition-all duration-200"
                 >
                   <span aria-hidden="true">{emoji}</span>
@@ -323,7 +323,7 @@ export default async function HomePage() {
                 '100% Honest Advice',
               ].map((text) => (
                 <span key={text} className="inline-flex items-center gap-3 px-8">
-                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500/60 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-orange-500/60 flex-shrink-0" />
                   <span className="font-body text-xs font-semibold tracking-[0.18em] uppercase text-navy-700">
                     {text}
                   </span>
@@ -349,11 +349,11 @@ export default async function HomePage() {
         <div className="editorial-container relative z-10">
           <div className="text-center mb-14">
             <div className="inline-flex items-center gap-2 mb-4">
-              <div className="w-8 h-px bg-amber-500/50" aria-hidden="true" />
-              <p className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500">
+              <div className="w-8 h-px bg-orange-500/50" aria-hidden="true" />
+              <p className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-500">
                 Explore Collections
               </p>
-              <div className="w-8 h-px bg-amber-500/50" aria-hidden="true" />
+              <div className="w-8 h-px bg-orange-500/50" aria-hidden="true" />
             </div>
             <WordReveal
               id="categories-heading"
@@ -383,8 +383,8 @@ export default async function HomePage() {
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
             <div>
               <div className="inline-flex items-center gap-2 mb-4">
-                <div className="w-8 h-px bg-amber-500/50" aria-hidden="true" />
-                <p className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500">
+                <div className="w-8 h-px bg-orange-500/50" aria-hidden="true" />
+                <p className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-500">
                   Handpicked Selection
                 </p>
               </div>
@@ -398,7 +398,7 @@ export default async function HomePage() {
             </div>
             <Link
               href="/products"
-              className="inline-flex items-center gap-2 font-body text-sm font-semibold text-amber-500 hover:text-amber-500 transition-colors whitespace-nowrap"
+              className="inline-flex items-center gap-2 font-body text-sm font-semibold text-orange-500 hover:text-orange-500 transition-colors whitespace-nowrap"
             >
               View all products
               <span aria-hidden="true">→</span>
@@ -429,7 +429,7 @@ export default async function HomePage() {
               <p className="font-body text-navy-700 mb-6">
                 Featured products will appear here once published from the admin panel.
               </p>
-              <Link href="/admin" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-amber-500 text-white font-semibold hover:opacity-90 transition-opacity">
+              <Link href="/admin" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-orange-500 text-white font-semibold hover:opacity-90 transition-opacity">
                 Go to Admin
                 <span aria-hidden="true">→</span>
               </Link>
@@ -463,11 +463,11 @@ export default async function HomePage() {
         <div className="editorial-container relative z-10">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 mb-4">
-              <div className="w-8 h-px bg-amber-500" aria-hidden="true" />
-              <p className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500">
+              <div className="w-8 h-px bg-orange-500" aria-hidden="true" />
+              <p className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-500">
                 Our Promise
               </p>
-              <div className="w-8 h-px bg-amber-500" aria-hidden="true" />
+              <div className="w-8 h-px bg-orange-500" aria-hidden="true" />
             </div>
             <WordReveal
               id="trust-heading"
@@ -497,7 +497,7 @@ export default async function HomePage() {
             </div>
 
             {/* Column 2 — highlighted middle card */}
-            <div className="group flex flex-col items-center text-center p-8 rounded-2xl border border-amber-300/20 shadow-glow hover:shadow-glow-lg hover:-translate-y-1 transition-all duration-300"
+            <div className="group flex flex-col items-center text-center p-8 rounded-2xl border border-orange-300/20 shadow-glow hover:shadow-glow-lg hover:-translate-y-1 transition-all duration-300"
                  style={{ background: 'linear-gradient(160deg, #fff 0%, #FFF8F2 100%)' }}>
               <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
                    style={{ background: 'linear-gradient(135deg, rgba(245,130,32,0.15) 0%, rgba(255,179,71,0.10) 100%)' }}>
@@ -537,16 +537,16 @@ export default async function HomePage() {
 
           {/* Pull quote — styled as a premium banner */}
           <div
-            className="text-center py-10 px-8 rounded-2xl border border-amber-500/15"
+            className="text-center py-10 px-8 rounded-2xl border border-orange-500/15"
             style={{ background: 'linear-gradient(135deg, rgba(245,130,32,0.04) 0%, rgba(255,179,71,0.03) 100%)' }}
           >
             <p className="font-display text-2xl lg:text-3xl text-navy-900 italic max-w-3xl mx-auto leading-relaxed mb-4">
-              &ldquo;We don&rsquo;t list everything &mdash; we list the <span className="text-amber-500 not-italic font-semibold">right</span> things.&rdquo;
+              &ldquo;We don&rsquo;t list everything &mdash; we list the <span className="text-orange-500 not-italic font-semibold">right</span> things.&rdquo;
             </p>
             <div className="flex items-center justify-center gap-3" aria-hidden="true">
-              <div className="w-8 h-px bg-amber-500/40" />
-              <div className="w-2 h-2 rounded-full bg-amber-500/60" />
-              <div className="w-8 h-px bg-amber-500/40" />
+              <div className="w-8 h-px bg-orange-500/40" />
+              <div className="w-2 h-2 rounded-full bg-orange-500/60" />
+              <div className="w-8 h-px bg-orange-500/40" />
             </div>
           </div>
         </div>
@@ -560,7 +560,7 @@ export default async function HomePage() {
           <div className="editorial-container relative z-10">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
               <div>
-                <p className="text-xs font-body font-semibold tracking-[0.2em] uppercase text-amber-500 mb-3">
+                <p className="text-xs font-body font-semibold tracking-[0.2em] uppercase text-orange-500 mb-3">
                   Expert Guides
                 </p>
                 <h2
@@ -572,7 +572,7 @@ export default async function HomePage() {
               </div>
               <Link
                 href="/blog?type=buyers-guide"
-                className="inline-flex items-center gap-2 font-body text-sm font-semibold text-amber-500 hover:text-amber-500 transition-colors whitespace-nowrap"
+                className="inline-flex items-center gap-2 font-body text-sm font-semibold text-orange-500 hover:text-orange-500 transition-colors whitespace-nowrap"
               >
                 View all guides
                 <span aria-hidden="true">→</span>
@@ -613,8 +613,8 @@ export default async function HomePage() {
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
               <div>
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="inline-block w-2 h-2 rounded-full bg-amber-500 animate-pulse" aria-hidden="true" />
-                  <p className="text-xs font-body font-semibold tracking-[0.2em] uppercase text-amber-500">
+                  <span className="inline-block w-2 h-2 rounded-full bg-orange-500 animate-pulse" aria-hidden="true" />
+                  <p className="text-xs font-body font-semibold tracking-[0.2em] uppercase text-orange-500">
                     Limited Time Offers
                   </p>
                 </div>
@@ -627,7 +627,7 @@ export default async function HomePage() {
               </div>
               <Link
                 href="/products?isDeal=true"
-                className="inline-flex items-center gap-2 font-body text-sm font-semibold text-amber-500 hover:text-amber-500 transition-colors whitespace-nowrap"
+                className="inline-flex items-center gap-2 font-body text-sm font-semibold text-orange-500 hover:text-orange-500 transition-colors whitespace-nowrap"
               >
                 View all deals
                 <span aria-hidden="true">→</span>
@@ -689,7 +689,7 @@ export default async function HomePage() {
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/products"
-              className="inline-flex items-center gap-2.5 px-9 py-4 rounded-full bg-white text-amber-500 font-body font-bold text-sm
+              className="inline-flex items-center gap-2.5 px-9 py-4 rounded-full bg-white text-orange-500 font-body font-bold text-sm
                          shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 tracking-wide"
             >
               Browse All Products

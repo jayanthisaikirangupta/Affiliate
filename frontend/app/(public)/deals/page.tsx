@@ -49,7 +49,7 @@ export default function DealsPage() {
         <div className="editorial-container">
           <ScrollReveal>
             <div className="max-w-2xl">
-              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500 mb-4 block">
+              <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-500 mb-4 block">
                 Updated Daily
               </span>
               <h1 className="font-display text-4xl lg:text-5xl font-semibold text-navy-900 leading-tight mb-4">
@@ -73,8 +73,8 @@ export default function DealsPage() {
                 onClick={() => setActivePetType(type)}
                 className={`px-4 py-2 rounded-full text-sm font-body font-medium transition-all duration-200 ${
                   activePetType === type
-                    ? 'bg-amber-500 text-white'
-                    : 'bg-white text-navy-700 border border-warm-300 hover:border-amber-500 hover:text-amber-500'
+                    ? 'bg-orange-500 text-white'
+                    : 'bg-white text-navy-700 border border-warm-300 hover:border-orange-500 hover:text-orange-500'
                 }`}
               >
                 {type}
@@ -116,7 +116,7 @@ export default function DealsPage() {
         {/* Empty state */}
         {!error && !loading && filteredProducts.length === 0 && (
           <div className="text-center py-24">
-            <div className="w-20 h-20 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="w-20 h-20 bg-orange-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
               <span className="text-4xl" aria-hidden="true">🐾</span>
             </div>
             <h2 className="font-display text-2xl text-navy-900 mb-3">
@@ -171,13 +171,13 @@ function DealCard({ product }: { product: Product }) {
         )}
         {/* Savings badge */}
         {savingsPct && (
-          <div className="absolute top-3 left-3 bg-amber-500 text-white text-xs font-body font-bold px-2.5 py-1 rounded-full shadow-sm">
+          <div className="absolute top-3 left-3 bg-orange-500 text-white text-xs font-body font-bold px-2.5 py-1 rounded-full shadow-sm">
             -{savingsPct}%
           </div>
         )}
         {/* Deal badge */}
         {product.isDeal && (
-          <div className="absolute top-3 right-3 bg-amber-500 text-white text-xs font-body font-semibold px-2.5 py-1 rounded-full shadow-sm">
+          <div className="absolute top-3 right-3 bg-orange-500 text-white text-xs font-body font-semibold px-2.5 py-1 rounded-full shadow-sm">
             Deal
           </div>
         )}
@@ -187,7 +187,7 @@ function DealCard({ product }: { product: Product }) {
       <div className="p-5 flex flex-col flex-1 gap-3">
         {/* Pet type tag */}
         {product.petType && (
-          <span className="text-xs font-body font-semibold uppercase tracking-widest text-amber-500">
+          <span className="text-xs font-body font-semibold uppercase tracking-widest text-orange-500">
             {product.petType}
           </span>
         )}

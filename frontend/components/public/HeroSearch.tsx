@@ -31,7 +31,7 @@ export default function HeroSearch() {
       onSubmit={handleSubmit}
       role="search"
       aria-label="Search products and guides"
-      className="flex items-center w-full max-w-xl bg-white rounded-full shadow-xl border border-warm-300 overflow-hidden focus-within:ring-2 focus-within:ring-amber-500/20 focus-within:border-amber-500 transition-all"
+      className="flex items-center w-full max-w-xl bg-white rounded-full shadow-xl border border-warm-300 overflow-hidden focus-within:ring-2 focus-within:ring-orange-500/20 focus-within:border-orange-500 transition-all"
     >
       <label htmlFor="hero-search-input" className="sr-only">
         Search products and guides
@@ -67,7 +67,7 @@ export default function HeroSearch() {
       />
       <button
         type="submit"
-        className="bg-amber-500 text-white hover:bg-amber-600 rounded-full m-1.5 px-6 py-2.5 text-xs font-bold whitespace-nowrap flex-shrink-0 transition-colors"
+        className="bg-orange-500 text-white hover:bg-orange-600 rounded-full m-1.5 px-6 py-2.5 text-xs font-bold whitespace-nowrap flex-shrink-0 transition-colors"
         aria-label="Submit search"
       >
         Search

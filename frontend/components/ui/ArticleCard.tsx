@@ -10,7 +10,7 @@ const typeLabels: Record<string, string> = {
 };
 
 const typeColors: Record<string, string> = {
-  'buyers-guide': 'bg-amber-500/10 text-amber-500',
+  'buyers-guide': 'bg-orange-500/10 text-orange-500',
   'comparison': 'bg-blue-100 text-blue-700',
   'blog-post': 'bg-green-100 text-green-700',
   'news': 'bg-purple-100 text-purple-700',
@@ -39,7 +39,7 @@ export default function ArticleCard({ article, variant = 'default' }: ArticleCar
               {typeLabels[article.type]}
             </span>
           )}
-          <p className="text-sm font-body font-semibold text-navy-900 leading-snug group-hover:text-amber-500 transition-colors line-clamp-2">
+          <p className="text-sm font-body font-semibold text-navy-900 leading-snug group-hover:text-orange-500 transition-colors line-clamp-2">
             {article.title}
           </p>
           {fmt(article.publishedAt) && (
@@ -67,7 +67,7 @@ export default function ArticleCard({ article, variant = 'default' }: ArticleCar
               {typeLabels[article.type]}
             </span>
           )}
-          <h3 className="font-display text-xl text-white font-bold leading-snug mb-2 group-hover:text-amber-400 transition-colors">
+          <h3 className="font-display text-xl text-white font-bold leading-snug mb-2 group-hover:text-orange-400 transition-colors">
             {article.title}
           </h3>
           {article.excerpt && (
@@ -84,7 +84,7 @@ export default function ArticleCard({ article, variant = 'default' }: ArticleCar
   }
 
   return (
-    <Link href={`/blog/${article.slug}`} className="group block bg-white border border-warm-300 rounded-2xl overflow-hidden shadow-card hover:shadow-hover hover:border-amber-300 hover:-translate-y-1 transition-all duration-200">
+    <Link href={`/blog/${article.slug}`} className="group block bg-white border border-warm-300 rounded-2xl overflow-hidden shadow-card hover:shadow-hover hover:border-orange-300 hover:-translate-y-1 transition-all duration-200">
       {article.heroImage && (
         <div className="relative h-48 w-full overflow-hidden">
           <Image
@@ -106,7 +106,7 @@ export default function ArticleCard({ article, variant = 'default' }: ArticleCar
             <span className="text-xs font-medium font-body text-navy-500">{article.category.name}</span>
           )}
         </div>
-        <h3 className="font-display text-xl font-semibold text-navy-900 leading-snug mb-2 group-hover:text-amber-500 transition-colors duration-200 line-clamp-2">
+        <h3 className="font-display text-xl font-semibold text-navy-900 leading-snug mb-2 group-hover:text-orange-500 transition-colors duration-200 line-clamp-2">
           {article.title}
         </h3>
         {article.excerpt && (

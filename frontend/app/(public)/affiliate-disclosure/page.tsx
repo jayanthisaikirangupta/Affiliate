@@ -13,7 +13,7 @@ export default function AffiliateDisclosurePage() {
       <div className="pt-24 lg:pt-28 bg-warm-100">
         <div className="editorial-container">
           <nav className="flex items-center gap-2 text-sm font-body text-warm-600 py-4" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-amber-600 transition-colors">Home</Link>
+            <Link href="/" className="hover:text-orange-600 transition-colors">Home</Link>
             <span aria-hidden="true">/</span>
             <span className="text-navy-800">Affiliate Disclosure</span>
           </nav>
@@ -23,7 +23,7 @@ export default function AffiliateDisclosurePage() {
       <section className="py-20 lg:py-28">
         <div className="editorial-container max-w-3xl">
           <div className="mb-12">
-            <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-600 mb-4 block">
+            <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-600 mb-4 block">
               Transparency
             </span>
             <h1 className="font-display text-4xl font-semibold text-navy-900 mb-4">Affiliate Disclosure</h1>
@@ -51,7 +51,7 @@ export default function AffiliateDisclosurePage() {
                   'All affiliate links on the site are clearly identified.',
                 ].map((point, i) => (
                   <li key={i} className="flex items-start gap-3 font-body text-navy-800 leading-relaxed">
-                    <span className="text-amber-600 font-semibold mt-0.5 flex-shrink-0">✓</span>
+                    <span className="text-orange-600 font-semibold mt-0.5 flex-shrink-0">✓</span>
                     {point}
                   </li>
                 ))}
@@ -72,7 +72,7 @@ export default function AffiliateDisclosurePage() {
                   'Other UK pet retailers (disclosed on a per-link basis)',
                 ].map((partner, i) => (
                   <li key={i} className="flex items-center gap-3 font-body text-navy-800 text-sm">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0" aria-hidden="true" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-500 flex-shrink-0" aria-hidden="true" />
                     {partner}
                   </li>
                 ))}
@@ -96,14 +96,14 @@ export default function AffiliateDisclosurePage() {
               </p>
               <p className="font-body text-navy-800 leading-relaxed">
                 For full details of how we research and write our recommendations, please read our{' '}
-                <Link href="/editorial-policy" className="text-amber-600 underline hover:no-underline">Editorial Policy</Link>.
+                <Link href="/editorial-policy" className="text-orange-600 underline hover:no-underline">Editorial Policy</Link>.
               </p>
             </div>
 
             <div className="bg-white border border-warm-200 rounded-xl p-6 shadow-card">
               <p className="font-body text-navy-800 text-sm leading-relaxed">
                 <strong className="text-navy-900">Questions?</strong> If you have any questions about how we handle affiliate relationships, or if you believe a recommendation on this site does not reflect honest editorial judgement, please{' '}
-                <Link href="/contact" className="text-amber-600 underline hover:text-amber-600-text hover:no-underline">contact us</Link>.
+                <Link href="/contact" className="text-orange-600 underline hover:text-orange-600-text hover:no-underline">contact us</Link>.
               </p>
             </div>
           </div>

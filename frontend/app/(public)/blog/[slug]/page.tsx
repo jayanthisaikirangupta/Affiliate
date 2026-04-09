@@ -48,15 +48,15 @@ function QuickPicks({
   picks: Array<{ label: string; productId: string }>;
 }) {
   return (
-    <div className="bg-amber-50/60 border border-amber-300/20 rounded-2xl p-6 mb-8">
+    <div className="bg-orange-50/60 border border-orange-300/20 rounded-2xl p-6 mb-8">
       <div className="flex items-center gap-2 mb-4">
-        <span className="text-amber-500 text-lg" aria-hidden="true">★</span>
+        <span className="text-orange-500 text-lg" aria-hidden="true">★</span>
         <h2 className="font-display text-lg font-bold text-navy-900">Our Top Picks</h2>
       </div>
       <ol className="space-y-3">
         {picks.map((pick, i) => (
           <li key={pick.productId} className="flex items-start gap-3">
-            <span className="flex-shrink-0 w-6 h-6 rounded-full bg-amber-500 text-white text-xs font-body font-bold flex items-center justify-center mt-0.5">
+            <span className="flex-shrink-0 w-6 h-6 rounded-full bg-orange-500 text-white text-xs font-body font-bold flex items-center justify-center mt-0.5">
               {i + 1}
             </span>
             <span className="font-body text-sm text-navy-700 leading-snug">
@@ -82,7 +82,7 @@ function ComparisonGlance({ products }: { products: string[] }) {
       <ul className="space-y-2">
         {products.map((name, i) => (
           <li key={i} className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0" aria-hidden="true" />
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 flex-shrink-0" aria-hidden="true" />
             <span className="font-body text-sm text-navy-700">{name}</span>
           </li>
         ))}
@@ -154,7 +154,7 @@ async function BuyersGuideTemplate({
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-10">
           {article.type && (
-            <span className="inline-block text-xs font-body font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-500/10 text-amber-500 mb-3">
+            <span className="inline-block text-xs font-body font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-orange-500/10 text-orange-500 mb-3">
               Buyer&apos;s Guide
             </span>
           )}

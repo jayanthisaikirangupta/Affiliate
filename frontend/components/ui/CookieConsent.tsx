@@ -57,26 +57,26 @@ export default function CookieConsent() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <p className="text-sm font-body text-navy-700 flex-1">
               We use cookies to improve your experience and analyse site traffic.{' '}
-              <Link href="/privacy-policy" className="text-amber-600 underline hover:no-underline">
+              <Link href="/privacy-policy" className="text-orange-600 underline hover:no-underline">
                 Learn more
               </Link>
             </p>
             <div className="flex flex-wrap gap-2 flex-shrink-0">
               <button
                 onClick={() => setShowSettings(true)}
-                className="px-4 py-2 text-xs font-body font-semibold text-navy-700 border border-warm-300 rounded-full hover:border-amber-500 hover:text-amber-500 transition-colors"
+                className="px-4 py-2 text-xs font-body font-semibold text-navy-700 border border-warm-300 rounded-full hover:border-orange-500 hover:text-orange-500 transition-colors"
               >
                 Cookie Settings
               </button>
               <button
                 onClick={rejectNonEssential}
-                className="px-4 py-2 text-xs font-body font-semibold text-navy-700 border border-warm-300 rounded-full hover:border-amber-500 hover:text-amber-500 transition-colors"
+                className="px-4 py-2 text-xs font-body font-semibold text-navy-700 border border-warm-300 rounded-full hover:border-orange-500 hover:text-orange-500 transition-colors"
               >
                 Reject Non-Essential
               </button>
               <button
                 onClick={acceptAll}
-                className="px-4 py-2 text-xs font-body font-semibold bg-amber-500 text-white rounded-full hover:bg-amber-600 transition-colors"
+                className="px-4 py-2 text-xs font-body font-semibold bg-orange-500 text-white rounded-full hover:bg-orange-600 transition-colors"
               >
                 Accept All
               </button>
@@ -91,7 +91,7 @@ export default function CookieConsent() {
                   <p className="text-sm font-body font-semibold text-navy-900">Necessary Cookies</p>
                   <p className="text-xs font-body text-warm-600">Required for the site to function. Cannot be disabled.</p>
                 </div>
-                <div className="w-10 h-6 bg-amber-500 rounded-full flex items-center justify-end pr-1 opacity-50 cursor-not-allowed">
+                <div className="w-10 h-6 bg-orange-500 rounded-full flex items-center justify-end pr-1 opacity-50 cursor-not-allowed">
                   <div className="w-4 h-4 bg-white rounded-full" />
                 </div>
               </div>
@@ -104,7 +104,7 @@ export default function CookieConsent() {
                   onClick={() => setConsent(c => ({ ...c, analytics: !c.analytics }))}
                   aria-pressed={consent.analytics}
                   className={`w-10 h-6 rounded-full flex items-center transition-all duration-200 ${
-                    consent.analytics ? 'bg-amber-500 justify-end pr-1' : 'bg-warm-300 justify-start pl-1'
+                    consent.analytics ? 'bg-orange-500 justify-end pr-1' : 'bg-warm-300 justify-start pl-1'
                   }`}
                 >
                   <div className="w-4 h-4 bg-white rounded-full" />
@@ -119,7 +119,7 @@ export default function CookieConsent() {
                   onClick={() => setConsent(c => ({ ...c, marketing: !c.marketing }))}
                   aria-pressed={consent.marketing}
                   className={`w-10 h-6 rounded-full flex items-center transition-all duration-200 ${
-                    consent.marketing ? 'bg-amber-500 justify-end pr-1' : 'bg-warm-300 justify-start pl-1'
+                    consent.marketing ? 'bg-orange-500 justify-end pr-1' : 'bg-warm-300 justify-start pl-1'
                   }`}
                 >
                   <div className="w-4 h-4 bg-white rounded-full" />
@@ -129,13 +129,13 @@ export default function CookieConsent() {
             <div className="flex gap-2">
               <button
                 onClick={() => setShowSettings(false)}
-                className="px-4 py-2 text-xs font-body font-semibold text-navy-700 border border-warm-300 rounded-full hover:border-amber-500 hover:text-amber-500 transition-colors"
+                className="px-4 py-2 text-xs font-body font-semibold text-navy-700 border border-warm-300 rounded-full hover:border-orange-500 hover:text-orange-500 transition-colors"
               >
                 Back
               </button>
               <button
                 onClick={saveSettings}
-                className="px-4 py-2 text-xs font-body font-semibold bg-amber-500 text-white rounded-full hover:bg-amber-600 transition-colors"
+                className="px-4 py-2 text-xs font-body font-semibold bg-orange-500 text-white rounded-full hover:bg-orange-600 transition-colors"
               >
                 Save Settings
               </button>

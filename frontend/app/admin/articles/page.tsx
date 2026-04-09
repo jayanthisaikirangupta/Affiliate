@@ -15,7 +15,7 @@ interface Article {
 }
 
 const TYPE_STYLES: Record<string, { label: string; className: string }> = {
-  'buyers-guide': { label: "Buyer's Guide", className: 'bg-amber-50 text-amber-700' },
+  'buyers-guide': { label: "Buyer's Guide", className: 'bg-orange-50 text-orange-700' },
   comparison:     { label: 'Comparison',    className: 'bg-blue-50 text-blue-700' },
   'blog-post':    { label: 'Blog Post',     className: 'bg-green-50 text-green-700' },
   news:           { label: 'News',          className: 'bg-purple-50 text-purple-700' },
@@ -188,7 +188,7 @@ export default function AdminArticlesPage() {
                         className={`px-2 py-0.5 rounded text-[10px] font-body font-semibold uppercase ${
                           article.status === 'PUBLISHED'
                             ? 'bg-green-50 text-green-700'
-                            : 'bg-amber-50 text-amber-700'
+                            : 'bg-orange-50 text-orange-700'
                         }`}
                       >
                         {article.status}
@@ -207,14 +207,14 @@ export default function AdminArticlesPage() {
                       <div className="flex items-center justify-end gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
                         <Link
                           href={`/admin/articles/${article.id}`}
-                          className="text-xs font-body text-amber-500 hover:underline font-medium"
+                          className="text-xs font-body text-orange-500 hover:underline font-medium"
                         >
                           Edit
                         </Link>
                         <Link
                           href={`/articles/${article.slug}`}
                           target="_blank"
-                          className="text-xs font-body text-warm-600 hover:text-amber-500"
+                          className="text-xs font-body text-warm-600 hover:text-orange-500"
                         >
                           View
                         </Link>
@@ -234,7 +234,7 @@ export default function AdminArticlesPage() {
         ) : (
           <p className="text-sm text-warm-600 font-body py-8 text-center">
             No articles found.{' '}
-            <Link href="/admin/articles/new" className="text-amber-500 hover:underline">
+            <Link href="/admin/articles/new" className="text-orange-500 hover:underline">
               Create your first article
             </Link>
           </p>
@@ -249,7 +249,7 @@ export default function AdminArticlesPage() {
                 onClick={() => fetchArticles(i + 1)}
                 className={`w-8 h-8 rounded text-xs font-body font-medium transition-colors ${
                   meta.page === i + 1
-                    ? 'bg-amber-500 text-white'
+                    ? 'bg-orange-500 text-white'
                     : 'text-warm-600 hover:bg-background'
                 }`}
               >

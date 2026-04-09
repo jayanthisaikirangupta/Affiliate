@@ -37,17 +37,17 @@ export default function DealCountdown({ expiryDate }: { expiryDate: string }) {
             <span className="text-xs text-navy-300 ml-0.5">d</span>
           </div>
         )}
-        {timeLeft.days > 0 && <span className="text-amber-400 text-2xl font-bold">:</span>}
+        {timeLeft.days > 0 && <span className="text-orange-400 text-2xl font-bold">:</span>}
         <div className="text-center">
           <span className="text-2xl font-bold text-white">{pad(timeLeft.hours)}</span>
           <span className="text-xs text-navy-300 ml-0.5">h</span>
         </div>
-        <span className="text-amber-400 text-2xl font-bold">:</span>
+        <span className="text-orange-400 text-2xl font-bold">:</span>
         <div className="text-center">
           <span className="text-2xl font-bold text-white">{pad(timeLeft.minutes)}</span>
           <span className="text-xs text-navy-300 ml-0.5">m</span>
         </div>
-        <span className="text-amber-400 text-2xl font-bold">:</span>
+        <span className="text-orange-400 text-2xl font-bold">:</span>
         <div className="text-center">
           <span className="text-2xl font-bold text-white">{pad(timeLeft.seconds)}</span>
           <span className="text-xs text-navy-300 ml-0.5">s</span>

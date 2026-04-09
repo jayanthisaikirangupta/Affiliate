@@ -79,7 +79,7 @@ export default async function ProductsPage({ searchParams }: PageProps) {
         {/* Page header */}
         <ScrollReveal>
           <div className="max-w-2xl mb-12">
-            <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500">
+            <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-500">
               The Collection
             </span>
             <h1 className="font-display text-hero text-navy-900 mt-3 mb-4">
@@ -189,8 +189,8 @@ function Pagination({
             aria-current={p === currentPage ? 'page' : undefined}
             className={`w-10 h-10 rounded-full text-sm font-body font-medium flex items-center justify-center transition-all duration-200 ${
               p === currentPage
-                ? 'bg-amber-500 text-white'
-                : 'bg-white border border-warm-300 text-navy-700 hover:border-amber-500 hover:text-amber-500'
+                ? 'bg-orange-500 text-white'
+                : 'bg-white border border-warm-300 text-navy-700 hover:border-orange-500 hover:text-orange-500'
             }`}
           >
             {p}

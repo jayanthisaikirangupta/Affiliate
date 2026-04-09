@@ -23,7 +23,7 @@ export default function TrustBar({ authorName, authorPhoto, authorCredentials, r
     <div className="bg-warm-200 rounded-xl overflow-hidden">
       <div className="flex flex-wrap items-center gap-8 px-5 py-4">
         <div className="flex items-center gap-1.5 text-sm font-body text-navy-700">
-          <svg className="w-6 h-6 text-amber-500" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+          <svg className="w-6 h-6 text-orange-500" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
             <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
           </svg>
           Research-driven
@@ -31,7 +31,7 @@ export default function TrustBar({ authorName, authorPhoto, authorCredentials, r
         {fmt(publishedAt) && <span className="text-sm font-body text-navy-700">Published: {fmt(publishedAt)}</span>}
         {fmt(updatedAt) && <span className="text-sm font-body text-navy-700">Updated: {fmt(updatedAt)}</span>}
         {readTime && <span className="text-sm font-body text-navy-700">{readTime} min read</span>}
-        <button onClick={() => setExpanded(!expanded)} className="ml-auto text-sm font-body font-semibold text-amber-500 hover:underline">
+        <button onClick={() => setExpanded(!expanded)} className="ml-auto text-sm font-body font-semibold text-orange-500 hover:underline">
           {expanded ? 'Less ▲' : 'Why trust us? ▼'}
         </button>
       </div>
@@ -66,7 +66,7 @@ export default function TrustBar({ authorName, authorPhoto, authorCredentials, r
           <div className="sm:col-span-2 pt-2 border-t border-warm-300">
             <p className="text-xs font-body text-navy-500">
               PetGearHub may earn a commission from links on this page at no extra cost to you.{' '}
-              <Link href="/affiliate-disclosure" className="text-amber-500 underline hover:no-underline">Learn more</Link>
+              <Link href="/affiliate-disclosure" className="text-orange-500 underline hover:no-underline">Learn more</Link>
             </p>
           </div>
         </div>

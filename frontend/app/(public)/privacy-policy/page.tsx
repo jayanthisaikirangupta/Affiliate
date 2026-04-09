@@ -13,7 +13,7 @@ export default function PrivacyPolicyPage() {
       <div className="pt-24 lg:pt-28 bg-warm-100">
         <div className="editorial-container">
           <nav className="flex items-center gap-2 text-sm font-body text-warm-600 py-4" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-amber-600 transition-colors">Home</Link>
+            <Link href="/" className="hover:text-orange-600 transition-colors">Home</Link>
             <span aria-hidden="true">/</span>
             <span className="text-navy-800">Privacy Policy</span>
           </nav>
@@ -23,7 +23,7 @@ export default function PrivacyPolicyPage() {
       <section className="py-20 lg:py-28">
         <div className="editorial-container max-w-3xl">
           <div className="mb-12">
-            <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-600 mb-4 block">
+            <span className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-600 mb-4 block">
               Legal
             </span>
             <h1 className="font-display text-4xl font-semibold text-navy-900 mb-4">Privacy Policy</h1>
@@ -35,7 +35,7 @@ export default function PrivacyPolicyPage() {
               <h2 className="font-display text-2xl font-semibold text-navy-900 mb-4">1. Who We Are</h2>
               <p className="font-body text-navy-800 leading-relaxed">
                 PetGearHub (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) operates the website petgearhub.co.uk. We are a UK-based affiliate editorial website. For questions about this policy, contact us at{' '}
-                <a href="mailto:privacy@petgearhub.co.uk" className="text-amber-600 underline hover:no-underline">privacy@petgearhub.co.uk</a>.
+                <a href="mailto:privacy@petgearhub.co.uk" className="text-orange-600 underline hover:no-underline">privacy@petgearhub.co.uk</a>.
               </p>
             </div>
 
@@ -68,7 +68,7 @@ export default function PrivacyPolicyPage() {
                   'To comply with legal obligations.',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 font-body text-navy-800 leading-relaxed">
-                    <span className="text-amber-600 font-semibold mt-0.5 flex-shrink-0">✓</span>
+                    <span className="text-orange-600 font-semibold mt-0.5 flex-shrink-0">✓</span>
                     {item}
                   </li>
                 ))}
@@ -113,7 +113,7 @@ export default function PrivacyPolicyPage() {
                   'Neon — database hosting',
                 ].map((service, i) => (
                   <li key={i} className="flex items-center gap-3 font-body text-navy-800 text-sm">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0" aria-hidden="true" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-500 flex-shrink-0" aria-hidden="true" />
                     {service}
                   </li>
                 ))}
@@ -144,16 +144,16 @@ export default function PrivacyPolicyPage() {
                   'Right to withdraw consent — for any processing based on consent, at any time.',
                 ].map((right, i) => (
                   <li key={i} className="flex items-start gap-3 font-body text-navy-800 text-sm leading-relaxed">
-                    <span className="text-amber-600 font-semibold mt-0.5 flex-shrink-0">→</span>
+                    <span className="text-orange-600 font-semibold mt-0.5 flex-shrink-0">→</span>
                     <span dangerouslySetInnerHTML={{ __html: right }} />
                   </li>
                 ))}
               </ul>
               <p className="font-body text-navy-800 leading-relaxed mt-4">
                 To exercise any of these rights, contact us at{' '}
-                <a href="mailto:privacy@petgearhub.co.uk" className="text-amber-600 underline hover:no-underline">privacy@petgearhub.co.uk</a>.
+                <a href="mailto:privacy@petgearhub.co.uk" className="text-orange-600 underline hover:no-underline">privacy@petgearhub.co.uk</a>.
                 We will respond within 30 days. You also have the right to lodge a complaint with the{' '}
-                <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer" className="text-amber-600 underline hover:no-underline">Information Commissioner&apos;s Office (ICO)</a>.
+                <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer" className="text-orange-600 underline hover:no-underline">Information Commissioner&apos;s Office (ICO)</a>.
               </p>
             </div>
 
@@ -161,9 +161,9 @@ export default function PrivacyPolicyPage() {
               <h2 className="font-display text-2xl font-semibold text-navy-900 mb-4">8. Contact</h2>
               <p className="font-body text-navy-800 leading-relaxed">
                 For any privacy-related enquiries, please email{' '}
-                <a href="mailto:privacy@petgearhub.co.uk" className="text-amber-600 underline hover:no-underline">privacy@petgearhub.co.uk</a>{' '}
+                <a href="mailto:privacy@petgearhub.co.uk" className="text-orange-600 underline hover:no-underline">privacy@petgearhub.co.uk</a>{' '}
                 or use our{' '}
-                <Link href="/contact" className="text-amber-600 underline hover:no-underline">contact form</Link>.
+                <Link href="/contact" className="text-orange-600 underline hover:no-underline">contact form</Link>.
               </p>
             </div>
 

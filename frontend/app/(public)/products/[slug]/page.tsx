@@ -164,7 +164,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 {product.category && (
                   <Link
                     href={`/categories/${product.category.slug}`}
-                    className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-amber-500 hover:underline underline-offset-4"
+                    className="text-xs font-body font-semibold tracking-[0.25em] uppercase text-orange-500 hover:underline underline-offset-4"
                   >
                     {product.category.name}
                   </Link>
@@ -175,7 +175,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
                   </span>
                 )}
                 {product.isDeal && (
-                  <span className="px-2.5 py-0.5 bg-amber-500 text-white text-[10px] font-body font-semibold uppercase tracking-widest rounded-full">
+                  <span className="px-2.5 py-0.5 bg-orange-500 text-white text-[10px] font-body font-semibold uppercase tracking-widest rounded-full">
                     Deal
                   </span>
                 )}
@@ -318,7 +318,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
               </h2>
               <Link
                 href={`/products${product.categoryId ? `?categoryId=${product.categoryId}` : ''}`}
-                className="text-sm font-body text-amber-500 hover:underline underline-offset-4"
+                className="text-sm font-body text-orange-500 hover:underline underline-offset-4"
               >
                 View all
               </Link>

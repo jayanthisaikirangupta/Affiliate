@@ -178,7 +178,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                 className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-body font-medium
                            transition-all duration-200 ${
                              isActive
-                               ? 'bg-amber-500/10 text-amber-500'
+                               ? 'bg-orange-500/10 text-orange-500'
                                : 'text-navy-700 hover:bg-warm-100 hover:text-navy-900'
                            }`}
               >
@@ -225,7 +225,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
               href="/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-body font-medium text-warm-600 hover:text-amber-500 transition-colors"
+              className="text-xs font-body font-medium text-warm-600 hover:text-orange-500 transition-colors"
             >
               View Site →
             </Link>
