@@ -28,7 +28,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="mb-6">
-              <img src="/petgearhub-logo.png" alt="PetGearHub" className="h-12 w-auto" />
+              <img src="/petgearhub-logo.png" alt="PetGearHub" className="h-20 w-auto" />
             </div>
             <p className="text-sm text-navy-300 leading-relaxed max-w-xs font-light">
               PetGearHub helps you find the best gear for dogs, cats, birds, fish, and small animals through honest reviews and curated recommendations. As an affiliate site, we may earn a commission on purchases made through our links at no extra cost to you.
