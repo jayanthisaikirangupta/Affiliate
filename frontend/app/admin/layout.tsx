@@ -93,7 +93,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
         <div className="w-full max-w-sm">
           <div className="text-center mb-8">
             <div className="mb-4">
-              <img src="/logo-white.svg" alt="PetGearHub" className="h-14 w-auto mx-auto" />
+              <img src="/petgearhub-logo.png" alt="PetGearHub" className="h-14 w-auto mx-auto" />
             </div>
             <p className="text-white/40 text-sm font-body mt-2">Sign in to manage products</p>
           </div>
@@ -148,6 +148,10 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
 
   // Admin dashboard
   return (
+    <>
+    <head>
+      <meta name="robots" content="noindex, nofollow" />
+    </head>
     <div className="min-h-screen bg-warm-100 flex">
       {/* Sidebar */}
       <aside
@@ -159,7 +163,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
       >
         <div className="p-6 flex-shrink-0">
           <Link href="/" className="flex items-center">
-            <img src="/logo-full.svg" alt="PetGearHub" className="h-10 w-auto" />
+            <img src="/petgearhub-logo.png" alt="PetGearHub" className="h-10 w-auto" />
           </Link>
           <p className="text-[10px] font-body text-warm-600 tracking-widest uppercase mt-1 ml-11">
             Admin
@@ -235,5 +239,6 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
         <main className="p-6 lg:p-8">{children}</main>
       </div>
     </div>
+    </>
   );
 }
